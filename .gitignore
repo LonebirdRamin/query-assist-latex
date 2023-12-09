@@ -1,9 +1,3 @@
-# Folders
-example/*
-
-# Local pdf
-*.pdf
-
 # Files
 *.aux
 *.dvi
