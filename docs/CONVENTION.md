@@ -1,5 +1,7 @@
 ## Naming Convention
 
+---
+
 ### Commit Messages
 
 Please use the following format for every commit message in this repository:

@@ -1,5 +1,10 @@
 ## 📝 CPE-KMUTT's LaTeX Template
+![cc-by-sa-shield](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)
+
+
 > LaTeX templates by Computer Engineering, King Mongkut's University of Technology Thonburi.
+
+---
 
 ### Overview
 This repository contains LaTeX templates for various reports that are utilized by the Computer Engineering department at King Mongkut's University of Technology Thonburi (KMUTT).
@@ -24,17 +29,18 @@ As of now, here are the list of available templates and their current status, wh
 - [ ] Hardware/Circuit Report
 - [ ] Software Report
 
-### Contributing
+### Contribution
 
-Contributions are always welcome! We are always looking for more report template to add to this repository. If you wish to contribute to this repository, please follow the following steps:
-
-1. Fork this repository
-2. Start a new branch with the following naming convention: `feat/<type-of-report>`. For example, if you wish to add a new template for hardware report, you should type:
-  > ```bash
-  > git checkout -b feat/hardware-report
-  > ```
-  > For information regarding the naming convention, please refer to the the [standard convention](./docs/CONVENTION.md) in the `docs` folder.
+Contributions are always welcome! We are always looking for more report template to add to this repository. If you wish to contribute to this repository, please refer to this [contribution guidline](./docs/contribution/guideline.md) for more information.
 
 ### License
+
+The content of this repository is licensed under the **Creative Commons Attribution 4.0 International License (CC BY 4.0)**.
+
+Recreation, adaptation, usage, or modification of this work is allowed but must be credited to the owner and the parties associated under the terms of the [Creative Commons Attribution 4.0](http://creativecommons.org/licenses/by/4.0/) International License. 
+
+Please refer to the [license](LICENSE) file or this [link](https://creativecommons.org/licenses/by/4.0/) for more information.
+
+---
 
 
