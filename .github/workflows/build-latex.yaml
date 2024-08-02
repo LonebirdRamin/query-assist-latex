@@ -20,17 +20,19 @@ jobs:
     steps:
     - name: Setup repository
       uses: actions/checkout@v2
-    - name: Move to root
-      run: cd ${{ github.event.inputs.root }}
     - name: List files
+      working-directory: ${{ github.event.inputs.root }}
       run: ls -R
     - name: Install LaTeX's dependencies
+      working-directory: ${{ github.event.inputs.root }}
       run: sudo apt-get update && sudo apt-get install texlive texlive-xetex texlive-publishers texlive-science texlive-bibtex-extra biber latexmk cm-super
     - name: First document compliation
+      working-directory: ${{ github.event.inputs.root }}
       continue-on-error: true
       run: xelatex ${{ github.event.inputs.texfile }}
     # For bibtex
     - name: Bibliography compliation
+      working-directory: ${{ github.event.inputs.root }}
       continue-on-error: true
       run: bibtex ${{ github.event.inputs.texfile }}
     # If you are using biber, uncomment the following lines
@@ -38,12 +40,14 @@ jobs:
     #   continue-on-error: true
     #   run: biber ${{ github.event.inputs.texfile }}
     - name: Second document compliation
+      working-directory: ${{ github.event.inputs.root }}
       continue-on-error: true
       run: xelatex ${{ github.event.inputs.texfile }}; xelatex ${{ github.event.inputs.texfile }};
     - name: List files
+      working-directory: ${{ github.event.inputs.root }}
       run: ls -R
     - name: Move pdf to artifacts
-      run: mkdir -p ${{ env.OUTPUT_DIR }} && mv ${{ github.event.inputs.texfile }}.pdf ${{ env.OUTPUT_DIR }}/${{ github.event.inputs.texfile }}.pdf
+      run: mkdir -p ${{ env.OUTPUT_DIR }} && mv ${{ github.event.inputs.root }}/${{ github.event.inputs.texfile }}.pdf ${{ env.OUTPUT_DIR }}/${{ github.event.inputs.texfile }}.pdf
     - name: List files
       run: ls -R
     - name: Upload pdf as artifact

@@ -47,8 +47,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Move to root
-        run: cd ${{ github.event.inputs.root }}
       - name: List files
         run: ls -R
       - name: Download artifacts
@@ -73,8 +71,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Move to root
-        run: cd ${{ github.event.inputs.root }}
       - name: List files
         run: ls -R
       - name: Download artifacts
