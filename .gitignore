@@ -1,4 +1,13 @@
-# Files
+# Folders
+example/*
+archive/*
+
+# Local PDF
+*.pdf
+
+# Output files
+out/*
+output/*
 *.aux
 *.dvi
 *.fdb_latexmk
@@ -8,7 +17,28 @@
 *.toc
 *.log
 *.lof
+*.lol
 *.lot
+*.xdv
+*.run.xml
+
+# Bibliography
+*.bbl
+*.blg
+*-blx.bib
+*.bcf
 
 # Mac
 .DS_Store
+
+# Compressed files
+*.zip
+*.tar.gz
+*.tar.xz
+*.rar
+*.7z
+
+# Misc
+*.bak
+*.doc
+*.docx
