@@ -87,12 +87,12 @@ jobs:
       - name: Compressed target template directory
         run: zip -r ${{ github.event.inputs.root }}.zip ${{ github.event.inputs.root }}/*
 
-      - name: Update CHANGELOG
-        id: changelog
-        uses: requarks/changelog-action@v1
-        with:
-          token: ${{ secrets.GH_TOKEN }}
-          tag: ${{ github.events.inputs.root }}
+      # - name: Update CHANGELOG
+      #   id: changelog
+      #   uses: requarks/changelog-action@v1
+      #   with:
+      #     token: ${{ secrets.GH_TOKEN }}
+      #     tag: ${{ github.events.inputs.root }}
 
       - name: Create Release
         id: create_release
@@ -102,7 +102,10 @@ jobs:
           draft: false
           makeLatest: true
           name: ${{ github.event.inputs.release_name }}
-          body: ${{ steps.changelog.outputs.changes }}
+          body: |
+            Release ${{ github.event.inputs.version }}
+            Note: This is an auto-generated release. 
+            You may download the PDF and template zip file from the assets below.
           token: ${{ secrets.GH_TOKEN }}
 
       - name: List files
@@ -112,7 +115,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+          upload_url: ${{ steps.create_release.outputs.upload_url }} 
           asset_path: ./${{ env.OUTPUT_DIR }}/${{ github.event.inputs.texfile }}.pdf
           asset_name: ${{ github.event.inputs.texfile }}.pdf
           asset_content_type: application/pdf
@@ -122,7 +125,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-          asset_path: ./${{ github.event.inputs.root }}.zip
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_name: ${{ github.event.inputs.root }}.zip
           asset_content_type: application/zip
