@@ -34,7 +34,6 @@ env:
 
 jobs:
   build:
-    if: contains(github.secrets.ALLOWED_USERS, github.actor)
     name: Build document
     uses: ./.github/workflows/build-latex.yaml
     with:
