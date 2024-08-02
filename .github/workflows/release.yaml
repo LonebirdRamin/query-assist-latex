@@ -1,0 +1,95 @@
+name: Release LaTeX document
+on: 
+  workflow_dispatch:
+    inputs:
+      root:
+        description: Specify which template folder to be compiled
+        type: string
+        required: true
+      release_name:
+        description: A name of a release
+        type: string
+        required: true
+      version:
+        description: A version to release
+        type: string
+        required: true
+      texfile:
+        description: Name of the main LaTeX file (must be in root; without extension)
+        type: string
+        required: true
+      deploy:
+        description: Tick the box to deploy the document to GitHub Pages
+        type: boolean
+        required: true
+
+permissions:
+  contents: write
+  packages: write
+
+env:
+  DEPLOY_DIR: 'github_deploy'
+  DEPLOY_BRANCH: 'build'
+  OUTPUT_DIR: 'github_artifacts'
+
+jobs:
+  build:
+    if: contains(github.secrets.ALLOWED_USERS, github.actor)
+    name: Build document
+    uses: ./.github/workflows/build-latex.yaml
+    with:
+      texfile: ${{ github.event.inputs.texfile }}
+
+  deploy:
+    if: ${{ github.event.inputs.deploy == true }}
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Move to root
+        run: cd ${{ github.event.inputs.root }}
+      - name: List files
+        run: ls -R
+      - name: Download artifacts
+        uses: actions/download-artifact@v2
+        with:
+          path: ./${{ env.OUTPUT_DIR }}
+      - name: List files
+        run: ls -R
+      - name: Move files
+        run: mkdir -p ${{ env.DEPLOY_DIR }} && mv ${{ env.OUTPUT_DIR }}/*/* ${{ env.DEPLOY_DIR  }}
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GH_TOKEN }}
+          publish_dir: ${{ env.DEPLOY_DIR }}
+          publish_branch: ${{ env.DEPLOY_BRANCH}}
+          force_orphan: true
+
+  release:
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Move to root
+        run: cd ${{ github.event.inputs.root }}
+      - name: List files
+        run: ls -R
+      - name: Download artifacts
+        uses: actions/download-artifact@v2
+        with:
+          path: ./${{ env.OUTPUT_DIR }}
+      - name: List files
+        run: ls -R
+      - name: Create release
+        uses: marvinpinto/action-automatic-releases@latest
+        with:
+          repo_token: ${{ secrets.GH_TOKEN }}
+          prerelease: false
+          draft: false
+          automatic_release_tag: ${{ github.event.inputs.version }}
+          title: ${{ github.event.inputs.release_name }} ${{ github.event.inputs.version }}
+          files: |
+            ./${{ env.OUTPUT_DIR }}/${{ github.event.inputs.texfile }}.pdf
