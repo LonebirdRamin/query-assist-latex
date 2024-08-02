@@ -46,11 +46,11 @@ jobs:
     - name: List files
       working-directory: ${{ github.event.inputs.root }}
       run: ls -R
-    - name: Move pdf to artifacts
+    - name: Move PDF to artifacts
       run: mkdir -p ${{ env.OUTPUT_DIR }} && mv ${{ github.event.inputs.root }}/${{ github.event.inputs.texfile }}.pdf ${{ env.OUTPUT_DIR }}/${{ github.event.inputs.texfile }}.pdf
     - name: List files
       run: ls -R
-    - name: Upload pdf as artifact
+    - name: Upload PDF as artifact
       uses: actions/upload-artifact@v2
       with:
         name: ${{ github.event.inputs.texfile }}.pdf
