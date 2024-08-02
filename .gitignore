@@ -1,6 +1,7 @@
 # Folders
-example/*
-archive/*
+**/example/*
+**/archive/*
+**/sample/*
 
 # Local PDF
 *.pdf
