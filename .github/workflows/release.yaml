@@ -39,6 +39,7 @@ jobs:
     uses: ./.github/workflows/build-latex.yaml
     with:
       texfile: ${{ github.event.inputs.texfile }}
+      root: ${{ github.event.inputs.root }}
 
   deploy:
     if: ${{ github.event.inputs.deploy == true }}
