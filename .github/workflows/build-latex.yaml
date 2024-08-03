@@ -48,9 +48,14 @@ jobs:
           sudo apt-get install --yes texlive texlive-xetex texlive-publishers \
           texlive-science texlive-bibtex-extra biber latexmk cm-super
           mkdir -p ~/texcache
-          sudo dpkg -L texlive texlive-xetex texlive-publishers \ 
-          texlive-science texlive-bibtex-extra biber \
-          latexmk cm-super | while IFS= read -r f; do if test -f $f; then echo $f; fi; done | xargs cp --parents --target-directory ~/texcache/
+          sudo dpkg -L texlive | while IFS= read -r f; do if test -f $f; then echo $f; fi; done | xargs cp --parents --target-directory ~/texcache/
+          sudo dpkg -L texlive-xetex | while IFS= read -r f; do if test -f $f; then echo $f; fi; done | xargs cp --parents --target-directory ~/texcache/
+          sudo dpkg -L texlive-publishers | while IFS= read -r f; do if test -f $f; then echo $f; fi; done | xargs cp --parents --target-directory ~/texcache/
+          sudo dpkg -L texlive-science | while IFS= read -r f; do if test -f $f; then echo $f; fi; done | xargs cp --parents --target-directory ~/texcache/
+          sudo dpkg -L texlive-bibtex-extra | while IFS= read -r f; do if test -f $f; then echo $f; fi; done | xargs cp --parents --target-directory ~/texcache/
+          sudo dpkg -L biber | while IFS= read -r f; do if test -f $f; then echo $f; fi; done | xargs cp --parents --target-directory ~/texcache/
+          sudo dpkg -L latexmk | while IFS= read -r f; do if test -f $f; then echo $f; fi; done | xargs cp --parents --target-directory ~/texcache/
+          sudo dpkg -L cm-super | while IFS= read -r f; do if test -f $f; then echo $f; fi; done | xargs cp --parents --target-directory ~/texcache/
         fi
 
     - name: Install latex dependencies without cache
