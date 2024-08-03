@@ -37,7 +37,7 @@ jobs:
         key: cache-packages-${{ runner.os }}
 
     - name: Install latex dependencies with cache
-      if: ${{ github.event.inputs.no_cache == false }}
+      if: ${{ github.event.inputs.no_cache != true }}
       env:
         CACHE_HIT: ${{steps.cache-valgrind.outputs.cache-hit}}
       run: |
