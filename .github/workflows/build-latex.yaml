@@ -10,6 +10,10 @@ on:
         description: The main LaTeX file to compile
         type: string
         required: true
+      no_cache:
+        description: Tick the box to install the packages from scratch
+        type: boolean
+        required: true
 
 env:
   OUTPUT_DIR: 'github_artifacts'
@@ -25,25 +29,36 @@ jobs:
       working-directory: ${{ github.event.inputs.root }}
       run: ls -R
 
-    # Cache packages
-    - uses: actions/cache@v2
+    - name: Cache packages
+      uses: actions/cache@v2
       id: cache-packages
       with:
-        path: ${{ runner.temp }}/cache-linux
+        path: ~/texcache
         key: cache-packages-${{ runner.os }}
 
-    # Install packages with cache
-    - name: Install packages
-      uses: airvzxf/cache-anything-new-action@v1.0
-      with:
-        script: 'latex-install.sh'
-        is_cached: ${{ steps.cache-packages.outputs.cache-hit }}
-        cache: ${{ runner.temp }}/cache-linux
+    - name: Install latex dependencies with cache
+      if: ${{ github.event.inputs.no_cache == false }}
+      env:
+        CACHE_HIT: ${{steps.cache-valgrind.outputs.cache-hit}}
+      run: |
+        if [[ "$CACHE_HIT" == 'true' ]]; then
+          sudo cp --verbose --force --recursive ~/texcache/* /
+        else
+          sudo apt-get update 
+          sudo apt-get install --yes texlive texlive-xetex texlive-publishers \
+          texlive-science texlive-bibtex-extra biber latexmk cm-super
+          mkdir -p ~/texcache
+          sudo dpkg -L texlive texlive-xetex texlive-publishers \ 
+          texlive-science texlive-bibtex-extra biber \
+          latexmk cm-super | while IFS= read -r f; do if test -f $f; then echo $f; fi; done | xargs cp --parents --target-directory ~/texcache/
+        fi
 
-    # Install latex dependencies without cache
-    # - name: Install latex dependencies
-    #   working-directory: ${{ github.event.inputs.root }}
-    #   run: sudo apt-get update && sudo apt-get install texlive texlive-xetex texlive-publishers texlive-science texlive-bibtex-extra biber latexmk cm-super
+    - name: Install latex dependencies without cache
+      if: ${{ github.event.inputs.no_cache == true }}
+      run: |
+        sudo apt-get update 
+        sudo apt-get install --yes texlive texlive-xetex texlive-publishers \
+        texlive-science texlive-bibtex-extra biber latexmk cm-super
 
     - name: First document compliation
       working-directory: ${{ github.event.inputs.root }}

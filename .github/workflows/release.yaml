@@ -22,6 +22,10 @@ on:
         description: Tick the box to deploy the document to GitHub Pages
         type: boolean
         required: true
+      no_cache:
+        description: Tick the box to install the packages from scratch
+        type: boolean
+        required: true
 
 permissions:
   contents: write
@@ -40,6 +44,7 @@ jobs:
     with:
       texfile: ${{ github.event.inputs.texfile }}
       root: ${{ github.event.inputs.root }}
+      no_cache: ${{ github.event.inputs.no_cache }}
 
   deploy:
     if: ${{ github.event.inputs.deploy == true }}
