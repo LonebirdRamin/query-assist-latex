@@ -44,7 +44,7 @@ jobs:
     with:
       texfile: ${{ github.event.inputs.texfile }}
       root: ${{ github.event.inputs.root }}
-      no_cache: ${{ github.event.inputs.no_cache }}
+      no_cache: ${{ github.event.inputs.no_cache == true }}
 
   deploy:
     if: ${{ github.event.inputs.deploy == true }}
