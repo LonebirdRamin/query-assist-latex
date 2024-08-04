@@ -27,14 +27,14 @@
 \LoadClass{report}
 
 %%%%%%%%%%%%%%%%%%%%%%%% Packages Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%: Logics
+%: # Logics
 \usepackage{ifthen}
 \usepackage{xstring}
 
-%: Loggings
+%: # Loggings
 \let\Err=\errmessage
 
-%: Report elements
+%: # Report elements
 %: NOTE: Use the option pdftex instead of dvips if you use pdflatex 
 \usepackage[
     left=4cm,
@@ -49,31 +49,31 @@
 \usepackage{subfig}
 \usepackage{caption} 
 
-%: Fonts, typography
+%: # Fonts, typography
 \usepackage{mathspec}
 \usepackage[no-math]{fontspec} 
 \usepackage{amsfonts,amsmath}
 \usepackage{xunicode,xltxtra}
 
-%: Links, hyperlinks, reference
+%: # Links, hyperlinks, reference
 \usepackage{url}
 \usepackage{hyperref}
 \usepackage{cleveref}  
 
 %%%%%%%%%%%%%%%%%%% Definitions of major strings %%%%%%%%%%%%%%%%%%%%
 
-%: Cover language
+%: # Cover language
 \def\coverlang{Thai}
 
-%: Fulfillment
+%: # Fulfillment
 %: Subject or degree
 \def\fulfillment{Degree}
 
-%: Work type
+%: # Work type
 \def\worktype{Project}
 \def\thaiworktype{ปริญญานิพนธ์}
 
-%: Institutes
+%: # Institutes
 \def\fieldofstudy{Potions}
 \def\department{N.E.W.Ts School}
 \def\faculty{N.E.W.Ts}
@@ -84,7 +84,7 @@
 \def\thaiinstitute{โรงเรียนฮอกวอร์ต}
 \def\thaiprogram{N.E.W.Ts ศาสตร์ปรุงยา}
 
-%: Titles
+%: # Titles
 \def\disstitleone{CPE}                          % 1st line of TITLE of dissertation
 \def\disstitletwo{Cooking Potion}               % 2nd line of TITLE if needed
 \def\disstitlethree{Engineering}                % 3rd line of TITLE if needed
@@ -94,7 +94,7 @@
 \def\thaidisstitlethree{}
 \def\thaidisstitlefour{}
 
-%: Authors
+%: # Authors
 \def\dissauthor{Harry J. Potter}                % First author
 \def\dissauthortwo{Hermione J. Granger}         % Second author
 \def\dissauthorthree{Ronald A. Weasley}         % Third author
@@ -102,7 +102,7 @@
 \def\thaidissauthortwo{เฮอร์ไมโอนี่ จีนส์ เกรนเจอร์}
 \def\thaidissauthorthree{โรนัลด์ อาร์เธอร์ วีสลีย์}
 
-%: List of diploma (No need to fill these if you're still studying Bachelor's)
+%: # List of diploma (No need to fill these if you're still studying Bachelor's)
 \def\dissdiplomaone{O.W.Ls Dark Arts}           % First author's diploma
 \def\dissdiplomatwo{O.W.Ls Potions}             % Second author's diploma
 \def\dissdiplomathree{O.W.Ls Muggle Studies}    % Third author's diploma
@@ -110,25 +110,25 @@
 \def\thaidissdiplomatwo{}
 \def\thaidissdiplomathree{}
 
-%: Academic year
+%: # Academic year
 \def\dissyear{1998}                             % Year of submission
 \def\thaidissyear{2541}
 
-%: Subject details
+%: # Subject details
 \def\disssubjectcode{N.E.W.Ts POTION 334}       % Subject code
 \def\disssubjectname{Advanced Potions I}        % Subject name
 \def\disssubjectteacher{Prof. Severus Snape}    % Subject instructor
 \def\thaidisssubjectname{การปรุงยาขั้นสูง 1}        % Subject name
 \def\thaidisssubjectteacher{ศ. เซเวอร์รัส สเนป}   % Subject instructor
 
-%: Degree details
+%: # Degree details
 \def\dissdegree{Mages of Philosophy}            % Name of the degree
 \def\dissdegreeabrev{Ph.D.}                     % Abbreviation of the degree
 \def\dissdefensedate{June 1 1998}               % Date of defense
 \def\thaidissdegree{เวทยศาสตร์ดุษฎีบัณฑิต}
 \def\thaidissdegreeabrev{วศ.ด.}
 
-%: Committee
+%: # Committee
 \def\dissadvisor{Prof. Minerva McGonagall}      % Advisor
 \def\disscoadvisor{Prof. Filius Flitwick}       % 1st Co-advisor
 \def\disscoadvisortwo{}                         % 2nd Co-advisor
@@ -198,21 +198,16 @@
      \addpenalty{\@secpenalty}\addvspace{\@tempskipa}\fi \@ifstar
      {\@ssect{#3}{#4}{#5}{#6}}{\@dblarg{\@sect{#1}{#2}{#3}{#4}{#5}{#6}}}}
 
-%: Thai Numbering and Alphabets Sequences
-\def\thalph#1{\expandafter\@thalph\csname c@#1\endcsname}
-\def\@thalph#1{\ifcase#1\or ก\or ข\or ค\or ง\or จ\or ฉ\else\@ctrerr\fi}
-\def\thainum#1{\expandafter\@thainum\csname c@#1\endcsname}
-\def\@thainum#1{\ifcase#1\or ๑\or ๒\or ๓\or ๔\or ๕\or ๖\or ๗\or ๘\or ๙\else
-\@ctrerr\fi}
-
+%: # Page styling
 \def\ps@plain{\let\@mkboth\markboth\def\@oddfoot{}\def\@evenfoot{}
    \def\@oddhead{\hbox{}\hfil\rm\thepage} \def\@evenhead{\rm\thepage\hfil\hbox{}}}
 \def\ps@plainbottom{\let\@mkboth\markboth\def\@oddhead{}\def\@evenhead{}
    \def\@oddfoot{\hfil\rm\thepage\hfil} \def\@evenfoot{\hfil\rm\thepage\hfil}}
 \ps@plainbottom
 
-%: Element prefixes
+%: # Element prefixes
 \renewcommand{\chaptername}{บทที่}
+\def\appendixnames{ภาคผนวก} 
 \def\fnum@figure{รูปที่~\thefigure}
 \def\fnum@table{ตารางที่~\thetable}
 \def\fnum@lstlisting{ชุดคำสั่งที่~\thelstlisting}
@@ -221,34 +216,42 @@
 \crefrangeformat{figure}{รูปที่~#3#1#4 - #5#2#6}
 \crefrangeformat{table}{ตารางที่~#3#1#4 - #5#2#6}
 
-%: Label Numbering using Arabic numbers
+%: # Typography
+\defaultfontfeatures{Scale=1.3,Mapping=tex-text,LetterSpace=0.0}
+\newfontfamily\thaifont[Script=Thai,Scale=1.3]{THSarabunNew.ttf}[
+    Path=fonts/,
+    Extension=.ttf,
+    BoldFont=*-Bold,
+    ItalicFont=*-Italic,
+    BoldItalicFont=*-BoldItalic,
+]
+\setmainfont[Scale=1.3,LetterSpace=0,WordSpace=1.0,FakeStretch=1.0,Mapping=tex-text]{THSarabunNew.ttf}[
+    Path=fonts/,
+    Extension=.ttf,
+    BoldFont=*-Bold,
+    ItalicFont=*-Italic,
+    BoldItalicFont=*-BoldItalic,
+]
+
+%: # Thai Numbering and Alphabets Sequences
+\def\thalph#1{\expandafter\@thalph\csname c@#1\endcsname}
+\def\@thalph#1{\ifcase#1\or ก\or ข\or ค\or ง\or จ\or ฉ\else\@ctrerr\fi}
+\def\thainum#1{\expandafter\@thainum\csname c@#1\endcsname}
+\def\@thainum#1{\ifcase#1\or ๑\or ๒\or ๓\or ๔\or ๕\or ๖\or ๗\or ๘\or ๙\else
+\@ctrerr\fi}
+
+%: # Label Numbering using Arabic numbers
 \renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}}
 \renewcommand{\labelenumiii}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}}
 \renewcommand{\labelenumiv}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}.\arabic{enumiv}}
 
-%: Typography
-\defaultfontfeatures{Scale=1.23,Mapping=tex-text,LetterSpace=0.0}
-\newfontfamily\thaifont[Script=Thai,Scale=1.23]{THSarabunNew.ttf}[
-    Path=fonts/,
-    Extension=.ttf,
-    BoldFont=*-Bold,
-    ItalicFont=*-Italic,
-    BoldItalicFont=*-BoldItalic,
-]
-\setmainfont[Scale=1.23,LetterSpace=0,WordSpace=1.0,FakeStretch=1.0,Mapping=tex-text]{THSarabunNew.ttf}[
-    Path=fonts/,
-    Extension=.ttf,
-    BoldFont=*-Bold,
-    ItalicFont=*-Italic,
-    BoldItalicFont=*-BoldItalic,
-]
 
-%: Paragraph skip, indentation length, and line spacing
+%: # Paragraph skip, indentation length, and line spacing
 \setlength{\parindent}{10mm}
 \setlength{\parskip}{1ex}
 \linespread{1.15}
 
-%: Report elements referencing styles i.e. hyperref
+%: # Report elements referencing styles i.e. hyperref
 \urlstyle{same} % Set style to be the same as Thai font solve \url issue with polyglossia
 \hypersetup{
     linktocpage,
@@ -257,7 +260,8 @@
     linkcolor=blue,     % Choose some color if you want links to stand out
 }
 
-%: Make chapter definition for \chapter{}
+%: # Chapter definition 
+%: For \chapter{} command
 \def\@makechapterhead#1{%\vspace*{.8truein}%
 %  \fontsize{15}{18}{\centering{\bf \MakeUppercase{\@chapapp{}} \thechapter}\hskip 5\p@}%\vskip 20\p@
 %  \fontsize{15}{18}{\centering\MakeUppercase{\bf #1}\par\nobreak\emptyline 2}}
@@ -309,7 +313,8 @@
 \def\@schapter#1{\@makeschapterhead{#1} \@afterheading}
 
 
-%: Section heading fonts definitions
+%: # Section definitions
+%: For \section{} command
 
 \renewcommand\section{\@startsection {section}{1}{\z@}%
                                     {-3.5ex \@plus -1ex \@minus -.2ex}%
@@ -325,8 +330,7 @@
                                      {0.1ex \@plus .2ex}%
                                      {\normalfont\normalsize\bfseries}}
                                      
-%: Table/Figure caption definitions
-
+%: # Table/Figure caption definitions
 \captionsetup[table]{
     format=hang,
     labelfont=bf,
@@ -398,8 +402,7 @@
   \fi
   \vskip\belowcaptionskip}
 
-%: Subfigures definitions
-
+%: # Subfigures definitions
 %\renewcommand{\subfigtopskip}{10pt}
 %\renewcommand{\subfigbottomskip}{-5pt} 
 %\renewcommand{\subfigcapskip}{-6pt} %vertical space between caption
@@ -413,7 +416,7 @@
 %: Define how the content lines show up in ToC when using
 %: addcontentsline{}{}{}
 
-%: Normal chapter
+%: # Normal chapter
 \renewcommand*\l@chapter[2]{%
   \ifnum \c@tocdepth >\m@ne
     \addpenalty{-\@highpenalty}%
@@ -431,10 +434,9 @@
     \endgroup
   \fi}
 
-%: Special chapter
+%: # Special chapter
 %: Such as abstract, acknowledgment, ...
 %: That have no extra spacing between lines.
-
 \newcommand*\l@chapterx[2]{%
   \ifnum \c@tocdepth >\m@ne
     \addpenalty{-\@highpenalty}%
@@ -451,8 +453,7 @@
     \endgroup 
   \fi}
   
-%: Special chapter with no number
-
+%: # Special chapter with no number
 \newcommand*\l@chapterxx[2]{%
   \ifnum \c@tocdepth >\m@ne
     \addpenalty{-\@highpenalty}%
@@ -469,7 +470,7 @@
     \endgroup \vskip -0.8em
   \fi}
 
-%: Section content entries
+%: # Section content entries
 \def\l@section#1#2{\addpenalty{\@secpenalty}    % Page break
    %\addvspace{1.0em plus 1pt}                  % Space above ToC entry
    \addvspace{0.2em}                            % Space above ToC entry
@@ -485,7 +486,7 @@
      %\hskip 2em #1\nobreak\hfil \nobreak\hbox to\@pnumwidth{\hss #2}\par
    \endgroup}
 
-%: Subsection content entries
+%: # Subsection content entries
 %: Add indentation to subsection in table of contents
 \def\l@subsection#1#2{ 
    %\addvspace{1.0em plus 1pt}                  % Space above ToC entry
@@ -502,7 +503,7 @@
    \endgroup}
 
 
-%: Subsubsection content entries
+%: # Subsubsection content entries
 %: Add indentation to subsubsection in table of contents 
 \def\l@subsubsection#1#2{ 
    %\addvspace{1.0em plus 1pt}                  % Space above ToC entry
@@ -518,7 +519,7 @@
       \hskip 4.5em #1\nobreak\hfil \nobreak\hb@xt@\@pnumwidth{\hss #2}\par
    \endgroup}
    
-%: Figure content entries
+%: # Figure content entries
 \def\l@figure#1#2{
     \addpenalty{\@secpenalty}                   % Page break
     %\addvspace{1.0em plus 1pt}                 % Space above ToC entry
@@ -536,13 +537,13 @@
    \endgroup
 }
 
-%: Table content entries
+%: # Table content entries
 \let\l@table\l@figure
 
-%: Code content entries
+%: # Code content entries
 \let\l@lstlisting\l@figure
 
-%: Appendix content entries
+%: # Appendix content entries
 \def\l@apdx#1#2{\addpenalty{\@secpenalty}       % Good place for page break
    \addvspace{0.2em}                            % Space above toc entry
    \@tempdima 2em                               % Width of box holding section number
@@ -557,13 +558,13 @@
    \endgroup
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%% Title page %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%% Pages definitions %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%: # Title page (EN)
 \def\titleempty{}
 \def\diplomaempty{}
 \def\maketitlepage{\thispagestyle{empty}\c@page\@ne\baselineskip \baselineskipxii
    \emptyline 2 {\centering 
 
-    %: Title
     \makebox{\MakeUppercase{\disstitleone}} \par % First line
     \ifx \titleempty\disstitletwo \else  
         \makebox{\MakeUppercase{\disstitletwo}} \par % Second line (optional)
@@ -606,6 +607,8 @@
     \dissyear \vspace*{2cm}\par}
     \newpage\baselineskip \truebaselineskip
 }
+
+%: Title page (TH)
 \def\makethaititlepage{\thispagestyle{empty}\c@page\@ne\baselineskip \baselineskipxii
    \emptyline 2 {%
    \centering
@@ -622,7 +625,7 @@
     \fi
 
     %: First Author
-    \vfill \large\thaidissauthor \par
+    \vfill {\large\thaidissauthor} \par
 
     %: Second Author
     \ifx \titleempty\thaidissauthortwo \else  
@@ -638,29 +641,32 @@
     \large \makebox{\thaiworktype}นี้เป็นส่วนหนึ่งของ%
     \IfEqCase{\fulfillment}{%
         {Subject}{%
-            \par\large รายวิชา \MakeUppercase{\disssubjectcode} \thaidisssubjectname \par
-            \large ภาควิชา\makebox{\thaidepartment}
+            \par รายวิชา \MakeUppercase{\disssubjectcode} \thaidisssubjectname \par
+             ภาควิชา\makebox{\thaidepartment}
         }%
         {Degree}{%
             การศึกษาตามหลักสูตร \par
-            \large \thaidissdegree~สาขาวิชา\makebox{\thaifieldofstudy}\par%
+            \thaidissdegree~สาขาวิชา\makebox{\thaifieldofstudy}\par%
         }%
     }%
     คณะ\makebox{\thaifaculty} \par
-    \large \makebox{\thaiinstitute} \par
-    \large ปีการศึกษา~\thaidissyear \vspace*{2cm}\par  
+    \makebox{\thaiinstitute} \par
+    ปีการศึกษา~\thaidissyear \vspace*{2cm}\par  
     }
     \newpage\baselineskip \truebaselineskip
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%% Copyright page %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%: # Copyright page
 \def\makecopyrightpage{\newpage
    {\centering{\vbox{}\vfill Copyright by \dissauthor\par\dissyear\par \vfill\vbox{}}}\newpage}
 
-%%%%%%%%%%%%%%%%%%%%%%%% Signature page %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%: # Signature pages
+%: Command for creating signature line
 \newcommand{\dotrule}[1]{% 
-      \parbox[t]{#1}{\dotfill}} 
+      \parbox[t]{#1}{\dotfill}%
+} 
 
+%: ## Sign area (EN)
 \def\makesignarea{
     \begin{flushleft}
         \worktype\ Committee \par\par
@@ -712,10 +718,10 @@
         \vspace*{\fill}
     \end{center}
 }
-
+%: ## Sign area (TH)
 \def\makethaisignarea{
     \begin{flushleft}
-        \large คณะกรรมการสอบ\makebox{\thaiworktype} \par\par
+        คณะกรรมการสอบ\makebox{\thaiworktype} \par\par
         \begin{tabular*}{\textwidth}{@{}c@{\extracolsep{0.5cm}}l@{}}
            & \\
         %: Chair committee
@@ -760,43 +766,43 @@
     \end{flushleft}
     \begin{center}	
         \vspace*{\fill}
-            \large ลิขสิทธ์ิของมหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี
+            ลิขสิทธิ์ของมหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี
         \vspace*{\fill}
     \end{center}
 }
-
+%: ## Sign Page (TH)
 \def\makethaisignaturepage{
     \newpage\thispagestyle{empty}\baselineskip \baselineskipxi {\centering
-    \large \makebox{\thaidisstitleone} \par 
+    \makebox{\thaidisstitleone} \par 
     \ifx \titleempty\thaidisstitletwo \else  
-        \large \makebox{\thaidisstitletwo} \par
+        \makebox{\thaidisstitletwo} \par
     \fi
     \ifx \titleempty\thaidisstitlethree \else
-        \large \makebox {\thaidisstitlethree} \par 
+        \makebox {\thaidisstitlethree} \par 
     \fi
     \ifx \titleempty\thaidisstitlefour \else
-        \large \makebox {\thaidisstitlefour} \par
+        \makebox {\thaidisstitlefour} \par
     \fi
     
     \vfill \IfEqCase{\fulfillment}{%
         {Subject}{%
-            \vfill \large \textbf{สมาชิกกลุ่ม}: \par
+            \vfill \textbf{สมาชิกกลุ่ม}: \par
         }%
     }%
-    \large\thaidissauthor\ 
+    \thaidissauthor\ 
         \ifx \diplomaempty\thaidissdiplomaone \else
             \thaidissdiplomaone
         \fi
     \par
     \ifx \titleempty\thaidissauthortwo \else  
-        \large \makebox{\thaidissauthortwo} 
+        \makebox{\thaidissauthortwo} 
         \ifx \diplomaempty\thaidissdiplomatwo \else
             \thaidissdiplomatwo
         \fi
         \par
     \fi
     \ifx \titleempty\thaidissauthorthree \else  
-        \large \makebox{\thaidissauthorthree} 
+        \makebox{\thaidissauthorthree} 
         \ifx \diplomaempty\thaidissdiplomathree \else
             \thaidissdiplomathree
         \fi
@@ -805,7 +811,7 @@
 
     \IfEqCase{\fulfillment}{%
         {Subject}{%
-            \vfill \large \textbf{เสนอ}: \par
+            \vfill \textbf{เสนอ}: \par
             \makebox{\thaidisssubjectteacher} \par
             \emptyline 1
             \dotrule{3.6in} \par
@@ -815,20 +821,20 @@
         }%
     }%
     
-    \vfill \large \makebox{\thaiworktype}นี้เป็นส่วนหนึ่งของ%
+    \vfill \makebox{\thaiworktype}นี้เป็นส่วนหนึ่งของ%
     \IfEqCase{\fulfillment}{%
         {Subject}{%
-            \par\large รายวิชา \MakeUppercase{\disssubjectcode} \thaidisssubjectname \par
-            \large ภาควิชา\makebox{\thaidepartment}
+            \par รายวิชา \MakeUppercase{\disssubjectcode} \thaidisssubjectname \par
+             ภาควิชา\makebox{\thaidepartment}
         }%
         {Degree}{%
             การศึกษาตามหลักสูตร \par
-            \large \thaidissdegree~สาขาวิชา\makebox{\thaifieldofstudy}\par%
+            \thaidissdegree~สาขาวิชา\makebox{\thaifieldofstudy}\par%
         }%
     }%
     คณะ\makebox{\thaifaculty} \par
-    \large \makebox{\thaiinstitute} \par
-    \large ปีการศึกษา~\thaidissyear \vspace*{1cm}\par  
+    \makebox{\thaiinstitute} \par
+    ปีการศึกษา~\thaidissyear \vspace*{1cm}\par  
     }
     
     \IfEqCase{\fulfillment}{%
@@ -837,7 +843,7 @@
     
     \newpage\baselineskip \truebaselineskip
 }
-
+%: ## Sign page (EN)
 \def\makesignaturepage{
     \newpage\thispagestyle{empty}\baselineskip \baselineskipxi {\centering
     \makebox {\disstitleone} \par 
@@ -908,144 +914,201 @@
     \newpage\baselineskip \truebaselineskip
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Abstract %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%: English abstract
+%: Generation logics signature page and title page
+\def\genfrontpages#1#2{%
+    % Include the image
+    \begin{center}
+        \includegraphics[width=#2]{#1}
+    \end{center}
+    \vspace*{-1cm}
+
+    %: Check fulfillment value
+    \ifthenelse{\equal{\fulfillment}{Subject}}{%
+        % Do nothing
+    }{%
+        % If not 'Subject', check for 'Degree'
+        \ifthenelse{\equal{\fulfillment}{Degree}}{%
+            % Do nothing
+        }{%
+            % Neither of those, throw error
+            \Err{Warning: Invalid fulfillment; use either 'Subject' | 'Degree' (case-sensitive!)}%
+            \def\fulfillment{Degree} % Default to Degree
+        }%
+    }
+    
+    %: Check coverlang value and make title page and
+    \ifthenelse{\equal{\coverlang}{English}}{%
+        \maketitlepage%
+        \makesignaturepage%
+    }{%
+        \ifthenelse{\equal{\coverlang}{Thai}}{%
+            \makethaititlepage%
+            \makethaisignaturepage%
+        }{%
+            \Err{Warning: Invalid coverlang; use either 'English' | 'Thai' (case-sensitive!)}%
+            \maketitlepage % Default to English
+            \makesignaturepage%
+        }%
+    }%
+}
+
+%: # Abstract pages
 \def\abstcontent{}
 \def\abstkeyword{}
 
+%: ## English abstract
 \def\makeabstract{
-\newpage
-\ifthenelse{\equal{\coverlang}{English}}{%
-    \setcounter{page}{2}%
-    \pagestyle{plain}%
-}{}
-\addcontentsline{toc}{chapterx}{\mdseries บทคัดย่อภาษาอังกฤษ}
-\begin{flushleft}
-\begin{tabular}{@{}lp{0.7\textwidth}}
- \worktype\ Title & \disstitleone\ \\ 
-\ifx \titleempty\disstitletwo \else
-              & \disstitletwo \\
-\fi
-\ifx \titleempty\disstitlethree \else
-              & \disstitlethree \\
-\fi
-\ifx \titleempty\disstitlefour \else
-              & \disstitlefour \\
-\fi
-Credits & \disscredit \\
-Member(s) & \dissauthor \\
-\ifx \titleempty\dissauthortwo \else
-              & \dissauthortwo \\
-\fi
-\ifx \titleempty\dissauthorthree \else
-              & \dissauthorthree \\
-\fi
-\worktype\ Advisor(s) & \dissadvisor \\
-\ifx \titleempty\disscoadvisor \else
-    & \disscoadvisor \\
-\fi
-\ifx \titleempty\disscoadvisortwo \else 
-     & \disscoadvisortwo \\
-\fi
- Program & \dissdegree \\
- Field of Study & \fieldofstudy \\
- Department & \department \\
- Faculty & \faculty \\
- Academic Year & \dissyear 
-\end{tabular}
-\end{flushleft}
-%}
-\emptyline 1
-\begin{center} 
-Abstract
-\end{center}
-\par
+    \newpage
+    \ifthenelse{\equal{\coverlang}{English}}{%
+        \setcounter{page}{2}%
+        \pagestyle{plain}%
+    }{}
+    \addcontentsline{toc}{chapterx}{\mdseries บทคัดย่อภาษาอังกฤษ}
+    \begin{flushleft}
+        \begin{tabular}{@{}lp{0.7\textwidth}}
+             \worktype\ Title & \disstitleone\ \\ 
+            \ifx \titleempty\disstitletwo \else
+                          & \disstitletwo \\
+            \fi
+            \ifx \titleempty\disstitlethree \else
+                          & \disstitlethree \\
+            \fi
+            \ifx \titleempty\disstitlefour \else
+                          & \disstitlefour \\
+            \fi
+            Credits & \disscredit \\
+            Member(s) & \dissauthor \\
+            \ifx \titleempty\dissauthortwo \else
+                          & \dissauthortwo \\
+            \fi
+            \ifx \titleempty\dissauthorthree \else
+                          & \dissauthorthree \\
+            \fi
+            \worktype\ Advisor(s) & \dissadvisor \\
+            \ifx \titleempty\disscoadvisor \else
+                & \disscoadvisor \\
+            \fi
+            \ifx \titleempty\disscoadvisortwo \else 
+                 & \disscoadvisortwo \\
+            \fi
+             Program & \dissdegree \\
+             Field of Study & \fieldofstudy \\
+             Department & \department \\
+             Faculty & \faculty \\
+             Academic Year & \dissyear 
+        \end{tabular}
+    \end{flushleft}
 
-\justifying\abstcontent
+    \emptyline 1
+    \begin{center} 
+        Abstract
+    \end{center}
+    
+    \par \justifying\abstcontent
+    
+    \justifying
+    \begin{tabular*}{\textwidth}{@{}lp{0.8\textwidth}}
+        \textbf{Keywords}: & \abstkeyword
+    \end{tabular*}
+    \vspace{1mm}
 
-\justifying
-\begin{tabular*}{\textwidth}{@{}lp{0.8\textwidth}}
-\textbf{Keywords}: & \abstkeyword
-\end{tabular*}
-\vspace{1mm}
-
-\newpage
+    \newpage
 }
 
-%: Thai abstract
+%: ## Thai abstract
 \def\thabstcontent{}
 \def\thabstkeyword{}
 
 \def\makethaiabstract{
-\newpage
-\ifthenelse{\equal{\coverlang}{Thai}}{%
-    \setcounter{page}{2}%
-    \pagestyle{plain}%
-}{}
-\addcontentsline{toc}{chapterx}{\mdseries บทคัดย่อภาษาไทย}
-\begin{flushleft}
-\begin{tabular}{@{}lp{0.7\textwidth}}
- \textthai{หัวข้อ}\thaiworktype & \thaidisstitleone\ \\ 
-\ifx \titleempty\thaidisstitletwo \else
-              & \thaidisstitletwo \\
-\fi
-\ifx \titleempty\thaidisstitlethree \else
-              & \thaidisstitlethree \\
-\fi
-\ifx \titleempty\thaidisstitlefour \else
-              & \thaidisstitlefour \\
-\fi
- \textthai{หน่วยกิต} & \textthai{\disscredit} \\
- \textthai{ผู้เขียน} & \thaidissauthor \\
- \ifx \titleempty\thaidissauthortwo \else
-              & \thaidissauthortwo \\
-\fi
-\ifx \titleempty\thaidissauthorthree \else
-              & \thaidissauthorthree \\
-\fi
- \textthai{อาจารย์ที่ปรึกษา} & \thaidissadvisor \\
- \ifx \titleempty\disscoadvisor \else
-     & \thaidisscoadvisor \\
-\fi
-\ifx \titleempty\disscoadvisortwo \else
-& \thaidisscoadvisortwo \\
-\fi
- \textthai{หลักสูตร} & \thaidissdegree \\
- \textthai{สาขาวิชา} & \thaifieldofstudy \\
- \textthai{ภาควิชา} & \thaidepartment  \\
- \textthai{คณะ} & \thaifaculty  \\
- \textthai{ปีการศึกษา} & \textthai{\thaidissyear} 
-\end{tabular}
-\end{flushleft}
-%}
-\emptyline 1
-\begin{center} 
-  \textthai{บทคัดย่อ}
-\end{center}
-\par
+    \newpage
+    \ifthenelse{\equal{\coverlang}{Thai}}{%
+        \setcounter{page}{2}%
+        \pagestyle{plain}%
+    }{}
+    \addcontentsline{toc}{chapterx}{\mdseries บทคัดย่อภาษาไทย}
+    \begin{flushleft}
+        \begin{tabular}{@{}lp{0.7\textwidth}}
+             \textthai{หัวข้อ}\thaiworktype & \thaidisstitleone\ \\ 
+            \ifx \titleempty\thaidisstitletwo \else
+                          & \thaidisstitletwo \\
+            \fi
+            \ifx \titleempty\thaidisstitlethree \else
+                          & \thaidisstitlethree \\
+            \fi
+            \ifx \titleempty\thaidisstitlefour \else
+                          & \thaidisstitlefour \\
+            \fi
+             \textthai{หน่วยกิต} & \textthai{\disscredit} \\
+             \textthai{ผู้เขียน} & \thaidissauthor \\
+             \ifx \titleempty\thaidissauthortwo \else
+                          & \thaidissauthortwo \\
+            \fi
+            \ifx \titleempty\thaidissauthorthree \else
+                          & \thaidissauthorthree \\
+            \fi
+             \textthai{อาจารย์ที่ปรึกษา} & \thaidissadvisor \\
+             \ifx \titleempty\disscoadvisor \else
+                 & \thaidisscoadvisor \\
+            \fi
+            \ifx \titleempty\disscoadvisortwo \else
+            & \thaidisscoadvisortwo \\
+            \fi
+             \textthai{หลักสูตร} & \thaidissdegree \\
+             \textthai{สาขาวิชา} & \thaifieldofstudy \\
+             \textthai{ภาควิชา} & \thaidepartment  \\
+             \textthai{คณะ} & \thaifaculty  \\
+             \textthai{ปีการศึกษา} & \textthai{\thaidissyear} 
+        \end{tabular}
+    \end{flushleft}
+    
+    \emptyline 1
+    \begin{center} 
+      \textthai{บทคัดย่อ}
+    \end{center}
+    
+    \par \justifying\thabstcontent
+    
+    \justifying
+    \begin{tabular*}{\textwidth}{@{}lp{0.8\textwidth}}
+        & \\
+        \textbf{คำสำคัญ}: &  \thabstkeyword
+    \end{tabular*}
+    \vspace{1mm}
+    
+    \newpage
+}
 
-\justifying\thabstcontent
+%: Generation logics for abstracts page
+%: Arrange order based on coverlang
+\def\genabstract{%
+    \ifthenelse{\equal{\coverlang}{English}}{%
+        \makeabstract%
+        \makethaiabstract%
+    }{%
+        \ifthenelse{\equal{\coverlang}{Thai}}{%
+            \makethaiabstract%
+            \makeabstract%
+        }{%
+            \Err{Warning: Invalid coverlang; use either 'English' | 'Thai' (case-sensitive!)}%
+            \makeabstract%
+            \makethaiabstract%
+        }%
+    }%
+}
 
-\justifying
-\begin{tabular*}{\textwidth}{@{}lp{0.8\textwidth}}
-& \\
-\textbf{คำสำคัญ}: &  \thabstkeyword
-\end{tabular*}
-\vspace{1mm}
+%: # Preface or Acknowledgement
+\def\prefacecontent{}
 
+\def\genpreface{%
+    \chapter*{\large กิตติกรรมประกาศ}%
+    \addcontentsline{toc}{chapterx}{\mdseries กิตติกรรมประกาศ}
+    \thispagestyle{plain}
+    \justifying\prefacecontent
 \newpage
 }
 
-\def\endabstract{\newpage}
+%: # Table of contents and lists of elements
 
-%%%%%%%%%%%%%%%%%%%%%%%% Acknowledgement %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\def\preface{\chapter*{\large กิตติกรรมประกาศ}%
-\addcontentsline{toc}{chapterx}{\mdseries กิตติกรรมประกาศ}
-\thispagestyle{plain}
-}
-
-%%%%%%%%%%%%%%%%%%%%%%%%% Content page %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Table of contents
 \setcounter{tocdepth}{5}  % must be same as secnumdepth
 \def\contentsname{สารบัญ}
 \def\tableofcontents{\chapter*{\large\MakeUppercase{\contentsname}\@mkboth{}{}%
@@ -1057,8 +1120,7 @@ Abstract
 \pagestyle{plain}\thispagestyle{plain}
 }
 
-%%%%%%%%%%%%%%%%%%%%%% List of table page %%%%%%%%%%%%%%%%%%%%%%%%%%%
-% List of tables
+%: ## List of Tables
 \def\listtablename{สารบัญตาราง}
 \def\listoftables{\chapter*{\large \MakeUppercase{\listtablename}\@mkboth{ตารางที่}{หน้า}\thispagestyle{plain}
 \\ \emptyline 1 \normalsize\textbf{ตารางที่}\hfill\textbf{หน้า}\\[-0.4em] }
@@ -1066,8 +1128,7 @@ Abstract
 %\def\l@table{}
 %\def\l@table{\vskip 1.0em plus\p@\@dottedtocline{1}{1.5em}{2.3em}}
 
-%%%%%%%%%%%%%%%%%%%%% List of figure page %%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+%: ## List of Figures
 \def\listfigurename{สารบัญรูปภาพ}
 \def\listoffigures{\chapter*{\large\MakeUppercase{\listfigurename}\@mkboth{รูปที่}{หน้า}\thispagestyle{plain}\\
    \emptyline 1
@@ -1075,19 +1136,18 @@ Abstract
    \addcontentsline{toc}{chapterx}{\mdseries สารบัญรูปภาพ} {\ssp\@starttoc{lof}}}
 \let\l@figure\l@table
 
-%%%%%%%%%%%%%%%%%%%%% List of symbol page %%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+%: ## List of Symbols
 \def\listofsymbols{\chapter*{\large สารบัญสัญลักษณ์}
 %\\ \emptyline 1 \textbf{SYMBOL}\hfill\textbf{UNIT}\\[-1cm]}
 \addcontentsline{toc}{chapterx}{\mdseries สารบัญสัญลักษณ์}\thispagestyle{plain}
 }
 
-%%%%%%%%%%%%%%%%%%%%% List of vocab page %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%: ## List of Vocab or Terms
 \def\listofvocab{\chapter*{\large สารบัญคำศัพท์ทางเทคนิคและคำย่อ}%
 \addcontentsline{toc}{chapterx}{\mdseries สารบัญคำศัพท์ทางเทคนิคและคำย่อ}\thispagestyle{plain}
 }
 
-%%%%%%%%%%%%%%%%%%%%%%% List of codes %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%: ## List of Codes
 \def\listofprogramname{สารบัญชุดคำสั่ง}
 \def\listofprograms{\chapter*{\large\MakeUppercase{\listofprogramname}\@mkboth{ชุดคำสั่งที่}{หน้า}\thispagestyle{plain}\\
    \emptyline 1
@@ -1095,15 +1155,16 @@ Abstract
    \addcontentsline{toc}{chapterx}{\mdseries สารบัญชุดคำสั่งคอมพิวเตอร์} {\ssp\@starttoc{lol}}
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%% Appendix pages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%: # Appendices
 \firstappendixtrue
-\def\appendixnames{ภาคผนวก} % assume only one appendix
+\def\appendixnames{ภาคผนวก}
 \def\appendixcover#1{%
 \newpage\pagestyle{plain}\thispagestyle{empty}
 \iffirstappendix %
   \setcounter{chapter}{0} % Reset chapter numbering
   \setcounter{figure}{0}  % Reset figure numbering (May 2022 by Thanin)
-  \renewcommand{\thechapter}{\Alph{chapter}}
+  \renewcommand{\thechapter}{\thalph{chapter}}
   \def\@chapapp{\MakeUppercase{\appendixname}}%
   \addcontentsline{toc}{chapter}{\mdseries\bf \MakeUppercase{\appendixnames}}%
   \firstappendixfalse% 
@@ -1121,7 +1182,7 @@ Abstract
 \addcontentsline{toc}{apdx}{\thechapter\hskip 1em #1}%
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%% Bibliography page %%%%%%%%%%%%%%%%%%%%%%%%%%
+%: # Bibliography
 \def\refname{บรรณานุกรม}
 \def\referencepage{\chapter*{\large\bf \MakeUppercase{\refname} \\
 \emptyline 1}%
@@ -1147,7 +1208,7 @@ Abstract
   \def\@noitemerr{\@warning{Empty `thebibliography' environment}} \endlist}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Vitae %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%: # Vitae
 \def\vitae{
 \clearpage
 \chapter*{\large\bf CURRICULUM VITAE}%
@@ -1157,8 +1218,6 @@ Abstract
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\input latexsym.sty
 \usepackage{latexsym}
 
 \newcounter{definition}[chapter]
@@ -1171,6 +1230,5 @@ Abstract
 \newenvironment{proof}{
    \par\noindent{\bfseries Proof: }\ignorespaces}
    { $\Box$\par\hbox{}\par}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \endinput
