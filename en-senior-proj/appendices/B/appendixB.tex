@@ -1,0 +1,48 @@
+\appendix{Example of Software's Source Code}
+\noindent{\large\bf Example of "Dependencies Injection" pattern in the project} \\
+
+    \begin{lstlisting}[label={lst:appendix-user-domain}, caption={Snippets of "User Repository" interface and "User" usercase's definition}]
+    // ...
+    type UserRepository interface {
+        Create(user *User) error
+        Get(id string) (*User, error)
+        GetBySessionId(id string) (*User, error)
+        GetByEmail(email string, provider AuthProvider) (*User, error)
+        Update(user *User) error
+    }
+    
+    type UserUsecase interface {
+        Create(email string, password string) (*User, error)
+        CreateFromGoogle(id string, email string, name string) (*User, error)
+        Get(id string) (*User, error)
+        GetBySessionId(id string) (*User, error)
+        GetByEmail(email string, provider AuthProvider) (*User, error)
+        Update(id string, user *UpdateUser) error
+        UpdatePassword(id string, oldPlainPassword string, newPlainPassword string) error
+    }
+    // ...
+    \end{lstlisting}
+    
+    \begin{lstlisting}[label={lst:appendix-user-usecase}, caption={Snippets of "User" Usecase implementation of UserRepository}]
+    // ...
+    type userUsecase struct {
+        seaweedfs      *platform.SeaweedFs
+        userRepository domain.UserRepository
+        sessionUsecase domain.SessionUsecase
+    }
+    
+    func NewUserUsecase(
+        seaweedfs *platform.SeaweedFs,
+        userRepository domain.UserRepository,
+        sessionUsecase domain.SessionUsecase,
+    ) domain.UserUsecase {
+        return &userUsecase{
+            seaweedfs:      seaweedfs,
+            userRepository: userRepository,
+            sessionUsecase: sessionUsecase,
+        }
+    }
+    // ...
+    \end{lstlisting}
+    
+\pagebreak
