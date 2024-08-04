@@ -1,10 +1,12 @@
-%% Golang definition for listings
-%% http://github.io/julienc91/lstlistings-golang
-%%
+%: YAML definition for listings
+%: https://github.com/chaehni/master-thesis/
 \RequirePackage{listings}
+\usepackage{xcolor}
 
 \lstdefinelanguage{Yaml}%
-  {morekeywords=[1]{mysql_db,mysql_pass,},%
-   sensitive=true,%
-   morestring=[l]:,%
-   }
+{%
+    %: Add your keywords here manually...
+    morekeywords=[1]{mysql_db,mysql_pass,},%
+    sensitive=true,%
+    morestring=[l]:,%
+}
