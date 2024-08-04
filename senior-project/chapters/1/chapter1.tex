@@ -1,0 +1,98 @@
+\chapter{บทนำ}
+\section{ที่มาและความสำคัญ}
+    \centering{\bf{\textit{(ตัวอย่างปัญหา...)}}} \\
+    \thaijustify{
+        ทักษะการเขียนโปรแกรมคอมพิวเตอร์เป็นทักษะที่สำคัญสำหรับวิชาชีพในสาขาวิทยาการคอมพิวเตอร์ เป็นเหตุให้นักศึกษาจำนวนมากหันมาสมัครหรือลงวิชาเขียนโปรแกรมคอมพิวเตอร์เพิ่มมากขึ้น ทำให้การเรียนการสอนวิชาเขียนโปรแกรมคอมพิวเตอร์มีประสิทธิภาพที่ต่ำลงเพราะจำนวนผู้เรียนมากขึ้น อาจารย์ผู้สอนไม่สามารถจะดูแลนักศึกษาได้ครบทุกคน การตรวจงานและให้คะแนนใช้ระยะเวลานาน เพราะอาจารย์ผู้สอนจะต้องนำไฟล์งานของนักศึกษามาตรวจทีละไฟล์ อีกทั้งยังมีโอกาสเกิดข้อผิดพลาดในการตรวจอีกด้วย
+    }
+    \thaijustify{
+        จากปัญหาดังกล่าว...
+    }
+    \thaijustify{
+        โดยซอฟต์แวร์จะ...
+    }
+\section{วัตถุประสงค์}
+    ทางกลุ่มเรา ได้ดำเนินโครงการพัฒนาซอฟต์เเวร์ดังกล่าว ด้วยวัตถุประสงค์ดังต่อไปนี้
+    \begin{enumerate}
+        \item เพื่อ...
+        \item เพื่อ...
+        \item เพื่อ...
+    \end{enumerate}
+
+\section{ขอบเขตของโครงงาน}
+    \begin{enumerate}
+        \item ซอฟต์แวร์รองรับการแสดงผลเป็นภาษาอังกฤษและภาษาไทย...
+        \item ซอฟต์แวร์เน้นการใช้งานบนหน้าจอมือถือ...
+        \item มีระบบ...
+        \item ระบบรองรับ
+        \begin{enumerate}
+            \item เงื่อนไข...
+            \item สามารถ...
+        \end{enumerate}
+    \end{enumerate}
+
+%: NOTE: This should not be included in thesis, but in proposals
+\section{ประโยชน์ที่คาดว่าจะได้่รับ}
+    หลังจากสิ้นสุดโครงการ ทางคณะผู้จัดทำคาดหวังว่า โครงการดังกล่าวจะให้ผลประโยชน์ต่อทั้งตนเเละผู้อื่น ดังต่อไปนี้
+    \begin{enumerate}
+        \item ทางคณะผู้จัดทำจะได้รับ...
+        \item อาจารย์ได้...
+        \item ทางภาควิชาได้....
+    \end{enumerate}
+
+\pagebreak
+\section{ตารางการดำเนินงาน}
+    \centering{\bf{\textit{(ตัวอย่าง Gantt Chart...)}}} \\
+    \thaijustify{
+        ในส่วนนี้เป็นแผนและตารางเวลาของแต่ละขั้นตอน...
+    }
+\begin{table}[!h]
+    \centering
+    \caption{ตารางการดำเนินการในภาคการศึกษาที่ 1}
+    \label{tbl:gantt1}
+    \begin{ganttchart}[
+        x unit = 0.5cm,
+        y unit chart = 1.2cm,
+        y unit title = 0.6cm,
+        title height = 1,
+        vgrid={*{3}{black, dotted}, *1{black, dashed}},
+        hgrid={*1{black, dashed}},
+        bar top shift = 0.1, 
+        %bar height = 0.8,
+        bar label node/.append style={
+            align=right,
+            text width=width("7. จัดทำรายงานของภาคการศึกษาที่ 1")
+        }
+    ]{1}{20}
+        \gantttitle{สิงหาคม}{4} \gantttitle{กันยายน}{4} \gantttitle{ตุลาคม}{4} \gantttitle{พฤศจิกายน}{4} \gantttitle{ธันวาคม}{4} \\
+        \gantttitlelist{1,...,4}{1} \gantttitlelist{1,...,4}{1} \gantttitlelist{1,...,4}{1} \gantttitlelist{1,...,4}{1} \gantttitlelist{1,...,4}{1} \\
+        \ganttbar{ศึกษาค้นคว้า วิเคราะห์หาปัญหาและที่มา}{2}{2} \\
+        \ganttbar{เสนอหัวข้อโครงงาน}{3}{3} \\
+        \ganttbar{ศึกษาค้นคว้า หาข้อมูลที่เกี่ยวข้อง}{3}{4} \\
+        \ganttbar{นำเสนอโครงการให้กับอาจารย์ที่ปรึกษา}{4}{4} \\
+        \ganttbar{จัดทำข้อเสนอโครงการ}{5}{9} \\
+        \ganttbar{นำเสนอข้อเสนอโครงการ}{11}{11} \\
+    \end{ganttchart}
+\end{table}
+
+\begin{table}[!h]
+    \centering
+    \caption{ตารางการดำเนินการในภาคการศึกษาที่ 2}\label{tbl:gantt2}
+    \begin{ganttchart}[
+       x unit = 0.5cm,
+        y unit chart = 1.2cm,
+        y unit title = 0.6cm,
+        title height = 1,
+        vgrid={*{3}{black, dotted}, *1{black, dashed}},
+        hgrid={*1{black, dashed}},
+        bar top shift = 0.1, 
+        %bar height = 0.8,
+        bar label node/.append style={
+            align=right,
+            text width=width("7. จัดทำรายงานของภาคการศึกษาที่ 1")}
+]   {1}{20}
+        \gantttitle{มกราคม}{4} \gantttitle{กุมภาพันธ์}{4} \gantttitle{มีนาคม}{4} \gantttitle{เมษายน}{4} \gantttitle{พฤษภาคม}{4} \\
+        \gantttitlelist{1,...,4}{1} \gantttitlelist{1,...,4}{1} \gantttitlelist{1,...,4}{1} \gantttitlelist{1,...,4}{1} \gantttitlelist{1,...,4}{1} \\
+        \ganttbar{พัฒนาซอฟต์แวร์และระบบ (ต่อจากภาคการศึกษาที่ 1)}{1}{1} \\
+    \end{ganttchart}
+\end{table}
+\pagebreak
