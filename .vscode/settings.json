@@ -1,0 +1,126 @@
+{
+    "files.eol": "\n",
+    "files.associations": {
+      "*.tex": "latex"
+    },
+    "editor.formatOnSave": true,
+    "latex-workshop.latex.tools": [
+      {
+        "name": "xelatex",
+        "command": "latexmk",
+        "args": [
+          "-xelatex",
+          "-synctex=1",
+          "-interaction=nonstopmode",
+          "-file-line-error",
+          "%DOC%"
+        ],
+        "env": {}
+      },
+      {
+        "name": "forcexelatex",
+        "command": "latexmk",
+        "args": [
+          "-f",
+          "-xelatex",
+          "-synctex=1",
+          "-interaction=nonstopmode",
+          "-file-line-error",
+          "%DOC%"
+        ],
+        "env": {}
+      },
+      {
+        "name": "bibtex",
+        "command": "bibtex",
+        "args": [
+          "%DOCFILE%"
+        ],
+        "env": {}
+      },
+      {
+        "name": "biber",
+        "command": "biber",
+        "args": [
+          "%DOCFILE%"
+        ],
+        "env": {}
+      }
+    ],
+    "latex-workshop.latex.recipes": [
+      {
+        "name": "Full Compile",
+        "tools": [
+          "xelatex",
+          "bibtex",
+          "xelatex",
+          "xelatex"
+        ]
+      },
+      {
+        "name": "Full Compile (Biber)",
+        "tools": [
+          "xelatex",
+          "biber",
+          "xelatex",
+          "xelatex"
+        ]
+      },
+      {
+        "name": "Forced Full Compile",
+        "tools": [
+          "forcexelatex",
+          "bibtex",
+          "forcexelatex",
+          "forcexelatex"
+        ]
+      },
+      {
+        "name": "Forced Full Compile (Biber)",
+        "tools": [
+          "forcexelatex",
+          "biber",
+          "forcexelatex",
+          "forcexelatex"
+        ]
+      },
+      {
+        "name": "Fast Compile",
+        "tools": [
+          "xelatex"
+        ]
+      },
+    ],
+    "latex-workshop.latex.recipe.default": "Fast Compile",
+    "latex-workshop.latex.autoBuild.run": "never", // Mode: "onFileChange" | "onSave" | "onBuild"
+    "latex-workshop.latex.autoBuild.interval": 10000,
+    "latex-workshop.synctex.afterBuild.enabled": true,
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.latex.autoClean.run": "never", // Mode: "onBuilt" | "onFailed" | "never"
+    "latex-workshop.latex.clean.fileTypes": [
+      "%DOCFILE%.aux",
+      "%DOCFILE%.bbl",
+      "%DOCFILE%.blg",
+      "%DOCFILE%.idx",
+      "%DOCFILE%.ind",
+      "%DOCFILE%.lof",
+      "%DOCFILE%.lot",
+      "%DOCFILE%.lol",
+      "%DOCFILE%.out",
+      "%DOCFILE%.toc",
+      "%DOCFILE%.acn",
+      "%DOCFILE%.acr",
+      "%DOCFILE%.alg",
+      "%DOCFILE%.glg",
+      "%DOCFILE%.glo",
+      "%DOCFILE%.gls",
+      "%DOCFILE%.fls",
+      "%DOCFILE%.fdb_latexmk",
+      "%DOCFILE%.snm",
+      "%DOCFILE%.synctex(busy)",
+      "%DOCFILE%.synctex.gz(busy)",
+      "%DOCFILE%.nav",
+      "%DOCFILE%.vrb"
+    ]
+  }
+  
