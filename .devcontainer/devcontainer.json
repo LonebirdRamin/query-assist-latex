@@ -1,0 +1,29 @@
+{
+  "name": "Latex Environment",
+  "dockerComposeFile": [
+    "docker-compose.yaml"
+  ],
+  // Services operations
+  "service": "latex",
+  "runServices": [
+    "latex"
+  ],
+  "shutdownAction": "stopCompose",
+  "postCreateCommand": "",
+  // VS Code extensions and settings
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "James-Yu.latex-workshop",
+        "usernamehw.errorlens",
+        "aaron-bond.better-comments",
+        "EditorConfig.EditorConfig",
+        "mhutchie.git-graph",
+        "vscode-icons-team.vscode-icons"
+      ]
+    }
+  },
+  // Container internal settings
+  "workspaceFolder": "/workspace",
+  "remoteUser": "root"
+}
