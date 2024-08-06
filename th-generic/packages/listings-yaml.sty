@@ -1,0 +1,12 @@
+%: YAML definition for listings
+%: https://github.com/chaehni/master-thesis/
+\RequirePackage{listings}
+\usepackage{xcolor}
+
+\lstdefinelanguage{Yaml}%
+{%
+    %: Add your keywords here manually...
+    morekeywords=[1]{mysql_db,mysql_pass,},%
+    sensitive=true,%
+    morestring=[l]:,%
+}

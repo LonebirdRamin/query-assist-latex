@@ -46,7 +46,7 @@
 \usepackage{graphicx}
 \usepackage{array}
 \usepackage{subfig}
-\usepackage{caption}
+\usepackage{caption} 
 \usepackage{graphicx}
 
 %: # Fonts and typography
@@ -101,8 +101,8 @@
 
 %: # List of diploma (No need to fill these if you're still studying Bachelor's)
 \def\dissdiplomaone{O.W.Ls Dark Arts}           % First author's diploma
-\def\dissdiplomatwo{O.W.Ls Potions}             % Second author's diploma
-\def\dissdiplomathree{O.W.Ls Muggle Studies}    % Third author's diploma
+\def\dissdiplomatwo{}           % Second author's diploma
+\def\dissdiplomathree{}         % Third author's diploma
 \def\thaidissdiplomaone{}
 \def\thaidissdiplomatwo{}
 \def\thaidissdiplomathree{}
@@ -134,7 +134,7 @@
 \def\disscommitteethree{}                       % Committee member
 \def\disscommitteefour{}                        % Committee member
 \def\thaidissadvisor{}
-\def\disscoadvisor{ศ. ฟิลเลียส ฟลิตวิกค์}
+\def\thaidisscoadvisor{ศ. ฟิลเลียส ฟลิตวิกค์}
 \def\thaidisscommitteechair{}
 \def\thaidisscoadvisortwo{ศ. อัลบัส ดัมเบิ้ลดอร์}
 \def\thaidisscommitteetwo{}
@@ -142,7 +142,7 @@
 \def\thaidisscommitteefour{}
 
 %: Uncomment if more than one appendix
-% \def\appendixnames{Appendices}
+% \def\appendixnames{Appendices}  
 
 %%%%%%%%%%%%%%%%%% Dissertation Definitions %%%%%%%%%%%%%%%%%%%%%%%%%
 %: Modifications for single spacing and indentation
@@ -216,7 +216,7 @@
     ItalicFont=*-Italic,
     BoldItalicFont=*-BoldItalic,
 ]
-\setmainfont[Mapping=tex-text,Scale=1.0,LetterSpace=0,WordSpace=1.0,FakeStretch=1.0]{Times New Roman}
+\setmainfont[Scale=1.0,LetterSpace=0,WordSpace=1.0,FakeStretch=1.0]{Times New Roman}
 \emergencystretch=10pt
 
 %: # Label Numbering using Arabic numbers
@@ -238,7 +238,7 @@
     linkcolor=blue,     % Choose some color if you want links to stand out
 }
 
-%: # Chapter definition
+%: # Chapter definition 
 %: For \chapter{} command
 \def\@makechapterhead#1{%\vspace*{.8truein}%
 %  \fontsize{15}{18}{\centering{\bf \MakeUppercase{\@chapapp{}} \thechapter}\hskip 5\p@}%\vskip 20\p@
@@ -248,7 +248,7 @@
 %  {\centering{\large\bf #1}\par\nobreak\vskip 40\p@ }}
 
 \def\chapter{\clearpage
-%   \ifprelude \pagestyle{plainbottom} \else
+%   \ifprelude \pagestyle{plainbottom} \else 
 %   \pagestyle{plain}\thispagestyle{plainbottom} \fi
    \global\@topnum\z@ \@afterindenttrue
    \secdef\@chapter\@schapter}
@@ -257,7 +257,7 @@
 %   \pagestyle{plain}\thispagestyle{plainbottom} % added in v2.4
    \pagestyle{plain}\thispagestyle{empty} % No page number in chapter.
    \refstepcounter{chapter}%
-   \typeout{\@chapapp\space\thechapter.}%
+   \typeout{\@chapapp\space\thechapter.}% 
 %% Put the work CHAPTER in ToC before the first chapter
    \iffirstchapter
        \addcontentsline{toc}{chapterxx}{\mdseries \textbf{CHAPTER}}
@@ -271,7 +271,7 @@
    \addtocontents{lof} {\protect\addvspace{0em}}
    \addtocontents{lot} {\protect\addvspace{0em}}
    \pagestyle{plain}\thispagestyle{empty}
-   % Must be added after addcontentsline
+   % Must be added after addcontentsline 
    % Otherwise, the page number may not show up..
    \@makechapterhead{#2} \@afterheading}
 %% Remove top space from \chapter*{}
@@ -290,7 +290,7 @@
 %: For \section{} command
 \renewcommand\section{\@startsection {section}{1}{\z@}%
                                    {-3.5ex \@plus -1ex \@minus -.2ex}%
-				   {0.1ex\@plus.1ex}
+				   {0.1ex\@plus.1ex} 
                                    %{2.3ex \@plus.2ex}%
                                    {\normalfont\fontsize{14}{16.8}\bfseries}}
 \renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
@@ -404,7 +404,7 @@
       \hskip -\leftskip
       \bfseries #1\nobreak\hfil \nobreak\hb@xt@\@pnumwidth{\hss #2}\par
       \penalty\@highpenalty
-    \endgroup
+    \endgroup 
   \fi}
 
 %: # Special chapter with no number
@@ -448,11 +448,11 @@
    \addvspace{0.2em}  % space above toc entry
    \@tempdima 2.2em     % width of box holding section number
    \begingroup
-     \parindent \z@ \rightskip \@pnumwidth
-     \parfillskip -\@pnumwidth
+     \parindent \z@ \rightskip \@pnumwidth 
+     \parfillskip -\@pnumwidth   
      %\sc                  % Small caps
-     \leavevmode          % TeX command to enter horizontal mode.
-      \advance\leftskip\@tempdima  %% added 5 Feb 88 to conform to
+     \leavevmode          % TeX command to enter horizontal mode.       
+      \advance\leftskip\@tempdima  %% added 5 Feb 88 to conform to 
       \hskip -\leftskip            %% 25 Jan 88 change to \numberline
       \hskip 1em #1\nobreak\hfil \nobreak\hb@xt@\@pnumwidth{\hss #2}\par
      %\hskip 2em #1\nobreak\hfil \nobreak\hbox to\@pnumwidth{\hss #2}\par
@@ -462,48 +462,48 @@
 %: # Subsection content entries
 %: Add indentation to subsection in table of contents
 % \let\l@subsection\l@section
-\def\l@subsection#1#2{
+\def\l@subsection#1#2{ 
    %\addvspace{1.0em plus 1pt}  % space above toc entry
    \addvspace{0.2em}  % space above toc entry
    \@tempdima 3em     % width of box holding section number
    \begingroup
-     \parindent \z@ \rightskip \@pnumwidth
-     \parfillskip -\@pnumwidth
+     \parindent \z@ \rightskip \@pnumwidth 
+     \parfillskip -\@pnumwidth   
      %\sc                  % Small caps
-     \leavevmode          % TeX command to enter horizontal mode.
-      \advance\leftskip\@tempdima  %% added 5 Feb 88 to conform to
+     \leavevmode          % TeX command to enter horizontal mode.       
+      \advance\leftskip\@tempdima  %% added 5 Feb 88 to conform to 
       \hskip -\leftskip            %% 25 Jan 88 change to \numberline
       \hskip 3.2em #1\nobreak\hfil \nobreak\hb@xt@\@pnumwidth{\hss #2}\par
    \endgroup}
 
 %: # Subsubsection content entries
-%: Add indentation to subsubsection in table of contents
+%: Add indentation to subsubsection in table of contents 
 %%\let\l@subsubsection\l@section
-\def\l@subsubsection#1#2{
+\def\l@subsubsection#1#2{ 
    %\addvspace{1.0em plus 1pt}  % space above toc entry
    \addvspace{0.2em}  % space above toc entry
    \@tempdima 4em     % width of box holding section number
    \begingroup
-     \parindent \z@ \rightskip \@pnumwidth
-     \parfillskip -\@pnumwidth
+     \parindent \z@ \rightskip \@pnumwidth 
+     \parfillskip -\@pnumwidth   
      %\sc                  % Small caps
-     \leavevmode          % TeX command to enter horizontal mode.
-      \advance\leftskip\@tempdima  %% added 5 Feb 88 to conform to
+     \leavevmode          % TeX command to enter horizontal mode.       
+      \advance\leftskip\@tempdima  %% added 5 Feb 88 to conform to 
       \hskip -\leftskip            %% 25 Jan 88 change to \numberline
       \hskip 6.2em #1\nobreak\hfil \nobreak\hb@xt@\@pnumwidth{\hss #2}\par
    \endgroup}
-
+   
 %: # Figure content entries
 \def\l@figure#1#2{\addpenalty{\@secpenalty}  % good place for page break
    %\addvspace{1.0em plus 1pt}  % space above toc entry
   \addvspace{0.2em}  % space above toc entry
    \@tempdima 2em            % width of box holding section number
    \begingroup
-     \parindent \z@ \rightskip \@pnumwidth
-     \parfillskip -\@pnumwidth
+     \parindent \z@ \rightskip \@pnumwidth 
+     \parfillskip -\@pnumwidth   
      %\sc                  % Small caps
-     \leavevmode          % TeX command to enter horizontal mode.
-      \advance\leftskip\@tempdima  %% added 5 Feb 88 to conform to
+     \leavevmode          % TeX command to enter horizontal mode.       
+      \advance\leftskip\@tempdima  %% added 5 Feb 88 to conform to 
       \hskip -\leftskip            %% 25 Jan 88 change to \numberline
       \hskip 0em #1\nobreak\hfil \nobreak\hb@xt@\@pnumwidth{\hss #2}\par
      %\hskip 2em #1\nobreak\hfil \nobreak\hbox to\@pnumwidth{\hss #2}\par
@@ -520,11 +520,11 @@
    \addvspace{0.2em}  % space above toc entry
    \@tempdima 2em            % width of box holding section number
    \begingroup
-     \parindent \z@ \rightskip \@pnumwidth
-     \parfillskip -\@pnumwidth
+     \parindent \z@ \rightskip \@pnumwidth 
+     \parfillskip -\@pnumwidth   
      %\sc                 % Small caps
-     \leavevmode          % TeX command to enter horizontal mode.
-      \advance\leftskip\@tempdima  %% added 5 Feb 88 to conform to
+     \leavevmode          % TeX command to enter horizontal mode.       
+      \advance\leftskip\@tempdima  %% added 5 Feb 88 to conform to 
       \hskip -\leftskip            %% 25 Jan 88 change to \numberline
       \hskip 2em #1\nobreak\hfil \nobreak\hb@xt@\@pnumwidth{\hss #2}\par
    \endgroup}
@@ -533,15 +533,15 @@
 \def\titleempty{}
 \def\diplomaempty{}
 \def\maketitlepage{\thispagestyle{empty}\c@page\@ne\baselineskip \baselineskipxii
-   \emptyline 2 {\centering
+   \emptyline 2 {\centering 
 
     \makebox{\MakeUppercase{\disstitleone}} \par % First line
-    \ifx \titleempty\disstitletwo \else
+    \ifx \titleempty\disstitletwo \else  
         \makebox{\MakeUppercase{\disstitletwo}} \par % Second line (optional)
     \fi
     \ifx \titleempty\disstitlethree \else
         \makebox{\MakeUppercase{\disstitlethree}} \par % Third line (optional)
-    \fi
+    \fi 
     \ifx \titleempty\disstitlefour \else
         \makebox{\MakeUppercase{\disstitlefour}} \par % Fourth line (optional)
     \fi
@@ -550,19 +550,19 @@
     \vfill \MakeUppercase{\dissauthor} \par
 
     %: Second Author
-    \ifx \titleempty\dissauthortwo \else
+    \ifx \titleempty\dissauthortwo \else  
         \makebox{\MakeUppercase{\dissauthortwo}} \par
     \fi
 
     %: Third Author
-    \ifx \titleempty\dissauthorthree \else
+    \ifx \titleempty\dissauthorthree \else  
         \makebox{\MakeUppercase{\dissauthorthree}} \par
     \fi
     \vfill
 
     A \MakeUppercase{\worktype}\ SUBMITTED IN PARTIAL FULFILLMENT \par
     OF THE REQUIREMENTS FOR \par
-
+    
     \IfEqCase{\fulfillment}{%
         {Subject}{%
             \MakeUppercase{\disssubjectcode} \MakeUppercase{\disssubjectname}\par
@@ -573,7 +573,7 @@
         }%
     }%
     \makebox{\MakeUppercase{\faculty}} \par
-    \makebox{\MakeUppercase{\institute}} \par
+    \makebox{\MakeUppercase{\institute}} \par   
     \dissyear \vspace*{2cm}\par}
     \newpage\baselineskip \truebaselineskip
 }
@@ -584,7 +584,7 @@
 
 %: # Signature pages
 %: Command for creating signature line
-\newcommand{\dotrule}[1]{%
+\newcommand{\dotrule}[1]{% 
     \parbox[t]{#1}{\dotfill}%
 }
 
@@ -598,12 +598,12 @@
             \ifx \titleempty\disscommitteechair \else
                 \dotrule{3.6in} & \worktype\ Chairman\\
                 (\disscommitteechair) & \\
-            & \\
+            & \\ 
             \fi
             %: Advisor
               \dotrule{3.6in} & \worktype\ Advisor\\
               (\dissadvisor) & \\
-               & \\
+               & \\ 
             %: Co-Advisor 1
             \ifx \titleempty\disscoadvisor \else
               \dotrule{3.6in} & \worktype\ Co-Advisor\\
@@ -634,7 +634,7 @@
             \fi
         \end{tabular*}
     \end{flushleft}
-    \begin{center}
+    \begin{center}	
         \vspace*{\fill}
             Copyright reserved
         \vspace*{\fill}
@@ -643,38 +643,38 @@
 
 \def\makesignaturepage{
     \newpage\thispagestyle{empty}\baselineskip \baselineskipxi {\centering
-    \makebox {\disstitleone} \par
-    \ifx \titleempty\disstitletwo \else
+    \makebox {\disstitleone} \par 
+    \ifx \titleempty\disstitletwo \else  
     \makebox{\disstitletwo} \par
     \fi
     \ifx \titleempty\disstitlethree \else
-    \makebox {\disstitlethree} \par
+    \makebox {\disstitlethree} \par 
     \fi
     \ifx \titleempty\disstitlefour \else
     \makebox {\disstitlefour} \par
     \fi
-
+    
     \vfill \IfEqCase{\fulfillment}{%
         {Subject}{%
             \vfill Member(s): \par
         }%
     }%
-    \dissauthor\
+    \dissauthor
         \ifx \diplomaempty\dissdiplomaone \else
-            \dissdiplomaone
+            ,~\dissdiplomaone
         \fi
     \par
-    \ifx \titleempty\dissauthortwo \else
-        \makebox{\dissauthortwo}
+    \ifx \titleempty\dissauthortwo \else  
+        \makebox{\dissauthortwo} 
         \ifx \diplomaempty\dissdiplomatwo \else
-            \dissdiplomatwo
+            ,~\dissdiplomatwo
         \fi
         \par
     \fi
-    \ifx \titleempty\dissauthorthree \else
-        \makebox{\dissauthorthree}
+    \ifx \titleempty\dissauthorthree \else  
+        \makebox{\dissauthorthree} 
         \ifx \diplomaempty\dissdiplomathree \else
-            \dissdiplomathree
+            ,~\dissdiplomathree
         \fi
         \par
     \fi
@@ -686,11 +686,11 @@
             \emptyline 1
             \dotrule{3.6in} \par
             By signing this, I hereby acknowledge that I have read and \par
-            verified the content of this report; thus, had approved \par
+            verified the content of this report; thus, had approved \par 
             and accepted this \MakeLowercase{\worktype}~report. \par
         }%
     }%
-
+    
     \vfill A \worktype\ Submitted in Partial Fulfillment \par
     of the Requirements for \par
     \ifthenelse{\equal{\fulfillment}{Subject}}{
@@ -700,14 +700,14 @@
         the Degree of \dissdegree\ (\makebox{\fieldofstudy}) \par
     }
     \makebox{\faculty} \par
-    \makebox{\institute} \par
+    \makebox{\institute} \par 
     \dissyear \par}
     \emptyline 1
 
     \IfEqCase{\fulfillment}{%
         {Degree}{\makesignarea}%
     }%
-
+    
     \newpage\baselineskip \truebaselineskip
 }
 
@@ -743,12 +743,12 @@
 %: ## English abstract
 \def\makeabstract{
     \newpage
-    \setcounter{page}{2}%
-    \pagestyle{plain}%
+    \setcounter{page}{2}
+    \pagestyle{plain}
     \addcontentsline{toc}{chapterx}{\mdseries ABSTRACT}
     \begin{flushleft}
         \begin{tabular}{@{}lp{0.7\textwidth}}
-             \worktype\ Title & \disstitleone\ \\
+             \worktype\ Title & \disstitleone\ \\ 
             \ifx \titleempty\disstitletwo \else
                           & \disstitletwo \\
             \fi
@@ -759,35 +759,54 @@
                           & \disstitlefour \\
             \fi
             Credits & \disscredit \\
-            Member(s) & \dissauthor \\
+            \IfEqCase{\fulfillment}{%
+                {Degree}{Author(s)}
+                {Subject}{Member(s)}
+            }% 
+            & \dissauthor \\
             \ifx \titleempty\dissauthortwo \else
                           & \dissauthortwo \\
             \fi
             \ifx \titleempty\dissauthorthree \else
                           & \dissauthorthree \\
             \fi
-            \worktype\ Advisor(s) & \dissadvisor \\
-            \ifx \titleempty\disscoadvisor \else
-                & \disscoadvisor \\
-            \fi
-            \ifx \titleempty\disscoadvisortwo \else
-                 & \disscoadvisortwo \\
-            \fi
-             Program & \dissdegree \\
-             Field of Study & \fieldofstudy \\
-             Department & \department \\
-             Faculty & \faculty \\
-             Academic Year & \dissyear
+            \IfEqCase{\fulfillment}{%
+                {Degree}{%
+                    \worktype\ Advisor(s) & \dissadvisor \\
+                    \ifx \titleempty\disscoadvisor \else
+                        & \disscoadvisor \\
+                    \fi
+                    \ifx \titleempty\disscoadvisortwo \else 
+                        & \disscoadvisortwo \\
+                    \fi
+                }%
+                {Subject}{%
+                   Instructor & \disssubjectteacher \\
+                }%
+            }%
+            \IfEqCase{\fulfillment}{%
+                {Degree}{%
+                    Program & \dissdegree \\
+                    Field of Study & \fieldofstudy \\
+                    Department & \department \\
+                    Faculty & \faculty \\
+                }%
+                {Subject}{%
+                    Subject & \disssubjectcode \\
+                    & \disssubjectname \\
+                }%
+            }%
+            Academic Year & \dissyear 
         \end{tabular}
     \end{flushleft}
 
     \emptyline 1
-    \begin{center}
+    \begin{center} 
         Abstract
     \end{center}
-
+    
     \par \justifying\abstcontent
-
+    
     \justifying
     \begin{tabular*}{\textwidth}{@{}lp{0.8\textwidth}}
         \textbf{Keywords}: & \abstkeyword
@@ -805,9 +824,8 @@
     \newpage
     \addcontentsline{toc}{chapterx}{\mdseries THAI ABSTRACT}
     \begin{flushleft}
-
         \begin{tabular}{@{}lp{0.7\textwidth}}
-             \textthai{หัวข้อ\thaiworktype} & \textthai{\thaidisstitleone}\ \\
+             \textthai{หัวข้อ\thaiworktype} & \textthai{\thaidisstitleone}\ \\ 
             \ifx \titleempty\thaidisstitletwo \else
                           & \textthai{\thaidisstitletwo} \\
             \fi
@@ -818,42 +836,61 @@
                           & \textthai{\thaidisstitlefour} \\
             \fi
              \textthai{หน่วยกิต} & \textthai{\disscredit} \\
-             \textthai{ผู้เขียน} & \textthai{\thaidissauthor} \\
+            \IfEqCase{\fulfillment}{%
+                {Degree}{\textthai{ผู้เขียน}}
+                {Subject}{\textthai{สมาชิกกลุ่ม}}
+            }%
+              & \textthai{\thaidissauthor} \\
              \ifx \titleempty\thaidissauthortwo \else
                           & \textthai{\thaidissauthortwo} \\
             \fi
             \ifx \titleempty\thaidissauthorthree \else
                           & \textthai{\thaidissauthorthree} \\
             \fi
-             \textthai{อาจารย์ที่ปรึกษา} & \textthai{\thaidissadvisor} \\
-             \ifx \titleempty\disscoadvisor \else
-                 & \textthai{\thaidisscoadvisor} \\
-            \fi
-            \ifx \titleempty\disscoadvisortwo \else
-            & \textthai{\thaidisscoadvisortwo} \\
-            \fi
-             \textthai{หลักสูตร} & \textthai{\thaidissdegree} \\
-             \textthai{สาขาวิชา} & \textthai{\thaifieldofstudy} \\
-             \textthai{ภาควิชา} & \textthai{\thaidepartment} \\
-             \textthai{คณะ} & \textthai{\thaifaculty}  \\
-             \textthai{ปีการศึกษา} & \textthai{\thaidissyear}
+            \IfEqCase{\fulfillment}{%
+                {Degree}{%
+                    \textthai{อาจารย์ที่ปรึกษา} & \textthai{\thaidissadvisor} \\
+                    \ifx \titleempty\disscoadvisor \else
+                         & \textthai{\thaidisscoadvisor} \\
+                    \fi
+                    \ifx \titleempty\disscoadvisortwo \else
+                        & \textthai{\thaidisscoadvisortwo} \\
+                    \fi
+                }%
+                {Subject}{%
+                   \textthai{อาจารย์ผู้สอน} & \textthai{\thaidisssubjectteacher} \\
+                }%
+            }%
+            \IfEqCase{\fulfillment}{%
+                {Degree}{%
+                    \textthai{หลักสูตร} & \textthai{\thaidissdegree} \\
+                    \textthai{สาขาวิชา} & \textthai{\thaifieldofstudy} \\
+                    \textthai{ภาควิชา} & \textthai{\thaidepartment}  \\
+                    \textthai{คณะ} & \textthai{\thaifaculty}  \\\
+                }%
+                {Subject}{%
+                    \textthai{รายวิชา} & \textthai{\disssubjectcode} \\
+                    & \textthai{\thaidisssubjectname} \\
+                }%
+            }%
+             \textthai{ปีการศึกษา} & \textthai{\thaidissyear} 
         \end{tabular}
     \end{flushleft}
-
+    
     \emptyline 1
-    \begin{center}
+    \begin{center} 
       \textthai{บทคัดย่อ}
     \end{center}
-
-    \par \justifying\textthai{\thabstcontent}
-
+    
+    \par \textthai{\justifying\thabstcontent}
+    
     \justifying
     \begin{tabular*}{\textwidth}{@{}lp{0.8\textwidth}}
         & \\
         \textthai{\textbf{คำสำคัญ}}: &  \textthai{\thabstkeyword}
     \end{tabular*}
     \vspace{1mm}
-
+    
     \newpage
 }
 
@@ -884,7 +921,7 @@
 %put \addcontentsline before \ssp\@starttoc to fix wrong numbering
  \addcontentsline{toc}{chapterx}{\mdseries CONTENTS}
  {\ssp\@starttoc{toc}}
-
+ 
 \pagestyle{plain}\thispagestyle{plain}
 }
 
@@ -936,17 +973,17 @@
   \renewcommand{\thechapter}{\Alph{chapter}}
   \def\@chapapp{\MakeUppercase{\appendixname}}%
   \addcontentsline{toc}{chapter}{\mdseries\bf \MakeUppercase{\appendixnames}}%
-  \firstappendixfalse%
-\fi
+  \firstappendixfalse% 
+\fi 
    \setcounter{equation}{0} % Reset equation numbering
    \setcounter{figure}{0}  % Reset figure numbering (May 2022 by Thanin)
-   \addtocounter{chapter}{1}  % Start the 1st appendix
+   \addtocounter{chapter}{1}  % Start the 1st appendix 
    {\centering{\vbox{}\vfill \MakeUppercase{\bf
     APPENDIX \thechapter} \par \MakeUppercase{#1} \vfill\vbox{}}}\newpage}
 %   {\centering{\vbox{}\vfill \MakeUppercase{{\normalsize\bf APPENDIX
 %\thechapter}} \par \MakeUppercase{#1}} \vfill\vbox{}}}\newpage}
 
-\def\appendix#1{%
+\def\appendix#1{% 
 \appendixcover{#1}
 \addcontentsline{toc}{apdx}{\thechapter\hskip 1em #1}%
 }
@@ -966,7 +1003,7 @@
 \def\thebibliography#1{%\bibliographycover
   %\chapter*{\bibname\@mkboth{}{}}
   %\addcontentsline{toc}{chapter}{\bibname} \ssp
-  \referencepage \vspace*{-30\p@}\ssp\pagestyle{plain}
+  \referencepage \vspace*{-30\p@}\ssp\pagestyle{plain}	
   \list{\@biblabel{\arabic{enumiv}}}{\settowidth\labelwidth{\@biblabel{#1}}%
     \leftmargin\labelwidth \advance\leftmargin\labelsep
     \usecounter{enumiv} \let\p@enumiv\@empty

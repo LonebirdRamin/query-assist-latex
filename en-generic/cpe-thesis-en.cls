@@ -1,7 +1,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%% DOC CLASS INFO %%%%%%%%%%%%%%%%%%%%%%%%%%%
-%: Filename: cpe-thesis-th.cls
-%: Version: June 2024
+%: Filename: cpe-thesis-en.cls
+%: Version: July 2024
 %: Contributors:
 %: - Peerapon Siripongwutikorn, CPE, 2016
 %: - Wuttipat Chokananatasab, FIBO, 2016
@@ -22,7 +22,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%% Identification %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{cpe-thesis-th}[2016/05/30 CPE KMUTT Thesis Template (TH)]
+\ProvidesClass{cpe-thesis-en}[2016/05/30 CPE KMUTT Thesis Template (EN)]
 \typeout{https://github.com/jate-koh}
 \LoadClass{report}
 
@@ -35,36 +35,33 @@
 \let\Err=\errmessage
 
 %: # Report elements
-%: NOTE: Use the option pdftex instead of dvips if you use pdflatex 
 \usepackage[
     left=4cm,
     top=3cm,
     right=2cm,
     bottom=2cm
-]{geometry} 
+]{geometry}
 \usepackage{lmodern}
 \usepackage{listings}
 \usepackage{graphicx}
 \usepackage{array}
 \usepackage{subfig}
 \usepackage{caption} 
+\usepackage{graphicx}
 
-%: # Fonts, typography
+%: # Fonts and typography
 \usepackage{mathspec}
-\usepackage[no-math]{fontspec} 
+\usepackage[no-math]{fontspec}
 \usepackage{amsfonts,amsmath}
 \usepackage{xunicode,xltxtra}
 
-%: # Links, hyperlinks, reference
+%: # Links, hyperlinks, and references
 \usepackage{url}
 \usepackage{hyperref}
-\usepackage{cleveref}  
+\usepackage{cleveref}
+
 
 %%%%%%%%%%%%%%%%%%% Definitions of major strings %%%%%%%%%%%%%%%%%%%%
-
-%: # Cover language
-\def\coverlang{Thai}
-
 %: # Fulfillment
 %: Subject or degree
 \def\fulfillment{Degree}
@@ -103,9 +100,9 @@
 \def\thaidissauthorthree{โรนัลด์ อาร์เธอร์ วีสลีย์}
 
 %: # List of diploma (No need to fill these if you're still studying Bachelor's)
-\def\dissdiplomaone{O.W.Ls Dark Arts}           % First author's diploma
-\def\dissdiplomatwo{O.W.Ls Potions}             % Second author's diploma
-\def\dissdiplomathree{O.W.Ls Muggle Studies}    % Third author's diploma
+\def\dissdiplomaone{}           % First author's diploma
+\def\dissdiplomatwo{}           % Second author's diploma
+\def\dissdiplomathree{}         % Third author's diploma
 \def\thaidissdiplomaone{}
 \def\thaidissdiplomatwo{}
 \def\thaidissdiplomathree{}
@@ -137,12 +134,15 @@
 \def\disscommitteethree{}                       % Committee member
 \def\disscommitteefour{}                        % Committee member
 \def\thaidissadvisor{}
-\def\disscoadvisor{ศ. ฟิลเลียส ฟลิตวิกค์}
+\def\thaidisscoadvisor{ศ. ฟิลเลียส ฟลิตวิกค์}
 \def\thaidisscommitteechair{}
 \def\thaidisscoadvisortwo{ศ. อัลบัส ดัมเบิ้ลดอร์}
 \def\thaidisscommitteetwo{}
 \def\thaidisscommitteethree{}
 \def\thaidisscommitteefour{}
+
+%: Uncomment if more than one appendix
+% \def\appendixnames{Appendices}  
 
 %%%%%%%%%%%%%%%%%% Dissertation Definitions %%%%%%%%%%%%%%%%%%%%%%%%%
 %: Modifications for single spacing and indentation
@@ -150,11 +150,12 @@
 %: By Ethan V. Munson
 \def\ssp{\def\baselinestretch{1.0}\large\normalsize}
 \def\dsp{\def\baselinestretch{1.37}\large\normalsize}
+%\def\dsp{\def\baselinestretch{1.1}\large\normalsize}
 \newif\ifdraftmode \draftmodefalse
-\ifdim \overfullrule > 0pt \draftmodetrue \ssp \else \dsp \fi %: if on draft mode
+\ifdim \overfullrule > 0pt \draftmodetrue \ssp \else \dsp \fi  % draft mode on?
 \def\truebaselineskip{\baselineskip}
 \def\baselineskipxii{16pt}
-\def\baselineskipxi{16pt}  %: for title and signature page
+\def\baselineskipxi{16pt}  % for title and signature page
 \def\emptyline#1{\vspace*{#1\baselineskip}}
 \newif\iffirstappendix \firstappendixtrue
 \newif\iffirstchapter \firstchaptertrue
@@ -164,6 +165,7 @@
 \def\setarabic{\ifromanmode \romanmodefalse \pagenumbering{arabic} \fi}
 \setcounter{secnumdepth}{5}
 \topmargin -0.8cm \oddsidemargin 0.5 in
+%\textheight 9.0truein \advance\textheight by \topskip \textwidth 6.0truein
 \textheight 24.69cm \advance\textheight by \topskip \textwidth 6.0truein
 \footskip 30pt \footnotesep 7.7pt
 \headheight 12 truept \headsep 25 truept
@@ -205,19 +207,8 @@
    \def\@oddfoot{\hfil\rm\thepage\hfil} \def\@evenfoot{\hfil\rm\thepage\hfil}}
 \ps@plainbottom
 
-%: # Element prefixes
-\renewcommand{\chaptername}{บทที่}
-\def\appendixnames{ภาคผนวก} 
-\def\fnum@figure{รูปที่~\thefigure}
-\def\fnum@table{ตารางที่~\thetable}
-\def\fnum@lstlisting{ชุดคำสั่งที่~\thelstlisting}
-\crefname{figure}{รูปที่}{รูปที่}
-\crefname{table}{ตารางที่}{ตารางที่}
-\crefrangeformat{figure}{รูปที่~#3#1#4 - #5#2#6}
-\crefrangeformat{table}{ตารางที่~#3#1#4 - #5#2#6}
-
 %: # Typography
-\defaultfontfeatures{Scale=1.3,Mapping=tex-text,LetterSpace=0.0}
+\defaultfontfeatures{Mapping=tex-text,Scale=1.0,LetterSpace=0.0}
 \newfontfamily\thaifont[Script=Thai,Scale=1.3]{THSarabunNew.ttf}[
     Path=fonts/,
     Extension=.ttf,
@@ -225,26 +216,13 @@
     ItalicFont=*-Italic,
     BoldItalicFont=*-BoldItalic,
 ]
-\setmainfont[Scale=1.3,LetterSpace=0,WordSpace=1.0,FakeStretch=1.0,Mapping=tex-text]{THSarabunNew.ttf}[
-    Path=fonts/,
-    Extension=.ttf,
-    BoldFont=*-Bold,
-    ItalicFont=*-Italic,
-    BoldItalicFont=*-BoldItalic,
-]
-
-%: # Thai Numbering and Alphabets Sequences
-\def\thalph#1{\expandafter\@thalph\csname c@#1\endcsname}
-\def\@thalph#1{\ifcase#1\or ก\or ข\or ค\or ง\or จ\or ฉ\else\@ctrerr\fi}
-\def\thainum#1{\expandafter\@thainum\csname c@#1\endcsname}
-\def\@thainum#1{\ifcase#1\or ๑\or ๒\or ๓\or ๔\or ๕\or ๖\or ๗\or ๘\or ๙\else
-\@ctrerr\fi}
+\setmainfont[Scale=1.0,LetterSpace=0,WordSpace=1.0,FakeStretch=1.0]{Times New Roman}
+\emergencystretch=10pt
 
 %: # Label Numbering using Arabic numbers
 \renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}}
 \renewcommand{\labelenumiii}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}}
 \renewcommand{\labelenumiv}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}.\arabic{enumiv}}
-
 
 %: # Paragraph skip, indentation length, and line spacing
 \setlength{\parindent}{10mm}
@@ -265,7 +243,7 @@
 \def\@makechapterhead#1{%\vspace*{.8truein}%
 %  \fontsize{15}{18}{\centering{\bf \MakeUppercase{\@chapapp{}} \thechapter}\hskip 5\p@}%\vskip 20\p@
 %  \fontsize{15}{18}{\centering\MakeUppercase{\bf #1}\par\nobreak\emptyline 2}}
-  {\centering\MakeUppercase{\Large\bf \@chapapp{} \thechapter\hskip 5\p@ #1}\par\nobreak\vskip 30\p@ }}
+  {\centering\MakeUppercase{\large\bf \@chapapp{} \thechapter\hskip 5\p@ #1}\par\nobreak\vskip 30\p@ }}
 %\def\@makeschapterhead#1{\vspace*{.8truein}%
 %  {\centering{\large\bf #1}\par\nobreak\vskip 40\p@ }}
 
@@ -276,32 +254,28 @@
    \secdef\@chapter\@schapter}
 
 \def\@chapter[#1]#2{\preludefalse\setarabic
-    % \pagestyle{plain}\thispagestyle{plainbottom} % added in v2.4
-    \pagestyle{plain}\thispagestyle{empty} % No page number in chapter.
-    \refstepcounter{chapter}%
-    \typeout{\@chapapp\space\thechapter.}
-
-    %: Put the work CHAPTER in ToC before the first chapter
-    % \iffirstchapter
-    %   \addcontentsline{toc}{chapterxx}{\mdseries\bf บทที่}
-    %   \firstchapterfalse
-    % \fi
-
-    %: Add the chapter heading in ToC
-   \addcontentsline{toc}{chapter}{\normalsize\bf\MakeUppercase{บทที่ \tocprefix {\protect \numberline{\thechapter}\hskip -0.8em #1}}}
-   \chaptermark{#1}
-
+%   \pagestyle{plain}\thispagestyle{plainbottom} % added in v2.4
+   \pagestyle{plain}\thispagestyle{empty} % No page number in chapter.
+   \refstepcounter{chapter}%
+   \typeout{\@chapapp\space\thechapter.}% 
+%% Put the work CHAPTER in ToC before the first chapter
+   \iffirstchapter
+       \addcontentsline{toc}{chapterxx}{\mdseries \textbf{CHAPTER}}
+       \firstchapterfalse
+   \fi
+%% Add the chapter heading in ToC
+   \addcontentsline{toc}{chapter}{\normalsize\bf\MakeUppercase{\tocprefix {\protect \numberline{\thechapter.}\hskip -0.5em #1}}}
+   \chaptermark{#1}%
+   %\addtocontents{lof} {\protect\addvspace{0\p@}}
+   %\addtocontents{lot} {\protect\addvspace{0\p@}}
    \addtocontents{lof} {\protect\addvspace{0em}}
    \addtocontents{lot} {\protect\addvspace{0em}}
-   \addtocontents{lol} {\protect\addvspace{0em}}
    \pagestyle{plain}\thispagestyle{empty}
    % Must be added after addcontentsline 
    % Otherwise, the page number may not show up..
-   \@makechapterhead{#2} \@afterheading
-}
-
-%: Remove top space from \chapter*{}
-%: Chapter heading in the text for \chapter*{}
+   \@makechapterhead{#2} \@afterheading}
+%% Remove top space from \chapter*{}
+%% Chapter heading in the text for \chapter*{}
 \def\@makeschapterhead#1{%
   %\vspace*{50\p@}%
   {\parindent \z@ \centering%\raggedright
@@ -312,25 +286,51 @@
   }}
 \def\@schapter#1{\@makeschapterhead{#1} \@afterheading}
 
-
 %: # Section definitions
 %: For \section{} command
-
 \renewcommand\section{\@startsection {section}{1}{\z@}%
-                                    {-3.5ex \@plus -1ex \@minus -.2ex}%
-                                    {0.1ex\@plus.1ex} 
-                                    %{2.3ex \@plus.2ex}%
-                                    {\normalfont\fontsize{12}{16.8}\bfseries}}
+                                   {-3.5ex \@plus -1ex \@minus -.2ex}%
+				   {0.1ex\@plus.1ex} 
+                                   %{2.3ex \@plus.2ex}%
+                                   {\normalfont\fontsize{14}{16.8}\bfseries}}
 \renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
-                                    {-3.25ex\@plus -1ex \@minus -.2ex}%
-                                    {0.1ex \@plus .2ex}%
-                                    {\normalfont\fontsize{11}{15.6}\bfseries}}
+                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {0.1ex \@plus .2ex}%
+                                    {\normalfont\fontsize{13}{15.6}\bfseries}}
 \renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
                                      {-3.25ex\@plus -1ex \@minus -.2ex}%
                                      {0.1ex \@plus .2ex}%
                                      {\normalfont\normalsize\bfseries}}
-                                     
+
 %: # Table/Figure caption definitions
+\setlength\belowcaptionskip{10\p@}
+\long\def\@maketablecaption#1#2{
+    \global \@minipagefalse
+    \hbox to \hsize{\parbox[t]{\hsize}{{\bf #1} #2 \vskip 0.5em}}}
+\let\old@floatboxreset\@floatboxreset
+\def\table{%
+\let\@makecaption\@maketablecaption
+%\def\@floatboxreset{%
+% \old@floatboxreset
+% \@tablesize
+%}%
+  \let\footnoterule\relax
+  \let\contcaption\conttablecaption \@float{table}}
+\def\endtable{\end@float}
+
+
+\long\def\@makecaption#1#2{%
+  \vskip\abovecaptionskip
+  \sbox\@tempboxa{{\bf #1} #2}%
+  \ifdim \wd\@tempboxa >\hsize
+    {\bf #1} #2\par
+  \else
+    \global \@minipagefalse
+    \hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
+  \fi
+  \vskip\belowcaptionskip}
+
+%: ## Caption setup for \caption
 \captionsetup[table]{
     format=hang,
     labelfont=bf,
@@ -365,52 +365,6 @@
     singlelinecheck=true,
     skip=10pt
 }
-
-% \setlength\belowcaptionskip{10\p@}
-% \long\def\@maketablecaption#1#2{
-%     \global \@minipagefalse
-%     \hbox to \hsize{\parbox[t]{\hsize}{{\bf #1} #2 \vskip 0.5em}}}
-% \let\old@floatboxreset\@floatboxreset
-% \def\table{%
-% \let\@makecaption\@maketablecaption
-% %\def\@floatboxreset{%
-% % \old@floatboxreset
-% % \@tablesize
-% %}%
-%   \let\footnoterule\relax
-%   \let\contcaption\conttablecaption \@float{table}}
-% \def\endtable{\end@float}
-
-\setlength\belowcaptionskip{10\p@}
-\long\def\@maketablecaption#1#2{\@tablecaptionsize
-  \setbox\@tempboxa\hbox{#1. #2}
-  \ifdim \wd\@tempboxa >\hsize              % IF longer than one line THEN
-    \unhbox\@tempboxa\par                   %   set as justified paragraph
-  \else                                     % ELSE
-    \global \@minipagefalse
-    \hbox to\hsize{\hfil\box\@tempboxa\hfil}%   center single line.
-  \fi}
-
-\long\def\@makecaption#1#2{%
-  \vskip\abovecaptionskip
-  \sbox\@tempboxa{{\bf #1} #2}%
-  \ifdim \wd\@tempboxa >\hsize
-    {\bf #1} #2\par
-  \else
-    \global \@minipagefalse
-    \hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
-  \fi
-  \vskip\belowcaptionskip}
-
-%: # Subfigures definitions
-%\renewcommand{\subfigtopskip}{10pt}
-%\renewcommand{\subfigbottomskip}{-5pt} 
-%\renewcommand{\subfigcapskip}{-6pt} %vertical space between caption
-%                                    %and figure.
-%\renewcommand{\subfigcapmargin}{0pt}
-
-%: Use Thai alphabet for subfigure's captions
-\renewcommand{\thesubfigure}{\thalph{subfigure}}
 
 %%%%%%%%%%%%%%%%%%% Content line definitions %%%%%%%%%%%%%%%%%%%%%%%%
 %: Define how the content lines show up in ToC when using
@@ -452,7 +406,7 @@
       \penalty\@highpenalty
     \endgroup 
   \fi}
-  
+
 %: # Special chapter with no number
 \newcommand*\l@chapterxx[2]{%
   \ifnum \c@tocdepth >\m@ne
@@ -470,72 +424,90 @@
     \endgroup \vskip -0.8em
   \fi}
 
+
+%\newlength\@chapterl
+%\newlength\@sectionl
+%\newlength\@subsectionl
+%\newlength\@subsubsectionl
+%\newlength\@presubs
+%\newlength\@presubsub
+%
+%\setlength\@chapterl{1.5em}
+%\setlength\@sectionl{1.5em}
+%\setlength\@subsectionl{1em}
+%\setlength\@subsubsectionl{1em}
+%
+%\setlength\@presubs{1\@sectionl}
+%\addtolength\@presubs{1\@chapterl}
+%\setlength\@presubsub{1\@presubs}
+%\addtolength\@presubsub{1\@subsectionl}
+
 %: # Section content entries
-\def\l@section#1#2{\addpenalty{\@secpenalty}    % Page break
-   %\addvspace{1.0em plus 1pt}                  % Space above ToC entry
-   \addvspace{0.2em}                            % Space above ToC entry
-   \@tempdima 1.5em                             % Width of the box holding section number
+\def\l@section#1#2{\addpenalty{\@secpenalty}  % good place for page break
+   %\addvspace{1.0em plus 1pt}  % space above toc entry
+   \addvspace{0.2em}  % space above toc entry
+   \@tempdima 2.2em     % width of box holding section number
    \begingroup
      \parindent \z@ \rightskip \@pnumwidth 
      \parfillskip -\@pnumwidth   
-     %\sc                                       % Small caps
-     \leavevmode                                % TeX command to enter horizontal mode    
-      \advance\leftskip\@tempdima
-      \hskip -\leftskip
+     %\sc                  % Small caps
+     \leavevmode          % TeX command to enter horizontal mode.       
+      \advance\leftskip\@tempdima  %% added 5 Feb 88 to conform to 
+      \hskip -\leftskip            %% 25 Jan 88 change to \numberline
       \hskip 1em #1\nobreak\hfil \nobreak\hb@xt@\@pnumwidth{\hss #2}\par
      %\hskip 2em #1\nobreak\hfil \nobreak\hbox to\@pnumwidth{\hss #2}\par
    \endgroup}
 
+
 %: # Subsection content entries
 %: Add indentation to subsection in table of contents
+% \let\l@subsection\l@section
 \def\l@subsection#1#2{ 
-   %\addvspace{1.0em plus 1pt}                  % Space above ToC entry
-   \addvspace{0.2em}                            % Space above ToC entry
-   \@tempdima 2em                               % Width of the box holding section number
+   %\addvspace{1.0em plus 1pt}  % space above toc entry
+   \addvspace{0.2em}  % space above toc entry
+   \@tempdima 3em     % width of box holding section number
    \begingroup
      \parindent \z@ \rightskip \@pnumwidth 
      \parfillskip -\@pnumwidth   
-     %\sc                                       % Small caps
-     \leavevmode                                % TeX command to enter horizontal mode
-      \advance\leftskip\@tempdima               % Added 5 Feb 88 to conform to 
-      \hskip -\leftskip                         % 25 Jan 88 change to \numberline
-      \hskip 2.5em #1\nobreak\hfil \nobreak\hb@xt@\@pnumwidth{\hss #2}\par
+     %\sc                  % Small caps
+     \leavevmode          % TeX command to enter horizontal mode.       
+      \advance\leftskip\@tempdima  %% added 5 Feb 88 to conform to 
+      \hskip -\leftskip            %% 25 Jan 88 change to \numberline
+      \hskip 3.2em #1\nobreak\hfil \nobreak\hb@xt@\@pnumwidth{\hss #2}\par
    \endgroup}
-
 
 %: # Subsubsection content entries
 %: Add indentation to subsubsection in table of contents 
+%%\let\l@subsubsection\l@section
 \def\l@subsubsection#1#2{ 
-   %\addvspace{1.0em plus 1pt}                  % Space above ToC entry
-   \addvspace{0.2em}                            % Space above ToC entry
-   \@tempdima 3em                               % Width of the box holding section number
+   %\addvspace{1.0em plus 1pt}  % space above toc entry
+   \addvspace{0.2em}  % space above toc entry
+   \@tempdima 4em     % width of box holding section number
    \begingroup
      \parindent \z@ \rightskip \@pnumwidth 
      \parfillskip -\@pnumwidth   
-     %\sc                                       % Small caps
-     \leavevmode                                % TeX command to enter horizontal mode
-      \advance\leftskip\@tempdima               % Added 5 Feb 88 to conform to 
-      \hskip -\leftskip                         % 25 Jan 88 change to \numberline
-      \hskip 4.5em #1\nobreak\hfil \nobreak\hb@xt@\@pnumwidth{\hss #2}\par
+     %\sc                  % Small caps
+     \leavevmode          % TeX command to enter horizontal mode.       
+      \advance\leftskip\@tempdima  %% added 5 Feb 88 to conform to 
+      \hskip -\leftskip            %% 25 Jan 88 change to \numberline
+      \hskip 6.2em #1\nobreak\hfil \nobreak\hb@xt@\@pnumwidth{\hss #2}\par
    \endgroup}
    
 %: # Figure content entries
-\def\l@figure#1#2{
-    \addpenalty{\@secpenalty}                   % Page break
-    %\addvspace{1.0em plus 1pt}                 % Space above ToC entry
-    \addvspace{0.2em}                           % Space above ToC entry
-    \@tempdima 2em                              % Width of the box holding section number
-    \begingroup
-        \parindent \z@ \rightskip \@pnumwidth 
-        \parfillskip -\@pnumwidth   
-        %\sc                                    % Small caps
-        \leavevmode                             % TeX command to enter horizontal mode
-        \advance\leftskip\@tempdima             % Added 5 Feb 88 to conform to 
-        \hskip -\leftskip                       % 25 Jan 88 change to \numberline
-        \hskip 0em #1\nobreak\hfil \nobreak\hb@xt@\@pnumwidth{\hss #2}\par
-        %\hskip 2em #1\nobreak\hfil \nobreak\hbox to\@pnumwidth{\hss #2}\par
-   \endgroup
-}
+\def\l@figure#1#2{\addpenalty{\@secpenalty}  % good place for page break
+   %\addvspace{1.0em plus 1pt}  % space above toc entry
+  \addvspace{0.2em}  % space above toc entry
+   \@tempdima 2em            % width of box holding section number
+   \begingroup
+     \parindent \z@ \rightskip \@pnumwidth 
+     \parfillskip -\@pnumwidth   
+     %\sc                  % Small caps
+     \leavevmode          % TeX command to enter horizontal mode.       
+      \advance\leftskip\@tempdima  %% added 5 Feb 88 to conform to 
+      \hskip -\leftskip            %% 25 Jan 88 change to \numberline
+      \hskip 0em #1\nobreak\hfil \nobreak\hb@xt@\@pnumwidth{\hss #2}\par
+     %\hskip 2em #1\nobreak\hfil \nobreak\hbox to\@pnumwidth{\hss #2}\par
+   \endgroup}
 
 %: # Table content entries
 \let\l@table\l@figure
@@ -544,22 +516,20 @@
 \let\l@lstlisting\l@figure
 
 %: # Appendix content entries
-\def\l@apdx#1#2{\addpenalty{\@secpenalty}       % Good place for page break
-   \addvspace{0.2em}                            % Space above toc entry
-   \@tempdima 2em                               % Width of box holding section number
+\def\l@apdx#1#2{\addpenalty{\@secpenalty}  % good place for page break
+   \addvspace{0.2em}  % space above toc entry
+   \@tempdima 2em            % width of box holding section number
    \begingroup
      \parindent \z@ \rightskip \@pnumwidth 
      \parfillskip -\@pnumwidth   
-     %\sc                                       % Small caps
-     \leavevmode                                % TeX command to enter horizontal mode.       
-      \advance\leftskip\@tempdima               % Added 5 Feb 88 to conform to 
-      \hskip -\leftskip                         % 25 Jan 88 change to \numberline
+     %\sc                 % Small caps
+     \leavevmode          % TeX command to enter horizontal mode.       
+      \advance\leftskip\@tempdima  %% added 5 Feb 88 to conform to 
+      \hskip -\leftskip            %% 25 Jan 88 change to \numberline
       \hskip 2em #1\nobreak\hfil \nobreak\hb@xt@\@pnumwidth{\hss #2}\par
-   \endgroup
-}
-
+   \endgroup}
 %%%%%%%%%%%%%%%%%%%%%% Pages definitions %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%: # Title page (EN)
+%: # Title page
 \def\titleempty{}
 \def\diplomaempty{}
 \def\maketitlepage{\thispagestyle{empty}\c@page\@ne\baselineskip \baselineskipxii
@@ -608,54 +578,6 @@
     \newpage\baselineskip \truebaselineskip
 }
 
-%: Title page (TH)
-\def\makethaititlepage{\thispagestyle{empty}\c@page\@ne\baselineskip \baselineskipxii
-   \emptyline 2 {%
-   \centering
-    %: Title
-    \makebox{\large\thaidisstitleone} \par % First line
-    \ifx \titleempty\thaidisstitletwo \else  
-        \makebox{\large\thaidisstitletwo} \par % Second line (optional)
-    \fi
-    \ifx \titleempty\thaidisstitlethree \else
-        \makebox{\large\thaidisstitlethree} \par % Third line (optional)
-    \fi 
-    \ifx \titleempty\thaidisstitlefour \else
-        \makebox{\large\thaidisstitlefour} \par % Fourth line (optional)
-    \fi
-
-    %: First Author
-    \vfill {\large\thaidissauthor} \par
-
-    %: Second Author
-    \ifx \titleempty\thaidissauthortwo \else  
-        \makebox{\large\thaidissauthortwo} \par
-    \fi
-
-    %: Third Author
-    \ifx \titleempty\thaidissauthorthree \else  
-        \makebox{\large\thaidissauthorthree} \par
-    \fi
-    \vfill
-
-    \large \makebox{\thaiworktype}นี้เป็นส่วนหนึ่งของ%
-    \IfEqCase{\fulfillment}{%
-        {Subject}{%
-            \par รายวิชา \MakeUppercase{\disssubjectcode} \thaidisssubjectname \par
-             ภาควิชา\makebox{\thaidepartment}
-        }%
-        {Degree}{%
-            การศึกษาตามหลักสูตร \par
-            \thaidissdegree~สาขาวิชา\makebox{\thaifieldofstudy}\par%
-        }%
-    }%
-    คณะ\makebox{\thaifaculty} \par
-    \makebox{\thaiinstitute} \par
-    ปีการศึกษา~\thaidissyear \vspace*{2cm}\par  
-    }
-    \newpage\baselineskip \truebaselineskip
-}
-
 %: # Copyright page
 \def\makecopyrightpage{\newpage
    {\centering{\vbox{}\vfill Copyright by \dissauthor\par\dissyear\par \vfill\vbox{}}}\newpage}
@@ -663,10 +585,10 @@
 %: # Signature pages
 %: Command for creating signature line
 \newcommand{\dotrule}[1]{% 
-      \parbox[t]{#1}{\dotfill}%
-} 
+    \parbox[t]{#1}{\dotfill}%
+}
 
-%: ## Sign area (EN)
+%: ## Sign area
 \def\makesignarea{
     \begin{flushleft}
         \worktype\ Committee \par\par
@@ -718,132 +640,7 @@
         \vspace*{\fill}
     \end{center}
 }
-%: ## Sign area (TH)
-\def\makethaisignarea{
-    \begin{flushleft}
-        คณะกรรมการสอบ\makebox{\thaiworktype} \par\par
-        \begin{tabular*}{\textwidth}{@{}c@{\extracolsep{0.5cm}}l@{}}
-           & \\
-        %: Chair committee
-            \ifx \titleempty\thaidisscommitteechair \else
-                \dotrule{3in} & ประธานกรรมการสอบ\makebox{\thaiworktype}\\
-                (\thaidisscommitteechair) & \\
-            & \\ 
-            \fi
-        %: Advisor
-            \dotrule{3in} & กรรมการและอาจารย์ทีปรึกษา\makebox{\thaiworktype}\\
-            (\thaidissadvisor) & \\
-            & \\ 
-        %: Co-Advisor 1
-            \ifx \titleempty\thaidisscoadvisor \else
-                \dotrule{3in} & กรรมการและอาจารย์ทีปรึกษา\makebox{\thaiworktype}\ (ร่วม)\\
-                (\thaidisscoadvisor) & \\
-                & \\
-            \fi
-        %: Co-Advisor 2
-            \ifx \titleempty\thaidisscoadvisortwo \else
-                \dotrule{3in} & กรรมการและอาจารย์ทีปรึกษา\makebox{\thaiworktype}\ (ร่วม)\\
-                (\thaidisscoadvisortwo) & \\
-                & \\
-            \fi
-        %: 2nd Committee member
-            \dotrule{3in} & กรรมการ \\
-            (\thaidisscommitteetwo) & \\
-            & \\
-        %: 3rd Committee member
-            \ifx \titleempty\thaidisscommitteethree \else
-                \dotrule{3in} & กรรมการ \\
-                (\thaidisscommitteethree) & \\
-                & \\
-            \fi
-        %: 4th Committee member
-            \ifx \titleempty\thaidisscommitteefour \else
-                \dotrule{3in} & กรรมการ \\
-                (\thaidisscommitteefour) & \\
-                & \\
-            \fi
-        \end{tabular*}
-    \end{flushleft}
-    \begin{center}	
-        \vspace*{\fill}
-            ลิขสิทธิ์ของมหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี
-        \vspace*{\fill}
-    \end{center}
-}
-%: ## Sign Page (TH)
-\def\makethaisignaturepage{
-    \newpage\thispagestyle{empty}\baselineskip \baselineskipxi {\centering
-    \makebox{\thaidisstitleone} \par 
-    \ifx \titleempty\thaidisstitletwo \else  
-        \makebox{\thaidisstitletwo} \par
-    \fi
-    \ifx \titleempty\thaidisstitlethree \else
-        \makebox {\thaidisstitlethree} \par 
-    \fi
-    \ifx \titleempty\thaidisstitlefour \else
-        \makebox {\thaidisstitlefour} \par
-    \fi
-    
-    \vfill \IfEqCase{\fulfillment}{%
-        {Subject}{%
-            \vfill \textbf{สมาชิกกลุ่ม}: \par
-        }%
-    }%
-    \makebox{\thaidissauthor}%
-        \ifx \diplomaempty\thaidissdiplomaone \else
-            ,~\thaidissdiplomaone
-        \fi
-    \par
-    \ifx \titleempty\thaidissauthortwo \else  
-        \makebox{\thaidissauthortwo}%
-        \ifx \diplomaempty\thaidissdiplomatwo \else
-            ,~\thaidissdiplomatwo
-        \fi
-        \par
-    \fi
-    \ifx \titleempty\thaidissauthorthree \else  
-        \makebox{\thaidissauthorthree}%
-        \ifx \diplomaempty\thaidissdiplomathree \else
-            ,~\thaidissdiplomathree
-        \fi
-        \par
-    \fi
 
-    \IfEqCase{\fulfillment}{%
-        {Subject}{%
-            \vfill \textbf{เสนอ}: \par
-            \makebox{\thaidisssubjectteacher} \par
-            \emptyline 1
-            \dotrule{3.6in} \par
-            ในการลงนามนี้ ข้าพเจ้าได้อ่านและตรวจสอบเนื้อหาของ \par
-            รายงาน\makebox{\thaiworktype}เป็นที่เรียบร้อยแล้ว และได้ตัดสินใจ \par
-            อนุมัติและรับรายงานเล่มนี้ \par
-        }%
-    }%
-    
-    \vfill \makebox{\thaiworktype}นี้เป็นส่วนหนึ่งของ%
-    \IfEqCase{\fulfillment}{%
-        {Subject}{%
-            \par รายวิชา \MakeUppercase{\disssubjectcode} \thaidisssubjectname \par
-             ภาควิชา\makebox{\thaidepartment}
-        }%
-        {Degree}{%
-            การศึกษาตามหลักสูตร \par
-            \thaidissdegree~สาขาวิชา\makebox{\thaifieldofstudy}\par%
-        }%
-    }%
-    คณะ\makebox{\thaifaculty} \par
-    \makebox{\thaiinstitute} \par
-    ปีการศึกษา~\thaidissyear \vspace*{1cm}\par  
-    }
-    
-    \IfEqCase{\fulfillment}{%
-        {Degree}{\makethaisignarea}%
-    }%
-    
-    \newpage\baselineskip \truebaselineskip
-}
-%: ## Sign page (EN)
 \def\makesignaturepage{
     \newpage\thispagestyle{empty}\baselineskip \baselineskipxi {\centering
     \makebox {\disstitleone} \par 
@@ -862,22 +659,22 @@
             \vfill Member(s): \par
         }%
     }%
-    \dissauthor,
+    \dissauthor
         \ifx \diplomaempty\dissdiplomaone \else
-            ~\dissdiplomaone
+            ,~\dissdiplomaone
         \fi
     \par
     \ifx \titleempty\dissauthortwo \else  
-        \makebox{\dissauthortwo},
+        \makebox{\dissauthortwo} 
         \ifx \diplomaempty\dissdiplomatwo \else
-            ~\dissdiplomatwo
+            ,~\dissdiplomatwo
         \fi
         \par
     \fi
     \ifx \titleempty\dissauthorthree \else  
-        \makebox{\dissauthorthree},
+        \makebox{\dissauthorthree} 
         \ifx \diplomaempty\dissdiplomathree \else
-            ~\dissdiplomathree
+            ,~\dissdiplomathree
         \fi
         \par
     \fi
@@ -914,7 +711,7 @@
     \newpage\baselineskip \truebaselineskip
 }
 
-%: Generation logics signature page and title page
+%: Generation scripts signature page and title page
 \def\genfrontpages#1#2{%
     % Include the image
     \begin{center}
@@ -935,21 +732,8 @@
             \def\fulfillment{Degree} % Default to Degree
         }%
     }
-    
-    %: Check coverlang value and make title page and
-    \ifthenelse{\equal{\coverlang}{English}}{%
-        \maketitlepage%
-        \makesignaturepage%
-    }{%
-        \ifthenelse{\equal{\coverlang}{Thai}}{%
-            \makethaititlepage%
-            \makethaisignaturepage%
-        }{%
-            \Err{Warning: Invalid coverlang; use either 'English' | 'Thai' (case-sensitive!)}%
-            \maketitlepage % Default to English
-            \makesignaturepage%
-        }%
-    }%
+    \maketitlepage
+    \makesignaturepage
 }
 
 %: # Abstract pages
@@ -959,11 +743,9 @@
 %: ## English abstract
 \def\makeabstract{
     \newpage
-    \ifthenelse{\equal{\coverlang}{English}}{%
-        \setcounter{page}{2}%
-        \pagestyle{plain}%
-    }{}
-    \addcontentsline{toc}{chapterx}{\mdseries บทคัดย่อภาษาอังกฤษ}
+    \setcounter{page}{2}
+    \pagestyle{plain}
+    \addcontentsline{toc}{chapterx}{\mdseries ABSTRACT}
     \begin{flushleft}
         \begin{tabular}{@{}lp{0.7\textwidth}}
              \worktype\ Title & \disstitleone\ \\ 
@@ -978,8 +760,8 @@
             \fi
             Credits & \disscredit \\
             \IfEqCase{\fulfillment}{%
-                {Degree}{\textthai{Author(s)}}
-                {Subject}{\textthai{Member(s)}}
+                {Degree}{Author(s)}
+                {Subject}{Member(s)}
             }% 
             & \dissauthor \\
             \ifx \titleempty\dissauthortwo \else
@@ -1040,59 +822,55 @@
 
 \def\makethaiabstract{
     \newpage
-    \ifthenelse{\equal{\coverlang}{Thai}}{%
-        \setcounter{page}{2}%
-        \pagestyle{plain}%
-    }{}
-    \addcontentsline{toc}{chapterx}{\mdseries บทคัดย่อภาษาไทย}
+    \addcontentsline{toc}{chapterx}{\mdseries THAI ABSTRACT}
     \begin{flushleft}
         \begin{tabular}{@{}lp{0.7\textwidth}}
-             \textthai{หัวข้อ}\thaiworktype & \thaidisstitleone\ \\ 
+             \textthai{หัวข้อ\thaiworktype} & \textthai{\thaidisstitleone}\ \\ 
             \ifx \titleempty\thaidisstitletwo \else
-                          & \thaidisstitletwo \\
+                          & \textthai{\thaidisstitletwo} \\
             \fi
             \ifx \titleempty\thaidisstitlethree \else
-                          & \thaidisstitlethree \\
+                          & \textthai{\thaidisstitlethree} \\
             \fi
             \ifx \titleempty\thaidisstitlefour \else
-                          & \thaidisstitlefour \\
+                          & \textthai{\thaidisstitlefour} \\
             \fi
              \textthai{หน่วยกิต} & \textthai{\disscredit} \\
             \IfEqCase{\fulfillment}{%
                 {Degree}{\textthai{ผู้เขียน}}
                 {Subject}{\textthai{สมาชิกกลุ่ม}}
             }%
-              & \thaidissauthor \\
+              & \textthai{\thaidissauthor} \\
              \ifx \titleempty\thaidissauthortwo \else
-                          & \thaidissauthortwo \\
+                          & \textthai{\thaidissauthortwo} \\
             \fi
             \ifx \titleempty\thaidissauthorthree \else
-                          & \thaidissauthorthree \\
+                          & \textthai{\thaidissauthorthree} \\
             \fi
             \IfEqCase{\fulfillment}{%
                 {Degree}{%
-                    \textthai{อาจารย์ที่ปรึกษา} & \thaidissadvisor \\
+                    \textthai{อาจารย์ที่ปรึกษา} & \textthai{\thaidissadvisor} \\
                     \ifx \titleempty\disscoadvisor \else
-                         & \thaidisscoadvisor \\
+                         & \textthai{\thaidisscoadvisor} \\
                     \fi
                     \ifx \titleempty\disscoadvisortwo \else
-                        & \thaidisscoadvisortwo \\
+                        & \textthai{\thaidisscoadvisortwo} \\
                     \fi
                 }%
                 {Subject}{%
-                   \textthai{อาจารย์ผู้สอน} & \thaidisssubjectteacher \\
+                   \textthai{อาจารย์ผู้สอน} & \textthai{\thaidisssubjectteacher} \\
                 }%
             }%
             \IfEqCase{\fulfillment}{%
                 {Degree}{%
-                    \textthai{หลักสูตร} & \thaidissdegree \\
-                    \textthai{สาขาวิชา} & \thaifieldofstudy \\
-                    \textthai{ภาควิชา} & \thaidepartment  \\
-                    \textthai{คณะ} & \thaifaculty  \\\
+                    \textthai{หลักสูตร} & \textthai{\thaidissdegree} \\
+                    \textthai{สาขาวิชา} & \textthai{\thaifieldofstudy} \\
+                    \textthai{ภาควิชา} & \textthai{\thaidepartment}  \\
+                    \textthai{คณะ} & \textthai{\thaifaculty}  \\\
                 }%
                 {Subject}{%
-                    \textthai{รายวิชา} & \disssubjectcode \\
-                    & \thaidisssubjectname \\
+                    \textthai{รายวิชา} & \textthai{\disssubjectcode} \\
+                    & \textthai{\thaidisssubjectname} \\
                 }%
             }%
              \textthai{ปีการศึกษา} & \textthai{\thaidissyear} 
@@ -1104,42 +882,30 @@
       \textthai{บทคัดย่อ}
     \end{center}
     
-    \par \justifying\thabstcontent
+    \par \textthai{\justifying\thabstcontent}
     
     \justifying
     \begin{tabular*}{\textwidth}{@{}lp{0.8\textwidth}}
         & \\
-        \textbf{คำสำคัญ}: &  \thabstkeyword
+        \textthai{\textbf{คำสำคัญ}}: &  \textthai{\thabstkeyword}
     \end{tabular*}
     \vspace{1mm}
     
     \newpage
 }
 
-%: Generation logics for abstracts page
-%: Arrange order based on coverlang
+%: Generation scripts for abstracts pages
 \def\genabstract{%
-    \ifthenelse{\equal{\coverlang}{English}}{%
-        \makeabstract%
-        \makethaiabstract%
-    }{%
-        \ifthenelse{\equal{\coverlang}{Thai}}{%
-            \makethaiabstract%
-            \makeabstract%
-        }{%
-            \Err{Warning: Invalid coverlang; use either 'English' | 'Thai' (case-sensitive!)}%
-            \makeabstract%
-            \makethaiabstract%
-        }%
-    }%
+    \makeabstract%
+    \makethaiabstract%
 }
 
 %: # Preface or Acknowledgement
 \def\prefacecontent{}
 
 \def\genpreface{%
-    \chapter*{\large กิตติกรรมประกาศ}%
-    \addcontentsline{toc}{chapterx}{\mdseries กิตติกรรมประกาศ}
+    \chapter*{\large ACKNOWLEDGMENTS}%
+    \addcontentsline{toc}{chapterx}{\mdseries ACKNOWLEDGMENTS}
     \thispagestyle{plain}
     \justifying\prefacecontent
 \newpage
@@ -1148,70 +914,72 @@
 %: # Table of contents and lists of elements
 
 \setcounter{tocdepth}{5}  % must be same as secnumdepth
-\def\contentsname{สารบัญ}
+\def\contentsname{CONTENTS}
 \def\tableofcontents{\chapter*{\large\MakeUppercase{\contentsname}\@mkboth{}{}%
- \\ \emptyline 1 \hfill\textbf{หน้า}\\[-0.4em]}
+ \\ \emptyline 1 \hfill\textbf{PAGE}\\[-0.4em]}
 % 23 Nov 2021, Thanin
-% put \addcontentsline before \ssp\@starttoc to fix wrong numbering
-\addcontentsline{toc}{chapterx}{\mdseries สารบัญ}
-{\ssp\@starttoc{toc}}
+%put \addcontentsline before \ssp\@starttoc to fix wrong numbering
+ \addcontentsline{toc}{chapterx}{\mdseries CONTENTS}
+ {\ssp\@starttoc{toc}}
+ 
 \pagestyle{plain}\thispagestyle{plain}
 }
 
 %: ## List of Tables
-\def\listtablename{สารบัญตาราง}
-\def\listoftables{\chapter*{\large \MakeUppercase{\listtablename}\@mkboth{ตารางที่}{หน้า}\thispagestyle{plain}
-\\ \emptyline 1 \normalsize\textbf{ตารางที่}\hfill\textbf{หน้า}\\[-0.4em] }
-   \addcontentsline{toc}{chapterx}{\mdseries สารบัญตาราง} {\ssp\@starttoc{lot}}}
+\def\listtablename{LIST OF TABLES}
+\def\listoftables{\chapter*{\large \MakeUppercase{\listtablename}\@mkboth{TABLE}{PAGE}\thispagestyle{plain}
+\\ \emptyline 1 \normalsize\textbf{TABLE}\hfill\textbf{PAGE}\\[-0.4em] }
+   \addcontentsline{toc}{chapterx}{\mdseries LIST OF TABLES} {\ssp\@starttoc{lot}}}
 %\def\l@table{}
 %\def\l@table{\vskip 1.0em plus\p@\@dottedtocline{1}{1.5em}{2.3em}}
 
 %: ## List of Figures
-\def\listfigurename{สารบัญรูปภาพ}
-\def\listoffigures{\chapter*{\large\MakeUppercase{\listfigurename}\@mkboth{รูปที่}{หน้า}\thispagestyle{plain}\\
+\def\listfigurename{LIST OF FIGURES}
+\def\listoffigures{\chapter*{\large\MakeUppercase{\listfigurename}\@mkboth{FIGURE}{PAGE}\thispagestyle{plain}\\
    \emptyline 1
-   \normalsize\textbf{รูปที่}\hfill\textbf{หน้า}\\[-0.4em]  }
-   \addcontentsline{toc}{chapterx}{\mdseries สารบัญรูปภาพ} {\ssp\@starttoc{lof}}}
+   \normalsize\textbf{FIGURE}\hfill\textbf{PAGE}\\[-0.4em]  }
+   \addcontentsline{toc}{chapterx}{\mdseries LIST OF FIGURES} {\ssp\@starttoc{lof}}}
 \let\l@figure\l@table
 
 %: ## List of Symbols
-\def\listofsymbols{\chapter*{\large สารบัญสัญลักษณ์}
+\def\listofsymbols{\chapter*{\large LIST OF SYMBOLS}
 %\\ \emptyline 1 \textbf{SYMBOL}\hfill\textbf{UNIT}\\[-1cm]}
-\addcontentsline{toc}{chapterx}{\mdseries สารบัญสัญลักษณ์}\thispagestyle{plain}
+\addcontentsline{toc}{chapterx}{\mdseries LIST OF SYMBOLS}\thispagestyle{plain}
 }
 
 %: ## List of Vocab or Terms
-\def\listofvocab{\chapter*{\large สารบัญคำศัพท์ทางเทคนิคและคำย่อ}%
-\addcontentsline{toc}{chapterx}{\mdseries สารบัญคำศัพท์ทางเทคนิคและคำย่อ}\thispagestyle{plain}
+\def\listofvocab{\chapter*{\large LIST OF TECHNICAL VOCABULARY AND ABBREVATIONS}%
+\addcontentsline{toc}{chapterx}{\mdseries LIST OF TECHNICAL VOCABULARY AND ABBREVATIONS}\thispagestyle{plain}
 }
 
 %: ## List of Codes
-\def\listofprogramname{สารบัญชุดคำสั่ง}
-\def\listofprograms{\chapter*{\large\MakeUppercase{\listofprogramname}\@mkboth{ชุดคำสั่งที่}{หน้า}\thispagestyle{plain}\\
+\def\listofprogramname{LIST OF CODES STATEMENTS}
+\def\listofprograms{\chapter*{\large\MakeUppercase{\listofprogramname}\@mkboth{CODES}{PAGE}\thispagestyle{plain}\\
    \emptyline 1
-   \normalsize\textbf{ขุดคำสั่งที่}\hfill\textbf{หน้า}\\[-0.4em]  }
-   \addcontentsline{toc}{chapterx}{\mdseries สารบัญชุดคำสั่งคอมพิวเตอร์} {\ssp\@starttoc{lol}}
+   \normalsize\textbf{CODES}\hfill\textbf{PAGE}\\[-0.4em]  }
+   \addcontentsline{toc}{chapterx}{\mdseries LIST OF CODES STATEMENTS} {\ssp\@starttoc{lol}}
 }
-
 
 %: # Appendices
 \firstappendixtrue
-\def\appendixnames{ภาคผนวก}
+
+%: Default is appendix. Change to appendices if there are more than one.
+\def\appendixnames{Appendix}
 \def\appendixcover#1{%
 \newpage\pagestyle{plain}\thispagestyle{empty}
 \iffirstappendix %
   \setcounter{chapter}{0} % Reset chapter numbering
   \setcounter{figure}{0}  % Reset figure numbering (May 2022 by Thanin)
-  \renewcommand{\thechapter}{\thalph{chapter}}
+  \renewcommand{\thechapter}{\Alph{chapter}}
   \def\@chapapp{\MakeUppercase{\appendixname}}%
   \addcontentsline{toc}{chapter}{\mdseries\bf \MakeUppercase{\appendixnames}}%
   \firstappendixfalse% 
 \fi 
    \setcounter{equation}{0} % Reset equation numbering
-   \setcounter{figure}{0} % Reset figure numbering (May 2022 by Thanin)
+   \setcounter{figure}{0}  % Reset figure numbering (May 2022 by Thanin)
    \addtocounter{chapter}{1}  % Start the 1st appendix 
-   {\centering{\vbox{}\vfill \MakeUppercase{\LARGE \bf
-    ภาคผนวก \thechapter} \par \bigskip \MakeUppercase{\Large #1} \vfill\vbox{}}}\newpage}
+   {\centering{\vbox{}\vfill \MakeUppercase{\bf
+    APPENDIX \thechapter} \par \MakeUppercase{#1} \vfill\vbox{}}}\newpage}
 %   {\centering{\vbox{}\vfill \MakeUppercase{{\normalsize\bf APPENDIX
 %\thechapter}} \par \MakeUppercase{#1}} \vfill\vbox{}}}\newpage}
 
@@ -1221,7 +989,7 @@
 }
 
 %: # Bibliography
-\def\refname{บรรณานุกรม}
+\def\refname{REFERENCES}
 \def\referencepage{\chapter*{\large\bf \MakeUppercase{\refname} \\
 \emptyline 1}%
 \addcontentsline{toc}{chapter}{\mdseries\bf \MakeUppercase{\refname}}\thispagestyle{empty}
@@ -1245,7 +1013,6 @@
 \def\endthebibliography{\ifdraftmode \dsp \fi
   \def\@noitemerr{\@warning{Empty `thebibliography' environment}} \endlist}
 
-
 %: # Vitae
 \def\vitae{
 \clearpage
@@ -1256,6 +1023,7 @@
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \usepackage{latexsym}
 
 \newcounter{definition}[chapter]

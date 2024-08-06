@@ -1,0 +1,48 @@
+\appendix{ตัวอย่างซอร์สโค้ดและชุดคำสั่งในซอฟต์แวร์โครงการ}
+\noindent{\large\bf ตัวอย่างการทำ Dependency Injection ระหว่างไฟล์ User's Usecase กับไฟล์ User's Repository} \\
+
+    \begin{lstlisting}[label={lst:appendix-user-domain}, caption={ชุดคำสั่งที่นิยาม Interface ของ User Repository และ User Usecase}]
+    // ...
+    type UserRepository interface {
+        Create(user *User) error
+        Get(id string) (*User, error)
+        GetBySessionId(id string) (*User, error)
+        GetByEmail(email string, provider AuthProvider) (*User, error)
+        Update(user *User) error
+    }
+    
+    type UserUsecase interface {
+        Create(email string, password string) (*User, error)
+        CreateFromGoogle(id string, email string, name string) (*User, error)
+        Get(id string) (*User, error)
+        GetBySessionId(id string) (*User, error)
+        GetByEmail(email string, provider AuthProvider) (*User, error)
+        Update(id string, user *UpdateUser) error
+        UpdatePassword(id string, oldPlainPassword string, newPlainPassword string) error
+    }
+    // ...
+    \end{lstlisting}
+    
+    \begin{lstlisting}[label={lst:appendix-user-usecase}, caption={ชุดคำสั่งสร้างและนิยาม UserUsecase ที่มีการ Implement UserRepository}]
+    // ...
+    type userUsecase struct {
+        seaweedfs      *platform.SeaweedFs
+        userRepository domain.UserRepository
+        sessionUsecase domain.SessionUsecase
+    }
+    
+    func NewUserUsecase(
+        seaweedfs *platform.SeaweedFs,
+        userRepository domain.UserRepository,
+        sessionUsecase domain.SessionUsecase,
+    ) domain.UserUsecase {
+        return &userUsecase{
+            seaweedfs:      seaweedfs,
+            userRepository: userRepository,
+            sessionUsecase: sessionUsecase,
+        }
+    }
+    // ...
+    \end{lstlisting}
+    
+\pagebreak
