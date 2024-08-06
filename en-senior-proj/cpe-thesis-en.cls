@@ -100,7 +100,7 @@
 \def\thaidissauthorthree{โรนัลด์ อาร์เธอร์ วีสลีย์}
 
 %: # List of diploma (No need to fill these if you're still studying Bachelor's)
-\def\dissdiplomaone{O.W.Ls Dark Arts}           % First author's diploma
+\def\dissdiplomaone{}           % First author's diploma
 \def\dissdiplomatwo{}           % Second author's diploma
 \def\dissdiplomathree{}         % Third author's diploma
 \def\thaidissdiplomaone{}
@@ -659,20 +659,20 @@
           \vfill Member(s): \par
         }%
     }%
-    \dissauthor
+    \dissauthor%
     \ifx \diplomaempty\dissdiplomaone \else
       ,~\dissdiplomaone
     \fi
     \par
     \ifx \titleempty\dissauthortwo \else
-      \makebox{\dissauthortwo}
+      \makebox{\dissauthortwo}%
       \ifx \diplomaempty\dissdiplomatwo \else
         ,~\dissdiplomatwo
       \fi
       \par
     \fi
     \ifx \titleempty\dissauthorthree \else
-      \makebox{\dissauthorthree}
+      \makebox{\dissauthorthree}%
       \ifx \diplomaempty\dissdiplomathree \else
         ,~\dissdiplomathree
       \fi

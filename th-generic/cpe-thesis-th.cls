@@ -789,22 +789,22 @@
           \vfill \textbf{สมาชิกกลุ่ม}: \par
         }%
     }%
-    \thaidissauthor\
+    \thaidissauthor%
     \ifx \diplomaempty\thaidissdiplomaone \else
-      \thaidissdiplomaone
+      ,~dissdiplomaone
     \fi
     \par
     \ifx \titleempty\thaidissauthortwo \else
-      \makebox{\thaidissauthortwo}
+      \makebox{\thaidissauthortwo}%
       \ifx \diplomaempty\thaidissdiplomatwo \else
-        \thaidissdiplomatwo
+        ,~\thaidissdiplomatwo
       \fi
       \par
     \fi
     \ifx \titleempty\thaidissauthorthree \else
-      \makebox{\thaidissauthorthree}
+      \makebox{\thaidissauthorthree}%
       \ifx \diplomaempty\thaidissdiplomathree \else
-        \thaidissdiplomathree
+        ,~\thaidissdiplomathree
       \fi
       \par
     \fi

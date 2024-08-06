@@ -659,20 +659,20 @@
           \vfill Member(s): \par
         }%
     }%
-    \dissauthor
+    \dissauthor%
     \ifx \diplomaempty\dissdiplomaone \else
       ,~\dissdiplomaone
     \fi
     \par
     \ifx \titleempty\dissauthortwo \else
-      \makebox{\dissauthortwo}
+      \makebox{\dissauthortwo}%
       \ifx \diplomaempty\dissdiplomatwo \else
         ,~\dissdiplomatwo
       \fi
       \par
     \fi
     \ifx \titleempty\dissauthorthree \else
-      \makebox{\dissauthorthree}
+      \makebox{\dissauthorthree}%
       \ifx \diplomaempty\dissdiplomathree \else
         ,~\dissdiplomathree
       \fi

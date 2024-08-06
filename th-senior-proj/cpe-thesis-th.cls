@@ -789,9 +789,9 @@
           \vfill \textbf{สมาชิกกลุ่ม}: \par
         }%
     }%
-    \makebox{\thaidissauthor}%
+    \thaidissauthor%
     \ifx \diplomaempty\thaidissdiplomaone \else
-      ,~\thaidissdiplomaone
+      ,~dissdiplomaone
     \fi
     \par
     \ifx \titleempty\thaidissauthortwo \else
@@ -862,22 +862,22 @@
           \vfill Member(s): \par
         }%
     }%
-    \dissauthor,
+    \dissauthor\
     \ifx \diplomaempty\dissdiplomaone \else
-      ~\dissdiplomaone
+      \dissdiplomaone
     \fi
     \par
     \ifx \titleempty\dissauthortwo \else
-      \makebox{\dissauthortwo},
+      \makebox{\dissauthortwo}
       \ifx \diplomaempty\dissdiplomatwo \else
-        ~\dissdiplomatwo
+        \dissdiplomatwo
       \fi
       \par
     \fi
     \ifx \titleempty\dissauthorthree \else
-      \makebox{\dissauthorthree},
+      \makebox{\dissauthorthree}
       \ifx \diplomaempty\dissdiplomathree \else
-        ~\dissdiplomathree
+        \dissdiplomathree
       \fi
       \par
     \fi
