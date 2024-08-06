@@ -7,7 +7,7 @@
 %: - Wuttipat Chokananatasab, FIBO, 2016
 %: - Thanin Srithai, CPE, 2021
 %: - Jatetanan Kanchanawat, CPE, 2023
-%: 
+%:
 %: This is a LaTeX template used in CPE, KMUTT thesis.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %: Instructions:
@@ -37,13 +37,13 @@
 \usepackage[export]{adjustbox}          % Subfigures aLignment
 \usepackage{cleveref}                   % Clever label references
 
-\usepackage{lmodern}     
+\usepackage{lmodern}
 \usepackage{listings}                   % Listings as code blocks
 \usepackage{packages/listings-go}       % Listings support for Golang
 \usepackage{packages/listings-js}       % Listings support for JavaScript and ES6
 \usepackage{packages/listings-yaml}     % Listing support for YAML
 
-%: # Biblatex 
+%: # Biblatex
 %: Bib manager; instead of using \bibliography{}
 %: NOTE: Biblatex defines typesetting onto compilation cache.
 %: So recompile from scratch (Delete all aux, bbl, and other output files, then recompile)
@@ -65,14 +65,14 @@
 %     language=english,
 %     doi=true,           % Prints DOI
 %     natbib=true         % if you need Natbib functions
-% ]{biblatex} 
+% ]{biblatex}
 
 %%%%%%%%%%%%%%%%%%% Custom macros & Settings %%%%%%%%%%%%%%%%%%%%%%%%
 %: From this part to \begin{document}
 %: Do not modify unless you know what you are doing...
 
 
-%: # Biblatex macro 
+%: # Biblatex macro
 %: Uncomment all of these if you're using biblatex
 
 %: Setup URL access date string
@@ -84,13 +84,13 @@
 %: Make sure you reference correct bib file...
 % \addbibresource{bib/codern.bib}
 
-%: # Typography 
+%: # Typography
 %: Define 1st and 2nd language
 \setdefaultlanguage{thai}
 \setotherlanguage{english}
 
 %: Set linebreak to Thai
-\XeTeXlinebreaklocale "th"	
+\XeTeXlinebreaklocale "th"
 \XeTeXlinebreakskip = 0pt plus 0pt
 \emergencystretch=10pt
 
@@ -103,15 +103,15 @@
     BoldItalicFont=*-BoldItalic,
 ]
 
-%: # Paragraph Settings 
+%: # Paragraph Settings
 %: Adjust your paragraph to your standards
 
-\newcommand{\thaijustify}[1]{% 
+\newcommand{\thaijustify}[1]{%
   \par\hspace{30pt}\justifying
   #1
 }
 
-\newcommand{\thaicaption}[1]{% 
+\newcommand{\thaicaption}[1]{%
   \par\justifying
   #1
 }
@@ -119,7 +119,7 @@
 %: # Tikz Settings
 %: Tikz is used for drawing simple edge and node graph
 %: Import shapes for usage
-\usetikzlibrary{er, positioning, shapes.geometric, arrows} 
+\usetikzlibrary{er, positioning, shapes.geometric, arrows}
 
 %: Define checkmark symbol
 \def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
@@ -168,17 +168,17 @@
 \def\endproof{\hspace*{\fill}~\QED\par\endtrivlist\unskip}
 
 %\newenvironment{proof}{{\sc Proof:}}{~\hfill \blacksquare}
-%% The hyperref package redefines the \appendix. This one 
+%% The hyperref package redefines the \appendix. This one
 %% is from the dissertation.cls
 %\def\appendix#1{\iffirstappendix \appendixcover \firstappendixfalse \fi \chapter{#1}}
 %\renewcommand{\arraystretch}{0.8}
 
 %%%%%%%%%%%%%%%%%%%%%% Report Definitions %%%%%%%%%%%%%%%%%%%%%%%%%%%
-%: Customize below to suit your needs 
-%: The optional ones can be left blank. 
+%: Customize below to suit your needs
+%: The optional ones can be left blank.
 
 %: # Front Cover's + Signature Page's Language
-%: Enter 'Thai' / 'English' for changing the language 
+%: Enter 'Thai' / 'English' for changing the language
 %: for cover page, appendixes, and signature page
 \def\coverlang{Thai}
 
@@ -189,7 +189,7 @@
 
 %: # Credits
 %: Enter number based on your subject's credits
-\def\disscredit{3}              
+\def\disscredit{3}
 
 %: # Fulfillment; 'Degree' or 'Subject'
 %: Set to 'Degree' for senior project or thesis
@@ -212,7 +212,7 @@
 \def\thaidisssubjectteacher{รศ.ดร.ณัฐชา เดชดำรง}
 
 %: # Authors
-\def\dissauthor{Mr. Krid Hepakrone}  
+\def\dissauthor{Mr. Krid Hepakrone}
 \def\thaidissauthor{นายกฤษฎิ์ เฮ่ประโคน}
 \def\dissauthortwo{Mr. Jatetanan Kanchanawat}
 \def\thaidissauthortwo{นายเจตนันท์ กาญจนวัฒน์}
@@ -224,37 +224,37 @@
 %: # Department and Institution Information
 \def\institute{King Mongkut's University of Technology Thonburi}
 \def\fieldofstudy{Computer Engineering}
-\def\department{Computer Engineering} 
+\def\department{Computer Engineering}
 \def\faculty{Faculty of Engineering}
 \def\thaiinstitute{มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี}
-\def\thaifieldofstudy{วิศวกรรมคอมพิวเตอร์} 
-\def\thaidepartment{วิศวกรรมคอมพิวเตอร์} 
+\def\thaifieldofstudy{วิศวกรรมคอมพิวเตอร์}
+\def\thaidepartment{วิศวกรรมคอมพิวเตอร์}
 \def\thaifaculty{วิศวกรรมศาสตร์}
 
 %%%%%%%%%%%%%%%%%%% Front Page / Signature Page %%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 \pdfstringdefDisableCommands{
-\let\MakeUppercase\relax
+  \let\MakeUppercase\relax
 }
 
 \genfrontpages{kmutt.jpg}{2.8cm}
 %%%%%%%%%%%%%%%%%%%%%%%%% English abstract %%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \def\abstcontent{
- \textbf{**ตัวอย่างบทคัดย่อภาษาอังกฤษ}... Proficiency in computer programming is a vital skill in computer science, leading to a surge in student enrollment for programming courses. However, the effectiveness of teaching programming diminishes as class sizes increase, and instructors find it challenging to manually assess each student's assignments promptly. To address this issue, we propose developing a software solution, Coding Platform, a code auto-grading system written in Golang utilizing containerization technology, designed to automate and streamline the grading process. This software aims to evaluate student submissions against predefined test cases, measure resource usage efficiency, and instantly provide feedback and scores. This reduces the burden on instructors and fosters a competitive and engaging learning environment. The platform also maintains a comprehensive record of student performance, aiding both instructors in refining their teaching methods and students in showcasing their achievements. The software had been deployed for its intended use and has, ever since, been tested by both instructors and students alike, in classroom environments and competitive scenes like BangMod Hackathon 2024. Consequently, this grading system has been updated and refined actively as users' bug reports and feature requests are always addressed followed by various updates, fixes, and patches. Overall, the software was very well-received, with survey results averaging an overall score of 8 and good user ratings on the software's functionalities and performance.
+  \textbf{**ตัวอย่างบทคัดย่อภาษาอังกฤษ}... Proficiency in computer programming is a vital skill in computer science, leading to a surge in student enrollment for programming courses. However, the effectiveness of teaching programming diminishes as class sizes increase, and instructors find it challenging to manually assess each student's assignments promptly. To address this issue, we propose developing a software solution, Coding Platform, a code auto-grading system written in Golang utilizing containerization technology, designed to automate and streamline the grading process. This software aims to evaluate student submissions against predefined test cases, measure resource usage efficiency, and instantly provide feedback and scores. This reduces the burden on instructors and fosters a competitive and engaging learning environment. The platform also maintains a comprehensive record of student performance, aiding both instructors in refining their teaching methods and students in showcasing their achievements. The software had been deployed for its intended use and has, ever since, been tested by both instructors and students alike, in classroom environments and competitive scenes like BangMod Hackathon 2024. Consequently, this grading system has been updated and refined actively as users' bug reports and feature requests are always addressed followed by various updates, fixes, and patches. Overall, the software was very well-received, with survey results averaging an overall score of 8 and good user ratings on the software's functionalities and performance.
 }
 \def\abstkeyword{
-Programming Education / Student Assessment / Golang / Containerization
+  Programming Education / Student Assessment / Golang / Containerization
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%% Thai abstract %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \def\thabstcontent{
-\textbf{**ตัวอย่างบทคัดย่อ...} ความเชี่ยวชาญในการเขียนโปรแกรมคอมพิวเตอร์เป็นทักษะสำคัญในวิทยาการคอมพิวเตอร์ ส่งผลให้ในช่วงมาหลังมีนักศึกษาหันมาสนใจและลงทะเบียนในหลักสูตรการเขียนโปรแกรมเพิ่มมากขึ้น ส่งผลให้ประสิทธิภาพของการสอนการเขียนโปรแกรมจะลดลงเนื่องจากจำนวนผู้เรียนเพิ่มมากขึ้น อาจารย์ผู้สอนพบว่าการประเมินงานมอบหมายของนักเรียนแต่ละคนด้วยตนเองเป็นเรื่องท้าทาย เพื่อแก้ไขปัญหานี้ คณะผู้จัดทำเสนอเเนวทางเเก้ไขปัญหาในรูปเเบบของซอฟต์แวร์ชื่อ Coding Platform ขี้นมาด้วยภาษา Golang และออกแบบด้วยเทคโนโลยี Containerization ระบบซอฟต์แวร์ดังกล่าวจะเป็นระบบสำหรับตรวจโปรแกรมที่นักศึกษาเขียนส่งมาในระบบ แล้วให้ผลตรวจในทันที ซอฟต์แวร์ดังกล่าวจะตรวจและประเมินงานที่ผู้ใช้ส่งมาเทียบกับกรณีทดสอบที่กำหนดไว้ล่วงหน้าและวัดประสิทธิภาพการใช้ทรัพยากรของตัวโปรแกรม จากนั้นจะนำผลตรวจด้งกล่าวไปแสดงในทันที สิ่งนี้ไม่เพียงแต่ช่วยลดภาระของผู้สอนเท่านั้น แพลตฟอร์มดังกล่าวยังรักษาบันทึกผลเเละข้อมููลการใช้งานของผู้ใช้อย่างครอบคลุมเพื่อนำมาเป็นข้อมูลให้อาจารย์ผู้สอนปรับปรุงวิธีการสอนของตน และจัดแสดงความสำเร็จของนักศึกษาเพื่อส่งเสริมสภาพแวดล้อมการเรียนรู้ที่มีการแข่งขันและการมีส่วนร่วม โดยซอฟต์แวร์ดังกล่าวได้ถูกติดตั้งใช้งานแล้ว ซึ่งได้เปิดโอกาสให้ผู้ใช้ทั้งอาจารย์ผู้สอนและนักศึกษาได้ลองใช้งาน ทั้งในห้องเรียนและกิจกรรมวิชาการอย่าง BangMod Hackathon 2024 รวมไปถึงให้ผู้ใช้ได้วิจารณ์และให้คำติชมเพื่อที่จะได้นำไปปรับปรุงและแก้ไขข้อผิดพลาด ซึ่งส่งผลให้ซอฟต์แวร์นั้นได้รับผลตอบรับที่ดีจากผู้ใช้มากมายในแบบประเมินผล ดัวยคะแนนเฉลี่ยของภาพรวมซอฟต์แวร์ที่ 8 คะแนน พร้อมผลคะแนนและคำชมเชยมากมายในด้านความสามารถและประสิทธิภาพการทำงานของซอฟต์แวร์
+  \textbf{**ตัวอย่างบทคัดย่อ...} ความเชี่ยวชาญในการเขียนโปรแกรมคอมพิวเตอร์เป็นทักษะสำคัญในวิทยาการคอมพิวเตอร์ ส่งผลให้ในช่วงมาหลังมีนักศึกษาหันมาสนใจและลงทะเบียนในหลักสูตรการเขียนโปรแกรมเพิ่มมากขึ้น ส่งผลให้ประสิทธิภาพของการสอนการเขียนโปรแกรมจะลดลงเนื่องจากจำนวนผู้เรียนเพิ่มมากขึ้น อาจารย์ผู้สอนพบว่าการประเมินงานมอบหมายของนักเรียนแต่ละคนด้วยตนเองเป็นเรื่องท้าทาย เพื่อแก้ไขปัญหานี้ คณะผู้จัดทำเสนอเเนวทางเเก้ไขปัญหาในรูปเเบบของซอฟต์แวร์ชื่อ Coding Platform ขี้นมาด้วยภาษา Golang และออกแบบด้วยเทคโนโลยี Containerization ระบบซอฟต์แวร์ดังกล่าวจะเป็นระบบสำหรับตรวจโปรแกรมที่นักศึกษาเขียนส่งมาในระบบ แล้วให้ผลตรวจในทันที ซอฟต์แวร์ดังกล่าวจะตรวจและประเมินงานที่ผู้ใช้ส่งมาเทียบกับกรณีทดสอบที่กำหนดไว้ล่วงหน้าและวัดประสิทธิภาพการใช้ทรัพยากรของตัวโปรแกรม จากนั้นจะนำผลตรวจด้งกล่าวไปแสดงในทันที สิ่งนี้ไม่เพียงแต่ช่วยลดภาระของผู้สอนเท่านั้น แพลตฟอร์มดังกล่าวยังรักษาบันทึกผลเเละข้อมููลการใช้งานของผู้ใช้อย่างครอบคลุมเพื่อนำมาเป็นข้อมูลให้อาจารย์ผู้สอนปรับปรุงวิธีการสอนของตน และจัดแสดงความสำเร็จของนักศึกษาเพื่อส่งเสริมสภาพแวดล้อมการเรียนรู้ที่มีการแข่งขันและการมีส่วนร่วม โดยซอฟต์แวร์ดังกล่าวได้ถูกติดตั้งใช้งานแล้ว ซึ่งได้เปิดโอกาสให้ผู้ใช้ทั้งอาจารย์ผู้สอนและนักศึกษาได้ลองใช้งาน ทั้งในห้องเรียนและกิจกรรมวิชาการอย่าง BangMod Hackathon 2024 รวมไปถึงให้ผู้ใช้ได้วิจารณ์และให้คำติชมเพื่อที่จะได้นำไปปรับปรุงและแก้ไขข้อผิดพลาด ซึ่งส่งผลให้ซอฟต์แวร์นั้นได้รับผลตอบรับที่ดีจากผู้ใช้มากมายในแบบประเมินผล ดัวยคะแนนเฉลี่ยของภาพรวมซอฟต์แวร์ที่ 8 คะแนน พร้อมผลคะแนนและคำชมเชยมากมายในด้านความสามารถและประสิทธิภาพการทำงานของซอฟต์แวร์
 }
 
 \def\thabstkeyword{
-รายวิชาการสอนเขียนโปรแกรม / การวัดและประเมินผลนักศึกษา / ภาษา Golang / เทคโนโลยี Containerization
+  รายวิชาการสอนเขียนโปรแกรม / การวัดและประเมินผลนักศึกษา / ภาษา Golang / เทคโนโลยี Containerization
 }
 
 \genabstract
@@ -262,18 +262,18 @@ Programming Education / Student Assessment / Golang / Containerization
 %%%%%%%%%%%%%%%%%%%%%%%%% Acknowledgments %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \def\prefacecontent{
-    \centering{\bf{\textit{(ตัวอย่างกิตติกรรมประกาศ...)}}} \\
-    \justifying
-    โครงงานพัฒนาโปรแกรม/แอปพลิเคชัน/เว็บแอปพลิเคชัน สำหรับตรวจงานและข้อสอบในรายวิชาการเรียนการสอนเขียนโปรแกรมภาษาคอมพิวเตอร์ หรือ Coding Platform สามารถบรรลุเป้าหมายไปได้ด้วยดี ทางคณะผู้จัดทำต้องขอขอบคุณผู้สนับสนุนทุกท่านที่ให้การช่วยเหลือในด้านต่าง ๆ ขอขอบคุณ รศ.ดร.ณัฐชา เดชดำรง ที่มาเป็นอาจารย์ที่ปรึกษาโครงการ และสละเวลามาให้ความรู้ พร้อมให้คำแนะนำตลอดการพัฒนาทั้งโครงงาน ขอขอบคุณภาควิชาวิศวกรรมคอมพิวเตอร์ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี ที่ให้การส่งเสริมและสนับสนุนทางคณะผู้จัดทำ ตลอดจนเอื้อเฟื้อสถานที่และอุปกรณ์สำหรับการพัฒนาโครงงาน ขอขอบคุณนักศึกษาชั้นปีที่หนึ่งและสอง ที่เรียนวิชา CPExxx ..., ... ปีการศึกษาพุทธศักราช 25xx รวมไปถึงนักเรียนชั้นมัธยมศึกษาตอนปลายที่เข้าร่วมโครงการกิจกรรมการเเข่งขันเขียนโปรเเกรมคอมพิวเตอร์ Bangmod Hackathon 20xx ที่จัดขึ้นในปีการศึกษาเดียวกัน ที่สละเวลามาทดลองใช้ซอฟต์เเวร์ต้นแบบ พร้อมทั้งแสดงความเห็น ให้่ข้อเสนอแนะ ให้คำติชมที่ล้วนแต่เป็นข้อมูลอันเป็นประโยชน์ ที่สามารถนำมาใช้ในการพัฒนาซอฟต์แวร์
+  \centering{\bf{\textit{(ตัวอย่างกิตติกรรมประกาศ...)}}} \\
+  \justifying
+  โครงงานพัฒนาโปรแกรม/แอปพลิเคชัน/เว็บแอปพลิเคชัน สำหรับตรวจงานและข้อสอบในรายวิชาการเรียนการสอนเขียนโปรแกรมภาษาคอมพิวเตอร์ หรือ Coding Platform สามารถบรรลุเป้าหมายไปได้ด้วยดี ทางคณะผู้จัดทำต้องขอขอบคุณผู้สนับสนุนทุกท่านที่ให้การช่วยเหลือในด้านต่าง ๆ ขอขอบคุณ รศ.ดร.ณัฐชา เดชดำรง ที่มาเป็นอาจารย์ที่ปรึกษาโครงการ และสละเวลามาให้ความรู้ พร้อมให้คำแนะนำตลอดการพัฒนาทั้งโครงงาน ขอขอบคุณภาควิชาวิศวกรรมคอมพิวเตอร์ คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี ที่ให้การส่งเสริมและสนับสนุนทางคณะผู้จัดทำ ตลอดจนเอื้อเฟื้อสถานที่และอุปกรณ์สำหรับการพัฒนาโครงงาน ขอขอบคุณนักศึกษาชั้นปีที่หนึ่งและสอง ที่เรียนวิชา CPExxx ..., ... ปีการศึกษาพุทธศักราช 25xx รวมไปถึงนักเรียนชั้นมัธยมศึกษาตอนปลายที่เข้าร่วมโครงการกิจกรรมการเเข่งขันเขียนโปรเเกรมคอมพิวเตอร์ Bangmod Hackathon 20xx ที่จัดขึ้นในปีการศึกษาเดียวกัน ที่สละเวลามาทดลองใช้ซอฟต์เเวร์ต้นแบบ พร้อมทั้งแสดงความเห็น ให้่ข้อเสนอแนะ ให้คำติชมที่ล้วนแต่เป็นข้อมูลอันเป็นประโยชน์ ที่สามารถนำมาใช้ในการพัฒนาซอฟต์แวร์
 }
 
 \genpreface
 
 %%%%%%%%%% Table of contents and report elements lists %%%%%%%%%%%%%%
-%: The commands below automatically generate the table 
+%: The commands below automatically generate the table
 %: of content, list of tables, list of figures, and list of listings
 %: # Table of content
-\tableofcontents                    
+\tableofcontents
 
 %: # Table of report elements (auto-generated)
 \newcommand{\tableraglf}[1]{\RaggedRight{#1}}
@@ -284,27 +284,27 @@ Programming Education / Student Assessment / Golang / Containerization
 %: # List of symbols (manually added)
 \listofsymbols
 \justifying{
-    \centering{\bf{\textit{(ตัวอย่างสารบัญสัญลักษณ์...)}}} \\
-    %: You can adjust width to suit your word length
-    \begin{tabular}{@{}p{0.07\textwidth}p{0.7\textwidth}p{0.1\textwidth}}
-        \textbf{สัญลักษณ์} & & \textbf{หน่วย} \\[0.2cm]
-            $\alpha$ & \tableraglf{Test variable}\hfill & m$^2$ \\
-            $\lambda$ & \tableraglf{Interarival rate}\hfill &  jobs/second\\
-            $\mu$ & \tableraglf{Service rate}\hfill & jobs/second\\
-    \end{tabular}
+  \centering{\bf{\textit{(ตัวอย่างสารบัญสัญลักษณ์...)}}} \\
+  %: You can adjust width to suit your word length
+  \begin{tabular}{@{}p{0.07\textwidth}p{0.7\textwidth}p{0.1\textwidth}}
+    \textbf{สัญลักษณ์} &                                     & \textbf{หน่วย} \\[0.2cm]
+    $\alpha$        & \tableraglf{Test variable}\hfill    & m$^2$         \\
+    $\lambda$       & \tableraglf{Interarival rate}\hfill & jobs/second   \\
+    $\mu$           & \tableraglf{Service rate}\hfill     & jobs/second   \\
+  \end{tabular}
 }
 
 %: # List of vocab and technical terms (manually added)
 \listofvocab
 \begin{flushleft}
-    \centering{\bf{\textit{(ตัวอย่างสารบัญคำศัพท์...)}}} \\
-    %: You can adjust width to suit your word length
-    \begin{tabular}{@{}p{1.2in}@{\hspace{0.08in}=\extracolsep{0.2in}}p{4in}}
-        PDF & \tableraglf{ย่อมาจาก Portable Document File แปลว่ารูปแบบไฟล์เอกสารที่สามารถเคลื่อนย้ายไปมาได้อย่างสะดวก} \\
-        UI / ส่วนประสานงานผู้ใช้ & \tableraglf{ย่อมาจาก User Interface ในภาษาอังกฤษ หมายถึงส่วนที่ให้ผู้ใช้งานสามารถโต้ตอบกับการใช้งานผลิตภัณฑ์ได้ ซึ่งจะมุ่งเน้นไปที่เรื่องของหน้าตา การออกแบบ เช่น หน้าจอ แพลตฟอร์ม เมนู ฟอร์ม}  \\ 
-        UX / ประสบการณ์ของผู้ใช้ &  \tableraglf{ย่อมาจาก User Experience ในภาษาอังกฤษ ประสบการณ์ของผู้ใช้งานในด้านความรู้สึกที่ตอบสนองต่อการใช้งานผลิตภัณฑ์ หรือระบบต่าง ๆ ยกตัวอย่างเช่น ความสะดวกสบาย ใช้งานง่าย ความสนุกสนาน}  \\
-        MD & \tableraglf{ย่อมาจากคำว่า Markdown ซึ่งเป็นภาษา Markup ที่เรียบง่าย ที่มีความคล้ายคลึงกับภาษามนุษย์ โดยหลักการเขียนอิงตามแบบแผนข้อความธรรมดา (plain text) ที่ผ่านการทดสอบและรวบรวมเป็นมาตรฐาน อิงจากข้อมูลที่เก็บเป็นช่วงเวลา 40 ปีที่ผ่านมา} \\
-    \end{tabular} 
+  \centering{\bf{\textit{(ตัวอย่างสารบัญคำศัพท์...)}}} \\
+  %: You can adjust width to suit your word length
+  \begin{tabular}{@{}p{1.2in}@{\hspace{0.08in}=\extracolsep{0.2in}}p{4in}}
+    PDF                  & \tableraglf{ย่อมาจาก Portable Document File แปลว่ารูปแบบไฟล์เอกสารที่สามารถเคลื่อนย้ายไปมาได้อย่างสะดวก}                                                                                                           \\
+    UI / ส่วนประสานงานผู้ใช้ & \tableraglf{ย่อมาจาก User Interface ในภาษาอังกฤษ หมายถึงส่วนที่ให้ผู้ใช้งานสามารถโต้ตอบกับการใช้งานผลิตภัณฑ์ได้ ซึ่งจะมุ่งเน้นไปที่เรื่องของหน้าตา การออกแบบ เช่น หน้าจอ แพลตฟอร์ม เมนู ฟอร์ม}                                          \\
+    UX / ประสบการณ์ของผู้ใช้ & \tableraglf{ย่อมาจาก User Experience ในภาษาอังกฤษ ประสบการณ์ของผู้ใช้งานในด้านความรู้สึกที่ตอบสนองต่อการใช้งานผลิตภัณฑ์ หรือระบบต่าง ๆ ยกตัวอย่างเช่น ความสะดวกสบาย ใช้งานง่าย ความสนุกสนาน}                                     \\
+    MD                   & \tableraglf{ย่อมาจากคำว่า Markdown ซึ่งเป็นภาษา Markup ที่เรียบง่าย ที่มีความคล้ายคลึงกับภาษามนุษย์ โดยหลักการเขียนอิงตามแบบแผนข้อความธรรมดา (plain text) ที่ผ่านการทดสอบและรวบรวมเป็นมาตรฐาน อิงจากข้อมูลที่เก็บเป็นช่วงเวลา 40 ปีที่ผ่านมา} \\
+  \end{tabular}
 \end{flushleft}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% Contents %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -322,7 +322,7 @@ Programming Education / Student Assessment / Golang / Containerization
 %: cited. Otherwise, all the references below will be shown.
 % \nocite{*}
 
-%: Use the bst files for bibtex bibliography style 
+%: Use the bst files for bibtex bibliography style
 %: You must have bib files in the referred directories
 %: You may go to file .bbl to manually edit the bib items.
 
@@ -339,7 +339,7 @@ Programming Education / Student Assessment / Golang / Containerization
 %: # Latex built-in bibliography
 %: Uncomment \bibliographystyle and \bibliography if you're using biblatex above
 %: References style
-%: Examples: \bibliographystyle{bibstyle/kmutt} 
+%: Examples: \bibliographystyle{bibstyle/kmutt}
 \bibliographystyle{bib/ieee}
 
 %: References files

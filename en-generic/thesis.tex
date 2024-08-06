@@ -7,7 +7,7 @@
 %: - Wuttipat Chokananatasab, FIBO, 2016
 %: - Thanin Srithai, CPE, 2021
 %: - Jatetanan Kanchanawat, CPE, 2023
-%: 
+%:
 %: This is a LaTeX template used in CPE, KMUTT thesis.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %: Instructions:
@@ -37,13 +37,13 @@
 \usepackage[export]{adjustbox}          % Subfigures aLignment
 \usepackage{cleveref}                   % Clever label references
 
-\usepackage{lmodern}     
+\usepackage{lmodern}
 \usepackage{listings}                   % Listings as code blocks
 \usepackage{packages/listings-go}       % Listings support for Golang
 \usepackage{packages/listings-js}       % Listings support for JavaScript and ES6
 \usepackage{packages/listings-yaml}     % Listing support for YAML
 
-%: # Biblatex 
+%: # Biblatex
 %: Bib manager; instead of using \bibliography{}
 %: NOTE: Biblatex defines typesetting onto compilation cache.
 %: So recompile from scratch (Delete all aux, bbl, and other output files, then recompile)
@@ -65,14 +65,14 @@
 %     language=english,
 %     doi=true,           % Prints DOI
 %     natbib=true         % if you need Natbib functions
-% ]{biblatex} 
+% ]{biblatex}
 
 %%%%%%%%%%%%%%%%%%% Custom macros & Settings %%%%%%%%%%%%%%%%%%%%%%%%
 %: From this part to \begin{document}
 %: Do not modify unless you know what you are doing...
 
 
-%: # Biblatex macro 
+%: # Biblatex macro
 %: Uncomment all of these if you're using biblatex
 
 %: Setup URL access date string
@@ -84,7 +84,7 @@
 %: Make sure you reference correct bib file...
 % \addbibresource{bib/codern.bib}
 
-%: # Typography 
+%: # Typography
 %: Define 1st and 2nd language
 \setdefaultlanguage{english}
 \setotherlanguage{thai}
@@ -103,7 +103,7 @@
 %: # Tikz Settings
 %: Tikz is used for drawing simple edge and node graph
 %: Import shapes for usage
-\usetikzlibrary{er, positioning, shapes.geometric, arrows} 
+\usetikzlibrary{er, positioning, shapes.geometric, arrows}
 
 %: Define checkmark symbol
 \def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
@@ -151,14 +151,14 @@
 \def\endproof{\hspace*{\fill}~\QED\par\endtrivlist\unskip}
 
 %\newenvironment{proof}{{\sc Proof:}}{~\hfill \blacksquare}
-%% The hyperref package redefines the \appendix. This one 
+%% The hyperref package redefines the \appendix. This one
 %% is from the dissertation.cls
 %\def\appendix#1{\iffirstappendix \appendixcover \firstappendixfalse \fi \chapter{#1}}
 %\renewcommand{\arraystretch}{0.8}
 
 %%%%%%%%%%%%%%%%%%%%%% Report Definitions %%%%%%%%%%%%%%%%%%%%%%%%%%%
-%: Customize below to suit your needs 
-%: The optional ones can be left blank. 
+%: Customize below to suit your needs
+%: The optional ones can be left blank.
 
 %: # Project Type
 %: Enter 'Project' / 'Independent Study' / 'Thesis'
@@ -167,7 +167,7 @@
 
 %: # Credits
 %: Enter number based on your subject's credits
-\def\disscredit{3}              
+\def\disscredit{3}
 
 %: # Fulfillment; 'Degree' or 'Subject'
 %: Set to 'Degree' for senior project or thesis
@@ -190,7 +190,7 @@
 \def\thaidisssubjectteacher{รศ.ดร.ณัฐชา เดชดำรง}
 
 %: # Authors
-\def\dissauthor{Mr. Krid Hepakrone}  
+\def\dissauthor{Mr. Krid Hepakrone}
 \def\thaidissauthor{นายกฤษฎิ์ เฮ่ประโคน}
 \def\dissauthortwo{Mr. Jatetanan Kanchanawat}
 \def\thaidissauthortwo{นายเจตนันท์ กาญจนวัฒน์}
@@ -202,51 +202,51 @@
 %: # Department and Institution Information
 \def\institute{King Mongkut's University of Technology Thonburi}
 \def\fieldofstudy{Computer Engineering}
-\def\department{Computer Engineering} 
+\def\department{Computer Engineering}
 \def\faculty{Faculty of Engineering}
 \def\thaiinstitute{มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี}
-\def\thaifieldofstudy{วิศวกรรมคอมพิวเตอร์} 
-\def\thaidepartment{วิศวกรรมคอมพิวเตอร์} 
+\def\thaifieldofstudy{วิศวกรรมคอมพิวเตอร์}
+\def\thaidepartment{วิศวกรรมคอมพิวเตอร์}
 \def\thaifaculty{วิศวกรรมศาสตร์}
 
 %%%%%%%%%%%%%%%%%%% Front Page / Signature Page %%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 \pdfstringdefDisableCommands{
-\let\MakeUppercase\relax
+  \let\MakeUppercase\relax
 }
 
 \genfrontpages{kmutt.jpg}{2.8cm}
 %%%%%%%%%%%%%%%%%%%%%%%%% English abstract %%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \def\abstcontent{
-    \textbf{**Example abstract}... In a multihop ad hoc network, the interference among nodes is
-    reduced to maximize the throughput by using a smallest transmission
-    range that still preserve the network connectivity. However, most
-    existing works on transmission range control focus on the
-    connectivity but lack of results on the throughput performance. This
-    paper analyzes the per-node saturated throughput of an IEEE 802.11b
-    multihop ad hoc network with a uniform transmission range. Compared
-    to simulation, our model can accurately predict the per-node
-    throughput.  The results show that the maximum achievable per-node
-    throughput can be as low as 11\% of the channel capacity in a normal
-    set of $\alpha$ operating parameters independent of node density. However, if
-    the network connectivity is considered, the obtainable throughput
-    will reduce by as many as 43\% of the maximum throughput.
+  \textbf{**Example abstract}... In a multihop ad hoc network, the interference among nodes is
+  reduced to maximize the throughput by using a smallest transmission
+  range that still preserve the network connectivity. However, most
+  existing works on transmission range control focus on the
+  connectivity but lack of results on the throughput performance. This
+  paper analyzes the per-node saturated throughput of an IEEE 802.11b
+  multihop ad hoc network with a uniform transmission range. Compared
+  to simulation, our model can accurately predict the per-node
+  throughput.  The results show that the maximum achievable per-node
+  throughput can be as low as 11\% of the channel capacity in a normal
+  set of $\alpha$ operating parameters independent of node density. However, if
+  the network connectivity is considered, the obtainable throughput
+  will reduce by as many as 43\% of the maximum throughput.
 }
 \def\abstkeyword{
-Multihop Ad hoc Networks / Topology Control / Single-Hop Throughput
+  Multihop Ad hoc Networks / Topology Control / Single-Hop Throughput
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%% Thai abstract %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \def\thabstcontent{
-    \textbf{**ตัวอย่างบทคัดย่อ...} การวิจัยครั้งนี้มีวัตถุประสงค์  เพื่อศึกษาความพึงพอใจในการให้บริการงานทั่วไปของสานักวิชา พื้นฐานและภาษา เพื่อเปรียบเทียบระดับความพึงพอใจต่อการให้บริการงาน ทั่วไปของสานักวิชาพื้นฐานและภาษา ของนักศึกษาที่มาใช้บริการสานักวิชาพื้นฐานและภาษา สถาบัน เทคโนโลยีไทย-ญี่ปุ่น จาแนกตามเพศ คณะ และชั้นปีที่ศึกษา เพื่อศึกษาปัญหาและข้อเสนอแนะของ นักศึกษามาเป็นแนวทางในการพัฒนาและปรับปรุงการให้บริการของสานักวิชาพื้นฐานและภาษา
-    เนื่องจากในยุคสมัยนี้โลกเราได้เข้าสู่ยุคของข้อมูลมหัต (Big Data) ซึ่งบริษัทต่าง ๆก็เริ่มขับเคลื่อนธุรกิจด้วยข้อมูลแล้ว  โดยธุรกิจที่มีข้อมูลขนาดใหญ่อย่างที่เห็นง่ายๆเลยก็จะเป็น เว็บไซต์ที่เปิดบริการให้ขายของออนไลน์ ซึ่งในเว็บไซต์นั้นก็จะมีข้อมูลสินค้ามากมายและ สิ่งที่เราได้พบคือรายละเอียดสินค้าหลายๆอย่างไม่มีความสอดคล้องกับรูปภาพสินค้าหรือไม่ชัดเจนพอและ เนื่องด้วยข้อมูลที่มีขนาดใหญ่เกินกว่าที่จะจัดการด้วยแรงงานคนได้และ ยังไม่มีเครื่องมือใด ๆ ในการตรวจจับคำผิดเหล่านี้ได้ เราจึงทำโครงงานนี้ขึ้นมาเพื่อที่จะแก้ไขปัญหาเหล่านี้\par
-    ทางเราจึงคิดที่จะทำระบบปัญญาประดิษฐ์หรือ AI มาแก้ไขปัญหาในส่วนนี้ โดยทำ Image Captioning ที่ใช้ Convolutional Neural Network (CNN) และ Long Short-term Memory (LSTM) ซึ่งทางคณะผู้จัดทำก็จะมีการเปรียบเทียบกับสถาปัตยกรรมของโมเดลอื่น ๆ เพื่อสร้างโมเดลที่มีประสิทธิภาพมากที่สุด ซึ่งถ้าโครงงานนี้ประสบความสำเร็จจะสามารถตรวจสอบคุณภาพของคำอธิบายสินค้าในเว็บไซต์ขายสินค้าออนไลน์ ทำให้คุณภาพและภาพลักษณ์ต่อสังคมของเว็บไซต์นั้นดูดีขึ้นได้ และนอกจากนี้โครงงานนี้ยังสามารถเป็นพื้นฐานให้แก่ผู้ที่สนใจในการทำ image captioning ที่เป็นภาษาไทยและนำไปประยุกต์ใช้กับงานของตนได้อีกด้วย 
+  \textbf{**ตัวอย่างบทคัดย่อ...} การวิจัยครั้งนี้มีวัตถุประสงค์  เพื่อศึกษาความพึงพอใจในการให้บริการงานทั่วไปของสานักวิชา พื้นฐานและภาษา เพื่อเปรียบเทียบระดับความพึงพอใจต่อการให้บริการงาน ทั่วไปของสานักวิชาพื้นฐานและภาษา ของนักศึกษาที่มาใช้บริการสานักวิชาพื้นฐานและภาษา สถาบัน เทคโนโลยีไทย-ญี่ปุ่น จาแนกตามเพศ คณะ และชั้นปีที่ศึกษา เพื่อศึกษาปัญหาและข้อเสนอแนะของ นักศึกษามาเป็นแนวทางในการพัฒนาและปรับปรุงการให้บริการของสานักวิชาพื้นฐานและภาษา
+  เนื่องจากในยุคสมัยนี้โลกเราได้เข้าสู่ยุคของข้อมูลมหัต (Big Data) ซึ่งบริษัทต่าง ๆก็เริ่มขับเคลื่อนธุรกิจด้วยข้อมูลแล้ว  โดยธุรกิจที่มีข้อมูลขนาดใหญ่อย่างที่เห็นง่ายๆเลยก็จะเป็น เว็บไซต์ที่เปิดบริการให้ขายของออนไลน์ ซึ่งในเว็บไซต์นั้นก็จะมีข้อมูลสินค้ามากมายและ สิ่งที่เราได้พบคือรายละเอียดสินค้าหลายๆอย่างไม่มีความสอดคล้องกับรูปภาพสินค้าหรือไม่ชัดเจนพอและ เนื่องด้วยข้อมูลที่มีขนาดใหญ่เกินกว่าที่จะจัดการด้วยแรงงานคนได้และ ยังไม่มีเครื่องมือใด ๆ ในการตรวจจับคำผิดเหล่านี้ได้ เราจึงทำโครงงานนี้ขึ้นมาเพื่อที่จะแก้ไขปัญหาเหล่านี้\par
+  ทางเราจึงคิดที่จะทำระบบปัญญาประดิษฐ์หรือ AI มาแก้ไขปัญหาในส่วนนี้ โดยทำ Image Captioning ที่ใช้ Convolutional Neural Network (CNN) และ Long Short-term Memory (LSTM) ซึ่งทางคณะผู้จัดทำก็จะมีการเปรียบเทียบกับสถาปัตยกรรมของโมเดลอื่น ๆ เพื่อสร้างโมเดลที่มีประสิทธิภาพมากที่สุด ซึ่งถ้าโครงงานนี้ประสบความสำเร็จจะสามารถตรวจสอบคุณภาพของคำอธิบายสินค้าในเว็บไซต์ขายสินค้าออนไลน์ ทำให้คุณภาพและภาพลักษณ์ต่อสังคมของเว็บไซต์นั้นดูดีขึ้นได้ และนอกจากนี้โครงงานนี้ยังสามารถเป็นพื้นฐานให้แก่ผู้ที่สนใจในการทำ image captioning ที่เป็นภาษาไทยและนำไปประยุกต์ใช้กับงานของตนได้อีกด้วย
 }
 
 \def\thabstkeyword{
-การชุบเคลือบด้วยไฟฟ้า / การชุบเคลือบผิวเหล็ก /  เคลือบผิวรังสี
+  การชุบเคลือบด้วยไฟฟ้า / การชุบเคลือบผิวเหล็ก /  เคลือบผิวรังสี
 }
 
 \genabstract
@@ -254,16 +254,16 @@ Multihop Ad hoc Networks / Topology Control / Single-Hop Throughput
 %%%%%%%%%%%%%%%%%%%%%%%%% Acknowledgments %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \def\prefacecontent{
-    Acknowledge your advisors and thanks your friends here..
+  Acknowledge your advisors and thanks your friends here..
 }
 
 \genpreface
 
 %%%%%%%%%% Table of contents and report elements lists %%%%%%%%%%%%%%
-%: The commands below automatically generate the table 
+%: The commands below automatically generate the table
 %: of content, list of tables, list of figures, and list of listings
 %: # Table of content
-\tableofcontents                    
+\tableofcontents
 
 %: # Table of report elements (auto-generated)
 \newcommand{\tableraglf}[1]{\RaggedRight{#1}}
@@ -274,26 +274,26 @@ Multihop Ad hoc Networks / Topology Control / Single-Hop Throughput
 %: # List of symbols (manually added)
 \listofsymbols
 \justifying{
-    \centering{\bf{\textit{(Example list of symbols...)}}} \\
-    %: You can adjust width to suit your word length
-    \begin{tabular}{@{}p{0.07\textwidth}p{0.7\textwidth}p{0.1\textwidth}}
-        \textbf{SYMBOLS} & & \textbf{UNIT} \\[0.2cm]
-            $\alpha$ & \tableraglf{Test variable}\hfill & m$^2$ \\
-            $\lambda$ & \tableraglf{Interarival rate}\hfill &  jobs/second\\
-            $\mu$ & \tableraglf{Service rate}\hfill & jobs/second\\
-    \end{tabular}
+  \centering{\bf{\textit{(Example list of symbols...)}}} \\
+  %: You can adjust width to suit your word length
+  \begin{tabular}{@{}p{0.07\textwidth}p{0.7\textwidth}p{0.1\textwidth}}
+    \textbf{SYMBOLS} &                                     & \textbf{UNIT} \\[0.2cm]
+    $\alpha$         & \tableraglf{Test variable}\hfill    & m$^2$         \\
+    $\lambda$        & \tableraglf{Interarival rate}\hfill & jobs/second   \\
+    $\mu$            & \tableraglf{Service rate}\hfill     & jobs/second   \\
+  \end{tabular}
 }
 
 %: # List of vocab and technical terms (manually added)
 \listofvocab
 \begin{flushleft}
-    \centering{\bf{\textit{(Example list of vocabs...)}}} \\
-    %: You can adjust width to suit your word length
-    \begin{tabular}{@{}p{1.2in}@{\hspace{0.08in}=\extracolsep{0.2in}}p{4in}}
-        ABC & Adaptive Bandwidth Control \\
-        MANET & Mobile Ad Hoc Network  \\
-        Test & Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non condimentum purus. Pellentesque sed augue sapien. In volutpat quis diam laoreet suscipit. Curabitur fringilla sem nisi, at condimentum lectus consequat vitae. \\
-    \end{tabular} 
+  \centering{\bf{\textit{(Example list of vocabs...)}}} \\
+  %: You can adjust width to suit your word length
+  \begin{tabular}{@{}p{1.2in}@{\hspace{0.08in}=\extracolsep{0.2in}}p{4in}}
+    ABC   & Adaptive Bandwidth Control                                                                                                                                                                                                         \\
+    MANET & Mobile Ad Hoc Network                                                                                                                                                                                                              \\
+    Test  & Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non condimentum purus. Pellentesque sed augue sapien. In volutpat quis diam laoreet suscipit. Curabitur fringilla sem nisi, at condimentum lectus consequat vitae. \\
+  \end{tabular}
 \end{flushleft}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% Contents %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -311,7 +311,7 @@ Multihop Ad hoc Networks / Topology Control / Single-Hop Throughput
 %: cited. Otherwise, all the references below will be shown.
 % \nocite{*}
 
-%: Use the bst files for bibtex bibliography style 
+%: Use the bst files for bibtex bibliography style
 %: You must have bib files in the referred directories
 %: You may go to file .bbl to manually edit the bib items.
 
@@ -328,7 +328,7 @@ Multihop Ad hoc Networks / Topology Control / Single-Hop Throughput
 %: # Latex built-in bibliography
 %: Uncomment \bibliographystyle and \bibliography if you're using biblatex above
 %: References style
-%: Examples: \bibliographystyle{bibstyle/kmutt} 
+%: Examples: \bibliographystyle{bibstyle/kmutt}
 \bibliographystyle{bib/ieee}
 
 %: References files
