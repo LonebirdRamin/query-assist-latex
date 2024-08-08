@@ -1,0 +1,323 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%% TEMPLATE INFO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%: Template Name = cpe-proposal-th
+%: Version Name  = th-vectier-1.1
+%: Credits
+%: - Peerapon Siripongwutikorn, CPE, 2016
+%: - Wuttipat Chokananatasab, FIBO, 2016
+%: - Thanin Srithai, CPE, 2021
+%: - Jatetanan Kanchanawat, CPE, 2023
+%:
+%: This is a LaTeX template used in CPE, KMUTT thesis.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%: Instructions:
+%: Run at the command line:
+%: - xelatex <filename> or latexmk -xelatex <filename> to compile
+%: tex files
+%: - bibtex <filename> or biber <filename> to compile bib file
+%: Note: Run a few times to generate the output pdf file
+%:
+%%%%%%%%%%%%%%%%%%%%%%%%%% REPORT START %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[12pt,one side,openright,a4paper]{cpe-proposal-th}
+
+%%%%%%%%%%%%%%%%%%%%%% Packages and Configs %%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{color}
+\usepackage{pgfgantt}                   % Gantt chart
+\usepackage{polyglossia}                % Thai language script and format
+\usepackage{caption}                    % Figures and tables captions
+
+\usepackage{etoolbox}                   % Patching commands for macros creating i.e. preto
+\usepackage{longtable}                  % Long continuous table
+\usepackage{ragged2e}                   % Forcing figure
+\usepackage{float}                      % ER and checkmark
+\usepackage{tikz}                       % Drawing graphs and symbols
+\usepackage{subfig}                     % Subfigures
+\usepackage{keyval}                     % Subfigures alignment
+\usepackage[export]{adjustbox}          % Subfigures aLignment
+\usepackage{cleveref}                   % Clever label references
+
+\usepackage{lmodern}
+\usepackage{listings}                   % Listings as code blocks
+\usepackage{packages/listings-go}       % Listings support for Golang
+\usepackage{packages/listings-js}       % Listings support for JavaScript and ES6
+\usepackage{packages/listings-yaml}     % Listing support for YAML
+
+%: # Biblatex
+%: Bib manager; instead of using \bibliography{}
+%: NOTE: Biblatex defines typesetting onto compilation cache.
+%: So recompile from scratch (Delete all aux, bbl, and other output files, then recompile)
+%: everytime you stopped using biblatex
+
+% \usepackage[
+%     backend=bibtex,     % Biber or Bibtex
+%     style=ieee,         % Bib standard
+%     sorting=none,       % Sort by appearance in paper
+%     % sorting=ynt,       % Sort by year, name...
+%     % sortcites=true,    % Some other example options
+%     dateabbrev=true,
+%     urldate=long,
+%     block=none,
+%     indexing=false,
+%     citereset=none,
+%     isbn=true,
+%     url=true,
+%     language=english,
+%     doi=true,           % Prints DOI
+%     natbib=true         % if you need Natbib functions
+% ]{biblatex}
+
+%%%%%%%%%%%%%%%%%%% Custom macros & Settings %%%%%%%%%%%%%%%%%%%%%%%%
+%: From this part to \begin{document}
+%: Do not modify unless you know what you are doing...
+
+
+%: # Biblatex macro
+%: Uncomment all of these if you're using biblatex
+
+%: Setup URL access date string
+% \DefineBibliographyStrings{english}{%
+%     urlseen = {accessed}
+% }
+
+%: Reference bib files
+%: Make sure you reference correct bib file...
+% \addbibresource{bib/codern.bib}
+
+%: # Typography
+%: Define 1st and 2nd language
+\setdefaultlanguage{thai}
+\setotherlanguage{english}
+
+%: Set linebreak to Thai
+\XeTeXlinebreaklocale "th"
+\XeTeXlinebreakskip = 0pt plus 0pt
+\emergencystretch=10pt
+
+%: Define fonts for code blocks
+\newfontfamily\codefont[Scale=0.95]{CourierPrime.ttf}[
+    Path=fonts/,
+    Extension=.ttf,
+    BoldFont=*-Bold,
+    ItalicFont=*-Italic,
+    BoldItalicFont=*-BoldItalic,
+]
+
+%: # Paragraph Settings
+%: Adjust your paragraph to your standards
+
+\newcommand{\thaijustify}[1]{%
+  \par\hspace{30pt}\justifying
+  #1
+}
+
+\newcommand{\thaicaption}[1]{%
+  \par\justifying
+  #1
+}
+
+%: # Tikz Settings
+%: Tikz is used for drawing simple edge and node graph
+%: Import shapes for usage
+\usetikzlibrary{er, positioning, shapes.geometric, arrows}
+
+%: Define checkmark symbol
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
+
+
+%: # Listings Settings
+%: Listings are used for displaying the program or
+%: codes in reports as statement
+
+%: Define text color for code blocks
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+%: Go code snippets setting
+\lstset{
+    frame=tb,
+    language=Golang,
+    aboveskip=3mm,
+    belowskip=3mm,
+    showstringspaces=false,
+    columns=flexible,
+    basicstyle={\small\codefont},
+    numbers=left,
+    numberstyle=\small\color{gray},
+    keywordstyle=\color{blue},
+    commentstyle=\color{dkgreen},
+    stringstyle=\color{mauve},
+    breaklines=false,
+    breakatwhitespace=false,
+    tabsize=3
+}
+
+%: # Math macro
+%: Fraction settings
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\textfraction}{0.1}
+
+%: # Define theorem and proof
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+
+\def\QED{\mbox{\rule[0pt]{1.5ex}{1.5ex}}}
+\def\proof{\noindent\hspace{2em}{\itshape Proof: }}
+\def\endproof{\hspace*{\fill}~\QED\par\endtrivlist\unskip}
+
+%\newenvironment{proof}{{\sc Proof:}}{~\hfill \blacksquare}
+%% The hyperref package redefines the \appendix. This one
+%% is from the dissertation.cls
+%\def\appendix#1{\iffirstappendix \appendixcover \firstappendixfalse \fi \chapter{#1}}
+%\renewcommand{\arraystretch}{0.8}
+
+%%%%%%%%%%%%%%%%%%%%%% Report Definitions %%%%%%%%%%%%%%%%%%%%%%%%%%%
+%: Customize below to suit your needs
+%: The optional ones can be left blank.
+
+%: Front cover's + signature page's language
+%: Enter 'Thai' / 'English' for changing the language
+%: for cover page, appendixes, and signature page
+\def\coverlang{Thai}
+
+%: # Project Type
+%: Enter 'Project' / 'Independent Study' / 'Thesis'
+\def\worktype{Project}
+\def\thaiworktype{โครงงาน}
+
+%: # Credits
+%: Enter number based on your subject's credits
+\def\disscredit{3}
+
+%: # Fulfillment; 'Degree' or 'Subject'
+%: Set to 'Degree' for senior project or thesis
+%: 'Subject' for any subject project report i.e. soft-eng final report
+\def\fulfillment{Degree}
+
+%: # Titles
+\def\disstitleone{Title Line 1}
+\def\thaidisstitleone{ชื่อโครงงาน บรรทัด 1}
+\def\disstitletwo{Title Line 2}
+\def\disstitlethree{Title Line 3}
+\def\thaidisstitletwo{ชื่อโครงงาน บรรทัด 2}
+\def\thaidisstitlethree{ชื่อโครงงาน บรรทัด 3}
+
+%: # Authors
+\def\dissauthor{Mr. Krid Hepakrone}
+\def\thaidissauthor{นายกฤษฎิ์ เฮ่ประโคน}
+\def\dissauthortwo{Mr. Jatetanan Kanchanawat}
+\def\thaidissauthortwo{นายเจตนันท์ กาญจนวัฒน์}
+\def\dissauthorthree{Ms. Pimmada Laisuan}
+\def\thaidissauthorthree{นางสาวพิมพ์มาดา ไล้สวน}
+
+%: # Diploma
+%: If you're still an undergraduate having not
+%: graduated from any degree; leave these fields empty
+%: Example: B.Eng. (Computer Engineering)
+\def\dissdiplomaone{}
+\def\dissdiplomatwo{}
+\def\dissdiplomathree{}
+\def\thaidissdiplomaone{วศ.บ. วิศวกรรมคอมพิวเตอร์}
+\def\thaidissdiplomatwo{}
+\def\thaidissdiplomathree{}
+
+%: Advisors
+\def\dissadvisor{Assoc. Prof. Natasha Dejdumrong, D. Tech. Sci.} % Advisor
+\def\thaidissadvisor{รศ.ดร.ณัฐชา เดชดำรง}
+
+%: Leave empty if you have no co-advisor
+\def\disscoadvisor{Asst. Prof Sanan Srakaew} % Co-advisor (optional)
+\def\disscoadvisortwo{} % Co-advisor (optional)
+\def\thaidisscoadvisor{ผศ.สนั่น สระแก้ว}
+\def\thaidisscoadvisortwo{}
+
+%: # Committees
+%: Note that senior projects have no committee chair
+\def\disscommitteechair{} % Committee chair (optional)
+\def\thaidisscommitteechair{}
+
+%: Leave the following empty if no person is in that position
+%: Your project or independent study's committee
+%: Example of appropriate advisor/committee name entries
+%: Example 1: Asst. Prof. Dr.Ing Priyakorn Pusawiro
+%: Example 2: Jaturon Harnsomburana, Ph.D.
+\def\disscommitteetwo{Asst. Prof. Dr.Ing Priyakorn Pusawiro} % Committee member
+\def\disscommitteethree{Asst. Prof. Rajchawit Sarochawikasit} % Committee member (optional)
+\def\disscommitteefour{Jaturon Harnsomburana, Ph.D.} % Committee member (optional)
+\def\thaidisscommitteetwo{ผศ.ดร.ปริยกร ปุสวิโร}
+\def\thaidisscommitteethree{ผศ.ราชวิชช์ สโรชวิกสิต}
+\def\thaidisscommitteefour{ดร.จาตุรนต์ หาญสมบูรณ์}
+
+%: # Degree
+%: Degree that you're pursuing
+\def\dissdegree{Bachelor of Engineering} % Name of the degree
+\def\thaidissdegree{วิศวกรรมศาสตรบัณฑิต}
+\def\dissdegreeabrev{B.Eng.} % Abbreviation of the degree
+\def\dissyear{2023}  % Year of submission
+\def\thaidissyear{2566} % Year of submission (in B.E.)
+
+%: # Department and Institution Information
+\def\institute{King Mongkut's University of Technology Thonburi}
+\def\fieldofstudy{Computer Engineering}
+\def\department{Computer Engineering}
+\def\faculty{Faculty of Engineering}
+\def\thaiinstitute{มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี}
+\def\thaifieldofstudy{วิศวกรรมคอมพิวเตอร์}
+\def\thaidepartment{วิศวกรรมคอมพิวเตอร์}
+\def\thaifaculty{วิศวกรรมศาสตร์}
+
+%%%%%%%%%%%%%%%%%%% Front Page / Signature Page %%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\pdfstringdefDisableCommands{
+  \let\MakeUppercase\relax
+}
+
+\genfrontpages{kmutt.jpg}{2.8cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% Contents %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%: Insert your contents chapter by chapter here
+%: using \input{path\to\chapter\tex}
+
+\input{chapters/1/chapter1}
+\input{chapters/2/chapter2}
+\input{chapters/3/chapter3}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Bibliography %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%: Comment this in your report to show only references you have
+%: cited. Otherwise, all the references below will be shown.
+% \nocite{*}
+
+%: Use the bst files for bibtex bibliography style
+%: You must have bib files in the referred directories
+%: You may go to file .bbl to manually edit the bib items.
+
+%: Improve url breaks to prevent unnecessary big white spaces in some cases
+\makeatletter
+\g@addto@macro{\UrlBreaks}{\UrlOrds}
+\makeatother
+
+%: # Biblatex
+%: Add biblatex for managing bibs
+%: Uncomment this if you're using Biblatex
+% \printbibliography[heading=bibintoc,title={บรรณานุกรม}]
+
+%: # Latex built-in bibliography
+%: Uncomment \bibliographystyle and \bibliography if you're using biblatex above
+%: References style
+%: Examples: \bibliographystyle{bibstyle/kmutt}
+\bibliographystyle{bib/ieee}
+
+%: References files
+%: Examples: \bibliography{example/string,example/string2,example/cpe}
+\bibliography{bib/codern}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Appendices %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%: Insert your appendices here the same way you insert content
+%: chapters using \input{path\to\appendix\tex}
+
+% \input{appendices/A/appendixA}
+
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%% REPORT END %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
