@@ -1,108 +1,157 @@
 \chapter{Introduction}
 
-THIS IS AN EXAMPLE. ALL SECTIONS BELOW ARE OPTIONAL. PLEASE CONSULT YOU ADVISOR AND DESIGN YOUR OWN SECTION
 
-\emph{\textthai{หัวข้อต่าง ๆ ในแต่ละบทเป็นเพียงตัวอย่างเท่านั้น หัวข้อที่จะใส่ในแต่ละบทขึ้นอยู่กับโปรเจคของนักศึกษาและอาจารย์ที่ปรึกษา}}
+% \emph{}
 
 \section{Background} 
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus sem id nisi imperdiet commodo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Morbi sed dignissim nunc. Sed gravida semper porta. Maecenas scelerisque ex viverra ipsum condimentum pulvinar. Quisque auctor est nec venenatis accumsan. Phasellus finibus tincidunt blandit. Donec ac ante lectus. Mauris facilisis aliquet lorem quis imperdiet. Aenean pretium enim et placerat ultrices. Suspendisse tempor elit et imperdiet mattis. Vivamus quis lacus congue, efficitur augue vel, consequat eros. Aenean consequat risus ut consectetur convallis. Suspendisse convallis, ligula id pretium efficitur, tellus nunc commodo neque, et scelerisque lacus arcu quis orci. Donec tempor massa leo, ac sodales magna molestie ut. Quisque id interdum ante.
+Undeniably, data plays a critical role in driving companies especially for swiftly moving business worlds. The data could direct the company by offering insights that can solve problems, lead to improvements, help making an informed decision making, understand the customer preference, enhance marketing strategies, cost reduction, risk management, and so many other things. Relying on specialists to retrieve data efficiently is costly and time-consuming. It would therefore be rather advantageous and efficient to create a query support tool that assists users in retrieving data from the database, particularly for fast-growing travel technology companies like Agoda.
+The potential benefits of Query Assistance are that it would help in simplifying data access by enabling employees to quickly retrieve data without requiring an understanding of SQL. The user can retrieve data quickly and efficiently using the Query Assistance in which helps to save cost, time, and resources from querying the data.
 
-Explain the background of your works for readers. You can refer to figure by like this.. Figure~\ref{fig:x1}.
-Get ready, skanks! It's time for the truth train! Fame was like a drug. But what was even more like a drug were the drugs. Attempted murder? Now honestly, what is that? Do they give a Nobel Prize for attempted chemistry?
-
-Get ready, skanks! It's time for the truth train! Fame was like a drug. But what was even more like a drug were the drugs. Attempted murder? Now honestly, what is that? Do they give a Nobel Prize for attempted chemistry?
-
-"Thank the Lord"? That sounded like a prayer. A prayer in a public school. God has no place within these walls, just like facts don't have a place within an organized religion. Thank you, steal again. I hope this has taught you kids a lesson: kids never learn.
-
-…And the fluffy kitten played with that ball of string all through the night. On a lighter note, a Kwik-E-Mart clerk was brutally murdered last night. Oh, so they have Internet on computers now!
-
-You don't like your job, you don't strike. You go in every day and do it really half-assed. That's the American way. Lisa, vampires are make-believe, like elves, gremlins, and Eskimos. Jesus must be spinning in his grave!
-
-I prefer a vehicle that doesn't hurt Mother Earth. It's a go-cart, powered by my own sense of self-satisfaction. Marge, it takes two to lie. One to lie and one to listen. Attempted murder? Now honestly, what is that? Do they give a Nobel Prize for attempted chemistry?
-
-I was saying "Boo-urns." Bart, with \$10,000 we'd be millionaires! We could buy all kinds of useful things like…love! I'll keep it short and sweet — Family. Religion. Friendship. These are the three demons you must slay if you wish to succeed in business.
-
-How could you?! Haven't you learned anything from that guy who gives those sermons at church? Captain Whatshisname? We live in a society of laws! Why do you think I took you to all those Police Academy movies? For fun? Well, I didn't hear anybody laughing, did you? Except at that guy who made sound effects. Makes sound effects and laughs. Where was I? Oh yeah! Stay out of my booze. I can't go to juvie. They use guys like me as currency.
-
-Oh, loneliness and cheeseburgers are a dangerous mix. "Thank the Lord"? That sounded like a prayer. A prayer in a public school. God has no place within these walls, just like facts don't have a place within an organized religion.
-
-\section{Motivations}
-Explain the motivations of your works. 
-
-\begin{itemize}
-    \item  What are the problems you are addressing? 
-    \item  Why they are important?
-    \item  What are the limitations of existing approaches? 
-\end{itemize}
-You may combine this section with the background section.
-
-
-\section{Problem Statements}
-
-\section{Objectives}
+\section{Proposed Method}
+    \subsection{Approach}
+    Query Assistance is the tool for creating the SQL query based on the user input. The Query Assistance is capable of debugging  the SQL query, optimizing  the SQL query, and translating the natural language to the SQL query. Initially, the Query Assistance will be built as an API platform, allowing other platforms to call it for execution. It will then be integrated into Superset, enabling users to utilize it when they encounter issues in SQL Lab. The Query Assistance works by using Large Language Models (LLMs) and LangChain as a core function. Large Language Models (LLMs) play a crucial role in this project by improving and expediting SQL operations. The LLMs will be specifically used to fix errors in SQL code, ranging from syntax problems to incorrect table or column references, and automatically generate SQL queries based on natural language input. They will also be used to modify existing SQL statements to improve accuracy or optimize performance Complementing the capabilities of LLMs, LangChain provides a robust framework for building applications where these models can function as an agent. The agent performs tasks such as understanding user inputs, generating responses, and interacting with data. LangChain also offers a library for creating custom tools, aiming to optimize the use of agents and tools to achieve project objectives. The agents extend their capabilities beyond mere text generation by interacting with tools that enable them to fetch real-time data, perform computations, and execute specific commands. To further enhance data interaction, LangChain utilizes metadata stored in OpenMetadata to analyze and select the appropriate columns and tables. This integration ensures that the agents can make informed decisions and effectively manage data interactions, thereby achieving the project's goals efficiently.
+    \subsection{Objectives}
+        \begin{itemize}
+        \item  Simplify data access: Empower workers to retrieve data easily without needing to understand SQL.
+        \item  Enhance query accuracy: Automatically correct SQL statements, from syntax to selecting the correct columns and tables.
+        \item  Boost efficiency: Save time by quickly generating flawless SQL queries, optimizing both productivity and cost.
+        \item  Facilitate advanced queries: Allow users to effortlessly create complex queries and explore advanced SQL techniques with minimal errors.
+        \end{itemize}
 
 \section{Scope of Work}
+This project will be divided into three phases. The first phase focuses on error handling to ensure that we ultimately provide the correct query for the user. This includes correcting all syntax errors, accommodating syntax differences across databases, and fixing column names, table names, and typos in the query. The second phase focuses on optimizing the query such as using the partition column, decreasing memory consumption, and reducing the query execution time. The third and final phase aims to translate natural language into SQL query language.
 
-Explain the scope of your works. 
-\begin{itemize}
-\item  What are the problems you are addressing? 
-\item  Why they are important?
-\item  What are the limitations of existing approaches? 
-\end{itemize}
+\section{Original Engineering Content}
+The original engineering content covered in the project includs the following: Software Engineering, Data Analysis, AI, and User Interface 
+    \begin{itemize}
+        \item  Software
+        \begin{itemize}
+            \item API Design and Implementation
+        \end{itemize}
+        \item  Data Analysis
+        \begin{itemize}
+            \item Performance Metrics
+        \end{itemize}
+        \item  System Integration
+        \begin{itemize}
+            \item Superset Integration
+            \item Slack Integration
+        \end{itemize}
+    \end{itemize}
 
+\pagebreak
 \section{Project Schedule}
-    (Example Gantt Chart...)
-\begin{table}[!h]
-    \centering
-    \caption{Project schedule in the second semester}
-    \label{tbl:gantt1}
-    \begin{ganttchart}[
-        x unit = 0.5cm,
-        y unit chart = 1.2cm,
-        y unit title = 0.6cm,
-        title height = 1,
-        vgrid={*{3}{black, dotted}, *1{black, dashed}},
-        hgrid={*1{black, dashed}},
-        bar top shift = 0.1, 
-        %bar height = 0.8,
-        bar label node/.append style={
-            align=right,
-            % text width=width("Present findings to advisors")
+    \begin{table}[!h]
+        \centering % Ensures the table is centered
+        \caption{Project schedule in the first semester}
+        \label{tbl:gantt1}
+        \resizebox{\textwidth}{!}{ % Resizes the Gantt chart to fit within the page width
+            \begin{ganttchart}[
+                x unit = 0.5cm,
+                y unit chart = 1.2cm,
+                y unit title = 0.6cm,
+                title height = 1,
+                vgrid={*{3}{black, dotted}, *1{black, dashed}},
+                hgrid={*1{black, dashed}},
+                bar top shift = 0.1, 
+                bar height = 0.8,
+                bar label font=\small, % Adjust font size for labels
+                bar label node/.append style={
+                    align=right,
+                    text width=6cm % Set a fixed width for text wrapping
+                }
+            ]{1}{20}
+                \gantttitle{Aug}{4} \gantttitle{Sep}{4} \gantttitle{Oct}{4} \gantttitle{Nov}{4} \gantttitle{Dec}{4} \\
+                \gantttitlelist{1,...,4}{1} \gantttitlelist{1,...,4}{1} \gantttitlelist{1,...,4}{1} \gantttitlelist{1,...,4}{1} \gantttitlelist{1,...,4}{1} \\
+                \ganttbar{Project Discussion with company}{1}{1} \\
+                \ganttbar{Project Idea}{2}{2} \\
+                \ganttbar{Project Brainstorm}{2}{3} \\
+                \ganttbar{Design architecture for project}{3}{4} \\
+                \ganttbar{Set up project}{4}{4} \\
+                \ganttbar{Design sequence diagram for create API to add and update Table details}{5}{6} \\
+                \ganttbar{Implement query assist table details API}{4}{4} \\
+                \ganttbar{Design sequence diagram for tools in Query Assist}{5}{6} \\
+                \ganttbar{Implement tools for Query Assist}{7}{7} \\
+                \ganttbar{Merge and Debug}{7}{8} \\
+                \ganttbar{Prompt Tuning \& Monitor result}{8}{9} \\
+                \ganttbar{CI/CD + Deploy}{9}{9} \\
+                \ganttbar{Slack Integration}{10}{15} \\
+                \ganttbar{Slack Tracking Performance + Enhance the MVP}{12}{13} \\
+                \ganttbar{Merge PostgreSQL}{14}{15} \\
+                \ganttbar{Merge Query Assist v1 with v2}{16}{17} \\
+                \ganttbar{POC and Design the Optimization function}{15}{15} \\
+                \ganttbar{Implement Optimization function}{18}{20}  % No extra \\
+            \end{ganttchart}
         }
-    ]{1}{20}
-        \gantttitle{Aug}{4} \gantttitle{Sep}{4} \gantttitle{Oct}{4} \gantttitle{Nov}{4} \gantttitle{Dec}{4} \\
-        \gantttitlelist{1,...,4}{1} \gantttitlelist{1,...,4}{1} \gantttitlelist{1,...,4}{1} \gantttitlelist{1,...,4}{1} \gantttitlelist{1,...,4}{1} \\
-        \ganttbar{Select research topic}{2}{2} \\
-        \ganttbar{Propose topic to advisors}{3}{3} \\
-        \ganttbar{Research and analyze topic}{3}{4} \\
-        \ganttbar{Present findings to advisors}{4}{4} \\
-        \ganttbar{Write and submit topic proposal}{5}{9} \\
-        \ganttbar{Present and propose to research committee}{11}{11} \\
-    \end{ganttchart}
-\end{table}
+    \end{table}
+\pagebreak
+    \begin{table}[!h]
+        \centering
+        \caption{Project schedule in the second semester}
+        \label{tbl:gantt2}
+        \begin{ganttchart}[
+            x unit = 0.5cm,
+            y unit chart = 1.2cm,
+            y unit title = 0.6cm,
+            title height = 1,
+            vgrid={*{3}{black, dotted}, *1{black, dashed}},
+            hgrid={*1{black, dashed}},
+            bar top shift = 0.1, 
+            %bar height = 0.8,
+            bar label node/.append style={
+                align=right,
+                % text width=width("Present findings to advisors")
+            }
+        ]{1}{20}
+            \gantttitle{Jan}{4} \gantttitle{Feb}{4} \gantttitle{Mar}{4} \gantttitle{Apr}{4} \gantttitle{May}{4} \\
+            \gantttitlelist{1,...,4}{1} \gantttitlelist{1,...,4}{1} \gantttitlelist{1,...,4}{1} \gantttitlelist{1,...,4}{1} \gantttitlelist{1,...,4}{1} \\
+            \ganttbar{Implement Optimization function}{1}{2} \\
+            \ganttbar{Prompt Tuning \& Monitor result}{3}{5} \\
+            \ganttbar{Superset Integration}{4}{5} \\
+            \ganttbar{Get feedback + Enhance the functions}{5}{5} \\
+            \ganttbar{POC and Design the Phase 3 functions}{6}{7} \\
+            \ganttbar{Implement Phase 3 functions}{8}{14} \\
+            \ganttbar{Prompt Tuning \& Monitor result}{14}{15} \\
+            \ganttbar{Get feedback + Enhance the functions}{15}{17} \\
+            \ganttbar{Implement Multi Agent}{16}{18} \\
+            \ganttbar{Debug}{18}{19} \\
+            \ganttbar{Improve and Finalize}{19}{20}  % No extra \\
+        \end{ganttchart}
+    \end{table}
+\section{Deliverables for Term 1}
+\begin{itemize}
+    \item  Overall system design
+    \begin{itemize}
+        \item Architecture Design
+        \item Use Case Diagram
+        \item Sequence Diagram
+        \item Flow Chart
+    \end{itemize}
 
-\begin{table}[!h]
-    \centering
-    \caption{Project schedule in the second semester}\label{tbl:gantt2}
-    \begin{ganttchart}[
-        x unit = 0.5cm,
-        y unit chart = 1.2cm,
-        y unit title = 0.6cm,
-        title height = 1,
-        vgrid={*{3}{black, dotted}, *1{black, dashed}},
-        hgrid={*1{black, dashed}},
-        bar top shift = 0.1, 
-        %bar height = 0.8,
-        bar label node/.append style={
-            align=right,
-            % text width=width("Present findings to advisors")
-        }
-    ]{1}{20}
-        \gantttitle{Jan}{4} \gantttitle{Feb}{4} \gantttitle{Mar}{4} \gantttitle{Apr}{4} \gantttitle{May}{4} \\
-        \gantttitlelist{1,...,4}{1} \gantttitlelist{1,...,4}{1} \gantttitlelist{1,...,4}{1} \gantttitlelist{1,...,4}{1} \gantttitlelist{1,...,4}{1} \\
-        \ganttbar{Buy teacher some coffee!}{1}{1} \\
-    \end{ganttchart}
-\end{table}
+    \item  Query Assist Phase 1
+    \begin{itemize}
+        \item Correcting all syntax errors
+        \item Accommodating syntax differences across databases
+        \item Fixing typos in column names, and table names
+    \end{itemize}
 
+    \item  Integrate into Slack
+    \item Deploy MVC (Minimum viable product)
+\end{itemize}
+\section{Deliverables for Term 2}
+\begin{itemize}
+    \item  Performance Metrics
+
+    \item  Query Assist Phase 2
+    \begin{itemize}
+        \item Auto add partition column
+        \item Decreasing memory consumption
+        \item Reducing the query execution time
+    \end{itemize}
+    \item Query Assist Phase 3
+    \begin{itemize}
+        \item Translate natural language to SQL query
+    \end{itemize}
+\end{itemize}
 \pagebreak
