@@ -225,7 +225,7 @@
 \renewcommand{\labelenumiv}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}.\arabic{enumiv}}
 
 %: # Paragraph skip, indentation length, and line spacing
-\setlength{\parindent}{10mm}
+% \setlength{\parindent}{10mm}
 \setlength{\parskip}{1ex}
 \linespread{1.15}
 

@@ -3,15 +3,24 @@
 
 % \emph{}
 
-\section{Background} 
+\section{Problem Statement and Approach} 
 
-Undeniably, data plays a critical role in driving companies especially for swiftly moving business worlds. The data could direct the company by offering insights that can solve problems, lead to improvements, help making an informed decision making, understand the customer preference, enhance marketing strategies, cost reduction, risk management, and so many other things. Relying on specialists to retrieve data efficiently is costly and time-consuming. It would therefore be rather advantageous and efficient to create a query support tool that assists users in retrieving data from the database, particularly for fast-growing travel technology companies like Agoda.
-The potential benefits of Query Assistance are that it would help in simplifying data access by enabling employees to quickly retrieve data without requiring an understanding of SQL. The user can retrieve data quickly and efficiently using the Query Assistance in which helps to save cost, time, and resources from querying the data.
+Data undeniably plays a critical role in driving companies, especially in rapidly evolving business environments. Data offers insights that can solve problems, lead to improvements, help in making informed decisions, understand customer preferences, enhance marketing strategies, reduce costs, manage risks, and much more. Relying solely on specialists to retrieve data efficiently can be costly and time-consuming. Therefore, creating a query support tool that assists users in retrieving data from databases efficiently would be highly beneficial for fast-growing travel technology companies like Agoda.
 
-\section{Proposed Method}
-    \subsection{Approach}
-    Query Assistance is the tool for creating the SQL query based on the user input. The Query Assistance is capable of debugging  the SQL query, optimizing  the SQL query, and translating the natural language to the SQL query. Initially, the Query Assistance will be built as an API platform, allowing other platforms to call it for execution. It will then be integrated into Superset, enabling users to utilize it when they encounter issues in SQL Lab. The Query Assistance works by using Large Language Models (LLMs) and LangChain as a core function. Large Language Models (LLMs) play a crucial role in this project by improving and expediting SQL operations. The LLMs will be specifically used to fix errors in SQL code, ranging from syntax problems to incorrect table or column references, and automatically generate SQL queries based on natural language input. They will also be used to modify existing SQL statements to improve accuracy or optimize performance Complementing the capabilities of LLMs, LangChain provides a robust framework for building applications where these models can function as an agent. The agent performs tasks such as understanding user inputs, generating responses, and interacting with data. LangChain also offers a library for creating custom tools, aiming to optimize the use of agents and tools to achieve project objectives. The agents extend their capabilities beyond mere text generation by interacting with tools that enable them to fetch real-time data, perform computations, and execute specific commands. To further enhance data interaction, LangChain utilizes metadata stored in OpenMetadata to analyze and select the appropriate columns and tables. This integration ensures that the agents can make informed decisions and effectively manage data interactions, thereby achieving the project's goals efficiently.
-    \subsection{Objectives}
+At Agoda, the majority of employees are non-IT employees, which poses a challenge when retrieving important data. These employees often need to construct query statements, leading to inefficiencies in their workflow. They must either invest time in learning SQL or wait for the support team to respond to their query-related tickets, which can delay decision-making and reduce overall productivity.
+
+This project aims to simplify data access and enhance productivity by enabling employees, especially non-technical users, to retrieve information without requiring SQL expertise. The Query Assistance tool leverages advanced technologies, including Large Language Models (LLMs) and LangChain, to provide comprehensive query support. It can fix incorrect queries, optimize performance, convert database syntax, and generate SQL statements from natural language input.
+
+Initially, the tool will be developed as an API platform, allowing integration with various systems. In its later phase, it will be embedded into Superset to assist users directly within SQL Lab, streamlining workflows and reducing dependence on support teams. The integration with OpenMetadata enhances its capabilities, enabling the tool to analyze metadata and intelligently select the appropriate tables and columns for query construction. By combining these features, the Query Assistance tool addresses inefficiencies in query handling, helping organizations like Agoda save time, reduce costs, and improve decision-making processes.
+
+\section{Objectives}
+1.2.1 	To enhance correctness and increase efficiency in construction of queries.
+
+1.2.2 	To develop API endpoints leveraging LLM services capable of fixing, converting, optimizing, and constructing queries.
+
+1.2.3	To integrate Query Assistance with Agoda's existing services and tools, such as Superset and Slack,
+
+        \subsection{Objectives}
         \begin{itemize}
         \item  Simplify data access: Empower workers to retrieve data easily without needing to understand SQL.
         \item  Enhance query accuracy: Automatically correct SQL statements, from syntax to selecting the correct columns and tables.
@@ -20,7 +29,21 @@ The potential benefits of Query Assistance are that it would help in simplifying
         \end{itemize}
 
 \section{Scope of Work}
+1.3.1	The API service to help solving SQL queries statement problems.
+
+1.3.2	Develop capabilities for error handling in queries, ensuring syntax accuracy across multiple databases and correcting column and table names.
+
+1.3.3	Implement query optimization techniques, utilizing partition columns to enhance performance and reduce both memory consumption and query execution time.
+
+1.3.4	Build a module for translating natural language inputs into SQL query language.
+
+1.3.5	Query Assist will only utilize data from Agoda Services to answer queries.
+
+1.3.6	Query Assist will be integrated with Superset, Slack, and web-based platforms.
+
+\section{Phases}
 This project will be divided into three phases. The first phase focuses on error handling to ensure that we ultimately provide the correct query for the user. This includes correcting all syntax errors, accommodating syntax differences across databases, and fixing column names, table names, and typos in the query. The second phase focuses on optimizing the query such as using the partition column, decreasing memory consumption, and reducing the query execution time. The third and final phase aims to translate natural language into SQL query language.
+
 
 \section{Original Engineering Content}
 The original engineering content covered in the project includs the following: Software Engineering, Data Analysis, AI, and User Interface 

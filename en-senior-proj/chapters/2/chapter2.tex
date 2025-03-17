@@ -10,18 +10,32 @@
 
 % You can cite your references like this: \cite{booch87}, or multiplie cite like this: \cite{meyer2000, atwoodmd}
 
-This chapter outlines the theory and related research to ensure that the development is feasible and that there are appropriate tools. Relevant knowledge will be researched and summarized, along with the technologies and programming languages to be used. Additionally, competing solutions developed by others will also be discussed in this chapter.
 \section{Background}
-The Business Intelligence Infrastructure team at Agoda is responsible for assisting customers in retrieving data using SQL statements. Currently, 27\% of the tickets in BI-Help are categorized as 'Query Help.' This is because customers often struggle with writing SQL statements correctly, and SQL error messages can be difficult to understand. Additionally, with multiple databases, error messages can vary, and many users deal with highly complex SQL statements. Furthermore, other teams with limited SQL knowledge also seek assistance from the BI team to retrieve data from the database. To address these challenges, the team aims to develop Query Assistance to provide effective solutions.
+This chapter outlines the theory and related research to ensure that the development is feasible and that there are appropriate tools. Relevant knowledge will be researched and summarized, along with the technologies and programming languages to be used. Additionally, competing solutions developed by others will also be discussed in this chapter.
+
+\section{Background}
+The Business Intelligence Infrastructure team at Agoda is responsible for assisting customers in retrieving data using SQL statements. Currently, 27% of the tickets in BI-Help are categorized as 'Query Help.' This is because customers often struggle with writing SQL statements correctly, and SQL error messages can be difficult to understand. Additionally, with multiple databases, error messages can vary, and many users deal with highly complex SQL statements. Furthermore, other teams with limited SQL knowledge also seek assistance from the BI team to retrieve data from the database. To address these challenges, the team aims to develop Query Assistance to provide effective solutions.
 \section{Theory and Core Concepts}
     \subsection{Large Language Models (LLMs)}
-    Large Language Models are advanced AI systems designed to read and generate text based on their training from extensive datasets. Using deep learning techniques, they understand and process words and sentences. To enhance their responsiveness, LLMs undergo further fine-tuning. With additional training, these models can also be capable of translating languages.
+    Large Language Models (LLMs) represent a significant advancement in artificial intelligence, engineered to comprehend and generate human-like text through comprehensive training on vast datasets. Employing sophisticated deep learning techniques, these models interpret words and sentences in context, enabling them to carry out tasks such as text generation, summarization, and sentiment analysis. Fine-tuning further refines their ability to respond accurately to specific applications, enhancing their adaptability and efficacy for targeted tasks. Additionally, with specialized training, LLMs can undertake language translation, broadening their applicability across multilingual environments. These capabilities make LLMs indispensable tools for modern AI solutions, addressing a wide range of language-based challenges with precision and scalability.
     \subsection{Representational state transfer application programming interface (REST API)}
     Application Programming Interface (API) is middleware that facilitates communication between two software components. Representational State Transfer (REST) is a software architectural style that defines a set of constraints and principles on how an API should behave.
     \subsection{Software Architecture Pattern}
-    Software architecture plays a crucial role in software development. It is a fundamental practice for developers to create software that is high-quality, efficient, and easy to manage and maintain. Software architecture consists of patterns that have been proven over time, becoming best practices that help solve common problems in software development. By following these patterns, developers can build systems that are easier to understand, maintain, and expand.
+    Software architecture plays a crucial role in software development. It is a fundamental practice for developers to create software that is high-quality, efficient, and easy to manage and maintain. Software architecture consists of patterns that have been proven over time, becoming best practices that help solve common problems in software development. By following these patterns, developers can build systems that are easier to understand, maintain, and expand. 
+    \cite{Arslan} 
+
+    The following outlines the importance of architectural patterns. First, software architecture acts as a visual communication tool, allowing other developers, colleagues, or even stakeholders to understand the system you are building in a much simpler way. Second, software architecture models make it easy to reuse them in other projects since you now know the decisions you made and the various trade-offs. Third, complex systems with many components and interactions need a clear structure to ensure everything works together smoothly. Fourth, systems expected to grow over time or handle high loads require careful planning to avoid bottlenecks and ensure they can scale efficiently. Fifth, long-term projects that will be developed and maintained over several years need a solid architectural foundation to prevent technical debt and ensure maintainability.
+    \cite{Abbas} 
     
-    These are the reasons why we need architectural patterns. First, software architecture acts as a visual communication tool, allowing other developers, colleagues, or even stakeholders to understand the system you are building in a much simpler way. Second, software architecture models make it easy to reuse them in other projects since you now know the decisions you made and the various trade-offs. Third, complex systems with many components and interactions need a clear structure to ensure everything works together smoothly. Fourth, systems expected to grow over time or handle high loads require careful planning to avoid bottlenecks and ensure they can scale efficiently. Fifth, long-term projects that will be developed and maintained over several years need a solid architectural foundation to prevent technical debt and ensure maintainability.
+    There are several architectural styles, each with unique benefits and uses. The microservices architecture is one example; it is a design methodology in which an application is constructed as a group of independent, autonomous services that communicate. Every service has a distinct purpose and functions autonomously, interacting with other services using simple protocols. The architecture of microservices has a number of important benefits. By enabling autonomous scalability of different services in response to particular demands, it guarantees effective resource allocation. Additionally, this method offers flexibility because services may be changed or removed without impacting the application as a whole. It also enhances flexibility by isolating issues within a single component, reducing the risk of systemic failures and ensuring that the failure of one service does not cause the entire system to crash. Identifying and resolving problems is often simpler in smaller, independent services. Another benefit is that teams can work on multiple services simultaneously, accelerating the development process. Incremental updates allow new service versions to be deployed gradually, minimizing downtime and ensuring smoother transitions.
+    \cite{Vicki}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=10cm]{chapters/2/figures/eb6b7a926564d8e2d83f58f00.jpg}
+        \caption[Microservices architecture]{Microservices architecture  from~\cite{Vicki}}
+        \label{fig:microservices-architecture}
+    \end{figure}
+    
     \subsection{Multi Agent}
     \subsection{Performance Metrics}
 \section{Languages and technologies}
@@ -57,13 +71,13 @@ The Business Intelligence Infrastructure team at Agoda is responsible for assist
         \end{tabular}
     \end{table}
 
-    You can place any report elements and refer to it like Figure~\ref{tbl:method1}, \ref{fig:oop-concept}
+    You can place any report elements and refer to it like Figure~\ref{tbl:method1}, \ref{fig:microservices-architecture}
     The figure and table numbering will be run and updated automatically when you add/remove tables/figures from the document.
 
     \begin{figure}[H]
         \centering
         \includegraphics[width=7cm]{chapters/2/figures/react-lifecycle.png}
-        \caption[Aspects of OOPs]{Aspects of OOPs from~\cite{apollo22oop}}
+        \caption[Aspects of OOPs]{Aspects of OOPs from~\cite{bworld}}
         \label{fig:oop-concept}
     \end{figure}
     
