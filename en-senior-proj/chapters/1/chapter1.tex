@@ -45,31 +45,59 @@ Initially, the tool will be developed as an API platform, allowing integration w
 This project will be divided into three phases. The first phase focuses on error handling to ensure that we ultimately provide the correct query for the user. This includes correcting all syntax errors, accommodating syntax differences across databases, and fixing column names, table names, and typos in the query. The second phase focuses on optimizing the query such as using the partition column, decreasing memory consumption, and reducing the query execution time. The third and final phase aims to translate natural language into SQL query language.
 
 
-\section{Original Engineering Content}
-The original engineering content covered in the project includs the following: Software Engineering, Data Analysis, AI, and User Interface 
-    \begin{itemize}
-        \item  Software
-        \begin{itemize}
-            \item API Design and Implementation
-        \end{itemize}
-        \item  Data Analysis
-        \begin{itemize}
-            \item Performance Metrics
-        \end{itemize}
-        \item  System Integration
-        \begin{itemize}
-            \item Superset Integration
-            \item Slack Integration
-        \end{itemize}
-    \end{itemize}
-
 \pagebreak
-\section{Project Schedule}
-    \begin{table}[!h]
-        \centering % Ensures the table is centered
-        \caption{Project schedule in the first semester}
-        \label{tbl:gantt1}
-        \resizebox{\textwidth}{!}{ % Resizes the Gantt chart to fit within the page width
+\section{Task and Schedule}
+    \subsection{Semester 1}
+        \begin{table}[!h]
+            \centering % Ensures the table is centered
+            \caption{Project schedule in the first semester}
+            \label{tbl:gantt1}
+            \resizebox{\textwidth}{!}{ % Resizes the Gantt chart to fit within the page width
+                \begin{ganttchart}[
+                    x unit = 0.5cm,
+                    y unit chart = 1.2cm,
+                    y unit title = 0.6cm,
+                    title height = 1,
+                    vgrid={*{3}{black, dotted}, *1{black, dashed}},
+                    hgrid={*1{black, dashed}},
+                    bar top shift = 0.1, 
+                    bar height = 0.8,
+                    bar label font=\small, % Adjust font size for labels
+                    bar label node/.append style={
+                        align=right,
+                        text width=6cm % Set a fixed width for text wrapping
+                    }
+                ]{1}{20}
+                    \gantttitle{Aug}{4} \gantttitle{Sep}{4} \gantttitle{Oct}{4} \gantttitle{Nov}{4} \gantttitle{Dec}{4} \\
+                    \gantttitlelist{1,...,4}{1} \gantttitlelist{1,...,4}{1} \gantttitlelist{1,...,4}{1} \gantttitlelist{1,...,4}{1} \gantttitlelist{1,...,4}{1} \\
+                    \ganttbar{Project Discussion with company}{1}{1} \\
+                    \ganttbar{Project Idea}{2}{2} \\
+                    \ganttbar{Project Brainstorm}{2}{3} \\
+                    \ganttbar{Design architecture for project}{3}{4} \\
+                    \ganttbar{Set up project}{4}{4} \\
+                    \ganttbar{Design sequence diagram for create API to add and update Table details}{5}{6} \\
+                    \ganttbar{Implement query assist table details API}{4}{4} \\
+                    \ganttbar{Design sequence diagram for tools in Query Assist}{5}{6} \\
+                    \ganttbar{Implement tools for Query Assist}{7}{7} \\
+                    \ganttbar{Merge and Debug}{7}{8} \\
+                    \ganttbar{Prompt Tuning \& Monitor result}{8}{9} \\
+                    \ganttbar{CI/CD + Deploy}{9}{9} \\
+                    \ganttbar{Slack Integration}{10}{15} \\
+                    \ganttbar{Slack Tracking Performance + Enhance the MVP}{12}{13} \\
+                    \ganttbar{Merge PostgreSQL}{14}{15} \\
+                    \ganttbar{Merge Query Assist v1 with v2}{16}{17} \\
+                    \ganttbar{POC and Design the Optimization function}{15}{15} \\
+                    \ganttbar{Implement Optimization function}{18}{20}  % No extra \\
+                \end{ganttchart}
+            }
+        \end{table}
+    \textbf{Task breakdown}
+\pagebreak
+    \subsection{Semester 2}
+        \begin{table}[!h]
+            \centering
+            \caption{Project schedule in the second semester}
+            \label{tbl:gantt2}
             \begin{ganttchart}[
                 x unit = 0.5cm,
                 y unit chart = 1.2cm,
@@ -78,71 +106,33 @@ The original engineering content covered in the project includs the following: S
                 vgrid={*{3}{black, dotted}, *1{black, dashed}},
                 hgrid={*1{black, dashed}},
                 bar top shift = 0.1, 
-                bar height = 0.8,
-                bar label font=\small, % Adjust font size for labels
+                %bar height = 0.8,
                 bar label node/.append style={
                     align=right,
-                    text width=6cm % Set a fixed width for text wrapping
+                    % text width=width("Present findings to advisors")
                 }
             ]{1}{20}
-                \gantttitle{Aug}{4} \gantttitle{Sep}{4} \gantttitle{Oct}{4} \gantttitle{Nov}{4} \gantttitle{Dec}{4} \\
+                \gantttitle{Jan}{4} \gantttitle{Feb}{4} \gantttitle{Mar}{4} \gantttitle{Apr}{4} \gantttitle{May}{4} \\
                 \gantttitlelist{1,...,4}{1} \gantttitlelist{1,...,4}{1} \gantttitlelist{1,...,4}{1} \gantttitlelist{1,...,4}{1} \gantttitlelist{1,...,4}{1} \\
-                \ganttbar{Project Discussion with company}{1}{1} \\
-                \ganttbar{Project Idea}{2}{2} \\
-                \ganttbar{Project Brainstorm}{2}{3} \\
-                \ganttbar{Design architecture for project}{3}{4} \\
-                \ganttbar{Set up project}{4}{4} \\
-                \ganttbar{Design sequence diagram for create API to add and update Table details}{5}{6} \\
-                \ganttbar{Implement query assist table details API}{4}{4} \\
-                \ganttbar{Design sequence diagram for tools in Query Assist}{5}{6} \\
-                \ganttbar{Implement tools for Query Assist}{7}{7} \\
-                \ganttbar{Merge and Debug}{7}{8} \\
-                \ganttbar{Prompt Tuning \& Monitor result}{8}{9} \\
-                \ganttbar{CI/CD + Deploy}{9}{9} \\
-                \ganttbar{Slack Integration}{10}{15} \\
-                \ganttbar{Slack Tracking Performance + Enhance the MVP}{12}{13} \\
-                \ganttbar{Merge PostgreSQL}{14}{15} \\
-                \ganttbar{Merge Query Assist v1 with v2}{16}{17} \\
-                \ganttbar{POC and Design the Optimization function}{15}{15} \\
-                \ganttbar{Implement Optimization function}{18}{20}  % No extra \\
+                \ganttbar{Implement Optimization function}{1}{2} \\
+                \ganttbar{Prompt Tuning \& Monitor result}{3}{5} \\
+                \ganttbar{Superset Integration}{4}{5} \\
+                \ganttbar{Get feedback + Enhance the functions}{5}{5} \\
+                \ganttbar{POC and Design the Phase 3 functions}{6}{7} \\
+                \ganttbar{Implement Phase 3 functions}{8}{14} \\
+                \ganttbar{Prompt Tuning \& Monitor result}{14}{15} \\
+                \ganttbar{Get feedback + Enhance the functions}{15}{17} \\
+                \ganttbar{Implement Multi Agent}{16}{18} \\
+                \ganttbar{Debug}{18}{19} \\
+                \ganttbar{Improve and Finalize}{19}{20}  % No extra \\
             \end{ganttchart}
-        }
-    \end{table}
-\pagebreak
-    \begin{table}[!h]
-        \centering
-        \caption{Project schedule in the second semester}
-        \label{tbl:gantt2}
-        \begin{ganttchart}[
-            x unit = 0.5cm,
-            y unit chart = 1.2cm,
-            y unit title = 0.6cm,
-            title height = 1,
-            vgrid={*{3}{black, dotted}, *1{black, dashed}},
-            hgrid={*1{black, dashed}},
-            bar top shift = 0.1, 
-            %bar height = 0.8,
-            bar label node/.append style={
-                align=right,
-                % text width=width("Present findings to advisors")
-            }
-        ]{1}{20}
-            \gantttitle{Jan}{4} \gantttitle{Feb}{4} \gantttitle{Mar}{4} \gantttitle{Apr}{4} \gantttitle{May}{4} \\
-            \gantttitlelist{1,...,4}{1} \gantttitlelist{1,...,4}{1} \gantttitlelist{1,...,4}{1} \gantttitlelist{1,...,4}{1} \gantttitlelist{1,...,4}{1} \\
-            \ganttbar{Implement Optimization function}{1}{2} \\
-            \ganttbar{Prompt Tuning \& Monitor result}{3}{5} \\
-            \ganttbar{Superset Integration}{4}{5} \\
-            \ganttbar{Get feedback + Enhance the functions}{5}{5} \\
-            \ganttbar{POC and Design the Phase 3 functions}{6}{7} \\
-            \ganttbar{Implement Phase 3 functions}{8}{14} \\
-            \ganttbar{Prompt Tuning \& Monitor result}{14}{15} \\
-            \ganttbar{Get feedback + Enhance the functions}{15}{17} \\
-            \ganttbar{Implement Multi Agent}{16}{18} \\
-            \ganttbar{Debug}{18}{19} \\
-            \ganttbar{Improve and Finalize}{19}{20}  % No extra \\
-        \end{ganttchart}
-    \end{table}
-\section{Deliverables for Term 1}
+        \end{table}
+    \textbf{Task breakdown}
+
+\section{Expected Outcomes}
+The end goal of the project is to develop a comprehensive Query Assist tool that enables users to efficiently retrieve and manage data without needing SQL expertise. Key features include automated error correction, performance optimization, and the ability to translate natural language into SQL queries, all integrated into platforms like Slack and Superset, fostering enhanced data access and decision-making capabilities.
+
+\textbf{Semester 1}
 \begin{itemize}
     \item  Overall system design
     \begin{itemize}
@@ -162,19 +152,21 @@ The original engineering content covered in the project includs the following: S
     \item  Integrate into Slack
     \item Deploy MVC (Minimum viable product)
 \end{itemize}
-\section{Deliverables for Term 2}
+
+\textbf{Semester 2}
 \begin{itemize}
     \item  Performance Metrics
 
     \item  Query Assist Phase 2
     \begin{itemize}
+        \item Translate natural language to SQL query
+    \end{itemize}
+
+    \item Query Assist Phase 3
+    \begin{itemize}
         \item Auto add partition column
         \item Decreasing memory consumption
         \item Reducing the query execution time
-    \end{itemize}
-    \item Query Assist Phase 3
-    \begin{itemize}
-        \item Translate natural language to SQL query
     \end{itemize}
 \end{itemize}
 \pagebreak
