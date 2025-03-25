@@ -99,6 +99,11 @@
     BoldItalicFont=*-BoldItalic,
 ]
 
+\newcommand{\engjustify}[1]{%
+  \par\hspace{30pt}\justifying
+  #1
+}
+
 %: # Tikz Settings
 %: Tikz is used for drawing simple edge and node graph
 %: Import shapes for usage
@@ -256,9 +261,9 @@
 
 \def\abstcontent{
   In the fast-paced business world, data plays a critical role in driving decision-making, solving problems, and improving operations. However, relying on specialists to retrieve data can be both costly and time-consuming. To address this challenge, Query Assistance is proposed as a tool to simplify data access, enabling users to efficiently retrieve data from databases without requiring SQL expertise. Designed for fast-growing travel technology companies like Agoda, Query Assistance aims to save time, cost, and resources while improving data accessibility.
-  
+
   Query Assistance leverages Large Language Models (LLMs) and LangChain as its core technologies. LLMs are utilized to debug SQL queries, optimize query performance, and translate natural language inputs into SQL queries. LangChain provides a robust framework for building agents that understand user inputs, generate responses, and interact with data. By integrating metadata from OpenMetadata, the tool ensures accurate column and table selection, enabling informed decision-making. This innovative tool is designed to enhance SQL operations, streamline data retrieval, and empower users to access data quickly and effectively, driving efficiency and productivity in data-driven organizations.
-  
+
 }
 \def\abstkeyword{
   SQL query language, Large Language Model (LLM), LangChain, GPT, Query optimization, Multi-agent
@@ -361,11 +366,11 @@ We would also like to extend my heartfelt thanks to Agoda for providing me with 
 %: Uncomment \bibliographystyle and \bibliography if you're using biblatex above
 %: References style
 %: Examples: \bibliographystyle{bibstyle/kmutt}
-\bibliographystyle{/Users/sdumkum/Desktop/query-assist-latex/en-senior-proj/bib/kmutt}
+\bibliographystyle{bib/kmutt.bst}
 
 %: References files
 %: Examples: \bibliography{example/string,example/string2,example/cpe}
-\bibliography{/Users/sdumkum/Desktop/query-assist-latex/en-senior-proj/bib/string,/Users/sdumkum/Desktop/query-assist-latex/en-senior-proj/bib/cpe}
+\bibliography{bib/cpe.bib}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%% Appendices %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %: Insert your appendices here the same way you insert content

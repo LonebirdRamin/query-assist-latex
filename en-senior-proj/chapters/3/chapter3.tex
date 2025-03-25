@@ -8,9 +8,9 @@ This chapter outlines the design and methodologies undertaken for the project. T
         \item  Fix SQL query
         \begin{itemize}
             \item Users can input the query along with the error and the database they used.
-            \item The system should be able to correct typos in column, table, and schema names. 
-            \item The system should be able to correct incomplete syntax, including issues like missing or extra commas, parentheses, forgotten keywords, misspelled keywords, incorrect order, and missing keywords. 
-            \item The system should be able to correct incorrect alias formats and add aliases for improved readability. 
+            \item The system should be able to correct typos in column, table, and schema names.
+            \item The system should be able to correct incomplete syntax, including issues like missing or extra commas, parentheses, forgotten keywords, misspelled keywords, incorrect order, and missing keywords.
+            \item The system should be able to correct incorrect alias formats and add aliases for improved readability.
             \item The system should be able to correct invalid date formats, mismatched data types, and ambiguous column names.
         \end{itemize}
 
@@ -45,43 +45,43 @@ This chapter outlines the design and methodologies undertaken for the project. T
         \caption[Use case diagram of Query Assistance]{Use case diagram of Query Assistance}
         \label{fig:usecase_diagram}
     \end{figure}
-    Figure~\ref{fig:usecase_diagram} presents the use case diagram for Query Assistance, visually representing the interactions between the system and its users (actors). It highlights the various functionalities and features available within the Query Assist system, showing how users can engage with it to perform tasks such as generating SQL queries, retrieving data, or integrating with other tools. 
+    Figure~\ref{fig:usecase_diagram} presents the use case diagram for Query Assistance, visually representing the interactions between the system and its users (actors). It highlights the various functionalities and features available within the Query Assist system, showing how users can engage with it to perform tasks such as generating SQL queries, retrieving data, or integrating with other tools.
 
     The diagram serves as a high-level overview of the system's capabilities, providing a clear depiction of the relationships between the actors and the system's components. Each use case is further detailed in Tables~\ref{tbl:use-case-fix-sql}-~\ref{tbl:use-case-translate-sql}, where narratives explain the specific functionality, purpose, and flow of each interaction. This comprehensive approach ensures a thorough understanding of how Query Assistance operates and supports user needs. The diagram also emphasizes the flexibility of the system, showcasing its ability to cater to different user roles and scenarios, making it a valuable tool for enhancing productivity and simplifying data-related tasks.
-    
-    \begin{table}[H] 
-        \centering 
-        \caption{Use case narrative for fix SQL query} 
-        \label{tbl:use-case-fix-sql} 
-        \begin{tabular}{|p{4cm}|p{10cm}|} 
-        \hline 
-        \textbf{Use Case name} & Fix SQL query \\ 
-        \hline 
-        \textbf{Actors} & User \\ 
-        \hline 
-        \textbf{Goal} & Fix SQL Error \\ 
-        \hline 
-        \textbf{Preconditions} & User has access to the Agoda help platform. \\ 
-        \hline 
-        \textbf{Main success scenario} & 
-        \begin{enumerate} 
+
+    \begin{table}[H]
+        \centering
+        \caption{Use case narrative for fix SQL query}
+        \label{tbl:use-case-fix-sql}
+        \begin{tabular}{|p{4cm}|p{10cm}|}
+        \hline
+        \textbf{Use Case name} & Fix SQL query \\
+        \hline
+        \textbf{Actors} & User \\
+        \hline
+        \textbf{Goal} & Fix SQL Error \\
+        \hline
+        \textbf{Preconditions} & User has access to the Agoda help platform. \\
+        \hline
+        \textbf{Main success scenario} &
+        \begin{enumerate}
             \item User selects fix query service
             \item User selects query engine
             \item User inputs SQL query and error
             \item System validates the details
-            \item System produces the corrected query 
-        \end{enumerate} 
-        \\ 
-        \hline 
-        \textbf{Extension (a)} & 
-        \begin{enumerate} 
+            \item System produces the corrected query
+        \end{enumerate}
+        \\
+        \hline
+        \textbf{Extension (a)} &
+        \begin{enumerate}
             \item[4a.] System validates the details and finds missing required details.
             \item[5a.] System asks the user to fill in the missing required details.
-            \item[6a.] Return to step 4 
-        \end{enumerate} 
-        \\ 
-        \hline 
-        \end{tabular} 
+            \item[6a.] Return to step 4
+        \end{enumerate}
+        \\
+        \hline
+        \end{tabular}
     \end{table}
 
     \begin{table}[H]
@@ -94,7 +94,7 @@ This chapter outlines the design and methodologies undertaken for the project. T
         \textbf{Actors} & User \\ \hline
         \textbf{Goal} & Convert SQL to another database syntax \\ \hline
         \textbf{Preconditions} & User has access to the Agoda help platform. \\ \hline
-        \textbf{Main success scenario} & 
+        \textbf{Main success scenario} &
         \begin{enumerate}
             \item User selects convert query service
             \item User selects current query engine
@@ -103,7 +103,7 @@ This chapter outlines the design and methodologies undertaken for the project. T
             \item System produces the converted query
         \end{enumerate}
         \\ \hline
-        \textbf{Extension (a)} & 
+        \textbf{Extension (a)} &
         \begin{enumerate}
             \item[4a.] System validates the details and finds missing required details.
             \item[5a.] System asks the user to fill in the missing required details.
@@ -123,7 +123,7 @@ This chapter outlines the design and methodologies undertaken for the project. T
         \textbf{Actors} & User \\ \hline
         \textbf{Goal} & Optimize SQL query \\ \hline
         \textbf{Preconditions} & User has access to the Agoda help platform. \\ \hline
-        \textbf{Main success scenario} & 
+        \textbf{Main success scenario} &
         \begin{enumerate}
             \item User selects optimize query service
             \item User selects query engine
@@ -132,14 +132,14 @@ This chapter outlines the design and methodologies undertaken for the project. T
             \item System produces the optimized query
         \end{enumerate}
         \\ \hline
-        \textbf{Extension (a)} & 
+        \textbf{Extension (a)} &
         \begin{enumerate}
             \item[4a.] System validates the details and finds missing required details.
             \item[5a.] System asks the user to fill in the missing required details.
             \item[6a.] Return to step 4
         \end{enumerate}
         \\ \hline
-        \textbf{Extension (b)} & 
+        \textbf{Extension (b)} &
         \begin{enumerate}
             \item[3b.] User inputs SQL query and details on optimizing the query
             \item[4b.] Return to step 4
@@ -157,7 +157,7 @@ This chapter outlines the design and methodologies undertaken for the project. T
         \textbf{Actors} & User \\ \hline
         \textbf{Goal} & Translate SQL query \\ \hline
         \textbf{Preconditions} & User has access to the Agoda help platform. \\ \hline
-        \textbf{Main success scenario} & 
+        \textbf{Main success scenario} &
         \begin{enumerate}
             \item User selects translate query service
             \item User selects query engine
@@ -166,7 +166,7 @@ This chapter outlines the design and methodologies undertaken for the project. T
             \item System produces the SQL query
         \end{enumerate}
         \\ \hline
-        \textbf{Extension (a)} & 
+        \textbf{Extension (a)} &
         \begin{enumerate}
             \item[4a.] System validates the details and finds missing required details.
             \item[5a.] System asks the user to fill in the missing required details.
@@ -185,7 +185,7 @@ This chapter outlines the design and methodologies undertaken for the project. T
 Figure~\ref{fig:query_assist_architecture_design} illustrates the relationships between the components in our project. Our system employs a PostgreSQL database to store table and column details, sourcing data from OpenMetaData. When requested, the system retrieves necessary information from the PostgreSQL database, processes it according to user requirements, and generates an SQL statement. Before finalizing and returning the SQL statement, it verifies the statement using the database services provided by the user.
 
 \section{Query Assist Bot}
-The Query Assist bot is a Slack bot designed to handle the Slack integration of Query Assist. The bot communicates with Query Assist to send inputs, receive outputs, post results to the Slack channel, collect user feedback, and store all relevant information in the messaging table. In the Agoda Slack community, Opsbot serves as a bot to assist users, meaning that users will always interact with Opsbot when seeking help with queries. 
+The Query Assist bot is a Slack bot designed to handle the Slack integration of Query Assist. The bot communicates with Query Assist to send inputs, receive outputs, post results to the Slack channel, collect user feedback, and store all relevant information in the messaging table. In the Agoda Slack community, Opsbot serves as a bot to assist users, meaning that users will always interact with Opsbot when seeking help with queries.
 
     \subsection{System requirements}
     \begin{itemize}
@@ -204,25 +204,25 @@ The Query Assist bot is a Slack bot designed to handle the Slack integration of 
     \end{figure}
     Figure~\ref{fig:bot_architecture_design} illustrates the architectural design of the Query Assist bot and the interactions between its components. The Query Assist bot interacts with four components, namely Opsbot, Slack Channel, Query Assist, and Messaging Table, to achieve its functionality.
 
-    The Query Assist bot is a Slack bot designed to handle the Slack integration of Query Assist. The bot communicates with Query Assist to send inputs, receive outputs, post results to the Slack channel, collect user feedback, and store all relevant information in the messaging table. In the Agoda Slack community, Opsbot serves as a bot to assist users, meaning that users will always interact with Opsbot when seeking help with queries. 
+    The Query Assist bot is a Slack bot designed to handle the Slack integration of Query Assist. The bot communicates with Query Assist to send inputs, receive outputs, post results to the Slack channel, collect user feedback, and store all relevant information in the messaging table. In the Agoda Slack community, Opsbot serves as a bot to assist users, meaning that users will always interact with Opsbot when seeking help with queries.
     \begin{figure}[H]
         \centering
         \includegraphics[width=15cm]{chapters/3/figures/sequence_diagram.png}
         \caption[Sequence Diagram of Query Assist Bot]{Sequence Diagram of Query Assist Bot}
         \label{fig:sequence_diagram}
     \end{figure}
-    Figure~\ref{fig:sequence_diagram} shows the interaction between the user, Opsbot, Query Assist Bot, Query Assist, Slack and Messaging Table during the process of Query Assist Slack integration. 
+    Figure~\ref{fig:sequence_diagram} shows the interaction between the user, Opsbot, Query Assist Bot, Query Assist, Slack and Messaging Table during the process of Query Assist Slack integration.
 
     Here is the breakdown of the sequence:
     \begin{itemize}
-        \item  Step 1: The user initiates the retrieval process by call Opsbot. 
+        \item  Step 1: The user initiates the retrieval process by call Opsbot.
         \item  Step 2: Opsbot return the Query Help form for user.
         \item  Step 3: User input all the required field in the form
         \item  Step 4: Opsbot then call Query Assist Bot and send along the required fields
         \item  Step 5: Query Assist bot then call Query Assist and send along the required fields
-        \item  Step 6: Query Assist then return the result and explanation or the error statement 
+        \item  Step 6: Query Assist then return the result and explanation or the error statement
         \item  Step 7: Query Assist Bot post the result and explanation or the error statement to Slack channel
-        \item  Alternatively, If no error is return: 
+        \item  Alternatively, If no error is return:
         \begin{itemize}
             \item Step 7: Query Assist Bot then send feedback form to Slack channel
             \item Step 8: Slack then send the form to user
@@ -231,7 +231,7 @@ The Query Assist bot is a Slack bot designed to handle the Slack integration of 
             \item Step 11: Query Assist Bot send user feedback and query information to Messaging Table
             \item Step 12: Messaging return with storing status
         \end{itemize}
-        \item  Alternatively, If error is return:  
+        \item  Alternatively, If error is return:
         \begin{itemize}
             \item Step 7: Query Assist Bot send query information to Messaging Table
             \item Step 8: Messaging return with storing status
@@ -245,7 +245,7 @@ The update and retrieve metadata component is responsible for storing and retrie
     \caption[Sequence Diagram of Query Assist retrieving metadata]{Sequence Diagram of Query Assist retrieving metadata}
     \label{fig:retrieve_table_sequence_diagram}
 \end{figure}
-Figure~\ref{fig:retrieve_table_sequence_diagram} shows the interaction between the user, Query Assist, OpenMetadata, PostgreSQL, and OpenAI during the process of retrieving database metadata to use for comparing the integrity of schema, table, and column name. 
+Figure~\ref{fig:retrieve_table_sequence_diagram} shows the interaction between the user, Query Assist, OpenMetadata, PostgreSQL, and OpenAI during the process of retrieving database metadata to use for comparing the integrity of schema, table, and column name.
 
 Here is the breakdown of the sequence:
 \begin{itemize}
@@ -319,7 +319,26 @@ Here is the breakdown of the sequence:
     \end{itemize}
 \section{Phase 1}
     \subsection{Main Focus}
-    \subsection{Tools}
+    In this phase, we focus on establishing the baseline for Query Assist, ensuring the system can detect and fix SQL errors while also handling syntax conversion between different query dialects. This involves implementing error-handling mechanisms, parsing query structures, and integrating rule-based or AI-driven approaches for syntax correction.
+
+    To enhance query understanding and retrieval-augmented generation (RAG), we implement a PostgreSQL database to store metadata about tables and columns. This structured storage allows the system to retrieve relevant schema details, improving its ability to generate accurate query modifications.
+
+    Additionally, we incorporate prompt tuning techniques to optimize interactions with the language model. By refining prompts, we enhance the model's ability to generate precise query transformations and improve overall system performance.
+
+    By the end of this phase, the system should be capable of accurately identifying errors, converting queries to the appropriate format, and leveraging structured database knowledge to enhance SQL assistance.
+    \subsection{Implementation}
+    The implementation process of this phase began with constructing a baseline using LangChain and integrating the following tools:
+
+    \begin{enumerate}
+        \item \textbf{Retrieve Table Info} \\
+        This function relies on Retrieval-Augmented Generation (RAG) to extract relevant table metadata. The implementation starts by constructing an SQL statement to fetch comprehensive table information. After retrieving the data, we apply cosine similarity to filter out only the columns that are most relevant to the search term.
+
+        \item \textbf{Search Table} \\
+        Similar to the previous tool, this function also utilizes RAG. The implementation begins with generating an SQL statement to fetch a list of tables. We then use cosine similarity to identify and rank tables that closely match the search term.
+
+        \item \textbf{Validate Query} \\
+        This tool connects to the database and executes the query using the \texttt{EXPLAIN} keyword. By analyzing the query execution plan, it determines whether the query contains errors, allowing for early detection and correction.
+    \end{enumerate}
     \subsection{Slack Integration}
     The integration with Slack is achieved by developing a custom Slack bot designed to act as an intermediary between Slack and Query Assist. This bot facilitates seamless communication by handling the entire interaction process. When a user submits a query through Slack, the bot captures the input and sends it to Query Assist via an API. Once Query Assist processes the input and returns a response, the bot formats the output in a structured and user-friendly manner before posting it back to the appropriate Slack channel.
 
@@ -332,19 +351,34 @@ Here is the breakdown of the sequence:
     \end{figure}
 \section{Phase 2}
     \subsection{Main Focus}
+    In this phase, the focus is on establishing the foundation for Query Assist to enable query generation from Natural Language inputs. This involves implementing methods for data selection and testing procedures to ensure the relevance and accuracy of generated queries.
+
+    A combination of approaches is adopted, including fine-tuning a language model, leveraging workspace-based metadata, and incorporating conversation-driven query generation. These techniques are designed to refine the system's ability to interpret natural language and construct accurate SQL queries.
+
+    To support schema understanding and selection for query construction, test cases are developed to validate the system's behavior across various scenarios. These test cases ensure robust functionality and reliable performance under different query inputs and metadata constraints.
+
+    By the end of this phase, Query Assist is expected to effectively parse user intents, select relevant tables and columns, and generate precise SQL queries aligned with the provided data context.
     \subsection{Test Case Generation}
         \subsubsection{Table-Informed}
         In this method, test cases are generated by providing the table name to GPT, which then creates test cases based on the table's structure and purpose. Our objective is to generate 200 test cases from the top 100 most-used tables. The process involves the following steps:
         \begin{itemize}
-            \item Table Description Analysis: Begin by providing GPT with a description of the table to gather details about its structure and columns.
-            \item Question Generation: Prompt GPT to create specific, report-driven questions that focus on insights, trends, or summaries.
-            \item Specification of Tables and Columns: For each question, clearly specify the table and the columns required to answer it.
-            \item Validation of Column Names: Verify that the column names used in the generated questions actually exist in the table. This step ensures that the columns referenced are valid and present, as GPT may occasionally generate non-existent column names.
+            \item \textbf{Table Description Analysis:} Begin by providing GPT with a description of the table to gather details about its structure and columns.
+            \item \textbf{Question Generation:} Prompt GPT to create specific, report-driven questions that focus on insights, trends, or summaries.
+            \item \textbf{Specification of Tables and Columns:} For each question, clearly specify the table and the columns required to answer it.
+            \item \textbf{Validation of Column Names:} Verify that the column names used in the generated questions actually exist in the table. This step ensures that the columns referenced are valid and present, as GPT may occasionally generate non-existent column names.
         \end{itemize}
         Additionally, real-world use cases derived from Opsbot tickets are provided as example questions to guide the generation process.
 
         To ensure the test cases reflect real-world usage, personas have been created for 11 departments within Agoda, based on internal knowledge. Each persona represents a specific group of users and their unique perspectives. Questions are generated from the perspective of these personas, ensuring they highlight deeper insights and align with actual use cases. This approach allows the test cases to better mimic real-world scenarios and address the key insights typically sought by users of the table.
         \subsubsection{Query-Informed}
+        In this method, test cases are generated by filtering real-world user queries based on the most-used tables. The process aims to address the challenges of generating relevant test cases by maximally utilizing existing data. The process involves the following steps:
+        \begin{itemize}
+          \item \textbf{Table Scope Filtering:} Start by using OpenMetadata to check if a table has a description and ensure that at least 80\text{\%} of the table's columns are described. Only tables meeting both conditions are considered eligible.
+          \item \textbf{Ranking by Usage:} Rank the filtered tables based on their usage frequency. Select the top 100 tables with the highest usage as the foundation for the test case generation.
+          \item \textbf{Query Extraction:} Identify real user queries that involve these top 100 tables as input for generating detailed and realistic test cases.
+          \item \textbf{Question Generation:} Utilize GPT to transform the filtered queries into specific, actionable test cases. The generated questions focus on insights, trends, or summaries derived from real user interactions.
+          \item \textbf{Validation of Tables and Columns:} Verify that the tables and columns referenced in the generated questions exist and align with the actual structures of the involved tables. This step ensures accuracy and minimizes the risk of generating outputs that reference non-existent data.
+        \end{itemize}
     \subsection{Chatting}
     A decision has been made to transition from a one-time interaction model to a conversational approach. This change enhances user engagement by transforming interactions into ongoing conversations. A user interface has been developed to test the model, enabling seamless conversational interactions. The model integrates its previous responses into new ones, allowing it to retain context and enabling users to continue the conversation without losing the flow.
 
@@ -356,11 +390,11 @@ Here is the breakdown of the sequence:
 
     \begin{itemize}
         \item Workspace:
-        
+
         The first filter, called 'Workspace' represents the primary grouping of tables and serves as the main product to be selected. Multiple workspaces can be chosen if the question or use case spans across them.
             \begin{itemize}
                 \item Hotel \\
-                Focused on tables containing information or data related to accommodations. This includes a wide range of lodging options such as hotels, hostels, vacation rentals, and other property types. 
+                Focused on tables containing information or data related to accommodations. This includes a wide range of lodging options such as hotels, hostels, vacation rentals, and other property types.
                 \item Flight \\
                 Dedicated to tables containing information or data related to flights. This includes data on flight bookings, schedules, pricing, financial transactions, promotions, and partnerships. The workspace supports all aspects of the flight booking service, ensuring comprehensive management of air travel-related data.
 
@@ -375,18 +409,17 @@ Here is the breakdown of the sequence:
             \end{itemize}
 
         \item Category
-        
+
         The second filter, called "Category," involves selecting the appropriate category within each workspace. Categories provide a more granular classification of tables within a workspace. If a table does not belong to any category, no category is selected.
     \end{itemize}
     This two-tier system ensures a structured and efficient approach to mapping user questions to the appropriate tables, improving the accuracy and relevance of the results.
 
-    
+    \subsection{Fine-tuning}
+    The fine-tuning method was introduced as a key development in this project following extensive research and analysis. This decision arose from observing limitations in existing tools, where search terms often failed to yield the desired tables and schema information. To address this issue, a fine-tuning model was developed to enhance the system’s ability to identify and suggest exact tables relevant to the query requirements.
 
-    
+    This approach builds upon the model's ability to learn from structured schema metadata, enabling it to provide more precise and contextually appropriate table selections. The introduction of fine-tuning lays the foundation for improved query generation, offering greater accuracy compared to relying solely on pre-existing search methods.
 
-
-    
-
+    By integrating the fine-tuning framework, the project ensures that Query Assist is capable of addressing specific user needs in table selection, thereby enhancing the reliability and effectiveness of SQL query construction.
 
 % THIS IS AN EXAMPLE. ALL SECTIONS BELOW ARE OPTIONAL. PLEASE CONSULT YOU ADVISOR AND DESIGN YOUR OWN SECTION
 
@@ -400,7 +433,7 @@ Here is the breakdown of the sequence:
 %         \centering
 %         \caption{test table x1}\label{tbl:symbols}
 %         \begin{tabular}{@{}p{0.07\textwidth}|p{0.7\textwidth}p{0.1\textwidth}}\hline
-%         \multicolumn{2}{l}{\textbf{SYMBOL}}  & \textbf{UNIT} \\ \hline 
+%         \multicolumn{2}{l}{\textbf{SYMBOL}}  & \textbf{UNIT} \\ \hline
 %         $\alpha$ & Test variable\hfill & m$^2$ \\
 %         $\lambda$ & Interarrival rate\hfill &  jobs/second\\
 %         $\mu$ & Service rate\hfill & jobs/second \\ \hline
