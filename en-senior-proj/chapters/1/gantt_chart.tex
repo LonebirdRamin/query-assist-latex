@@ -1,0 +1,70 @@
+% \documentclass{article}
+% \usepackage{pgfgantt}
+% \usepackage{xcolor}
+
+% \begin{document}
+
+% Define custom colors
+\definecolor{all}{RGB}{255,165,0} % Orange
+\definecolor{shayathip}{RGB}{0,0,255} % Blue
+\definecolor{ramin}{RGB}{0,128,0} % Green
+
+\begin{ganttchart}[
+    hgrid, vgrid,
+    x unit=0.5cm, y unit title=0.8cm, y unit chart=0.6cm,
+    time slot format=isodate-yearmonth,
+    title/.append style={draw=none, fill=none},
+    title label font=\bfseries\footnotesize,
+    title label anchor/.append style={below=-1.6ex},
+    bar/.append style={draw=none, fill=all},
+    bar incomplete/.append style={fill=shayathip},
+    bar progress label font=\footnotesize\bfseries,
+    bar label font=\footnotesize,
+    milestone label font=\footnotesize\bfseries,
+    group label font=\bfseries\footnotesize,
+    link/.style={-latex}
+]{2025-08}{2025-12}
+
+% Title row
+\gantttitle{Phase}{1}
+\gantttitle{Task}{1}
+\gantttitle{August}{4}
+\gantttitle{September}{4}
+\gantttitle{October}{4}
+\gantttitle{November}{4}
+\gantttitle{December}{4} \\
+
+% Phase 1
+\ganttgroup{Phase 1}{2025-08}{2025-12}
+
+% Tasks
+\ganttbar[bar/.append style={fill=all}]{Project Discussion with company}{2025-08-01}{2025-08-04}
+\ganttbar[bar/.append style={fill=all}]{Project Idea}{2025-08-01}{2025-08-04}
+\ganttbar[bar/.append style={fill=all}]{Project Brainstorm}{2025-08-01}{2025-08-04}
+\ganttbar[bar/.append style={fill=all}]{Design architecture design for project}{2025-08-01}{2025-08-04}
+\ganttbar[bar/.append style={fill=shayathip}]{Set up project}{2025-08-01}{2025-08-04}
+\ganttbar[bar/.append style={fill=shayathip}]{Design sequence diagram for create API to add and update Table details}{2025-08-01}{2025-08-04}
+\ganttbar[bar/.append style={fill=shayathip}]{Implement query assist table details API}{2025-08-01}{2025-09-04}
+\ganttbar[bar/.append style={fill=ramin}]{Design sequence diagram for tools in Query Assist}{2025-09-01}{2025-09-04}
+\ganttbar[bar/.append style={fill=ramin}]{Implement tools for Query Assist}{2025-09-01}{2025-10-04}
+\ganttbar[bar/.append style={fill=shayathip}]{Merge and Debug}{2025-10-01}{2025-10-04}
+\ganttbar[bar/.append style={fill=shayathip}]{Prompt Tuning \& Monitor result}{2025-10-01}{2025-10-04}
+\ganttbar[bar/.append style={fill=ramin}]{CI/CD + Deploy}{2025-10-01}{2025-10-04}
+\ganttbar[bar/.append style={fill=ramin}]{Slack Integration}{2025-10-01}{2025-11-04}
+
+
+
+
+% Phase 2.5
+\ganttgroup{Phase 2.5}{2025-12}{2025-12}
+\ganttbar[bar/.append style={fill=ramin}]{Merge PostgreSQL of V1 and V2}{2025-12-01}{2025-12-04}
+\ganttbar[bar/.append style={fill=ramin}]{Merge code of V1 and V2}{2025-12-01}{2025-12-04}
+
+% Phase 2
+\ganttgroup{Phase 2}{2025-12}{2025-12}
+\ganttbar[bar/.append style={fill=all}]{POC and Design the Phase 2 function}{2025-12-01}{2025-12-04}
+\ganttbar[bar/.append style={fill=shayathip}]{Implement Optimization function}{2025-12-01}{2025-12-04}
+
+\end{ganttchart}
+
+% \end{document}

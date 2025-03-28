@@ -44,90 +44,146 @@ Initially, the tool will be developed as an API platform, allowing integration w
 \section{Phases}
 This project will be divided into three phases. The first phase focuses on error handling to ensure that we ultimately provide the correct query for the user. This includes correcting all syntax errors, accommodating syntax differences across databases, and fixing column names, table names, and typos in the query. The second phase focuses on optimizing the query such as using the partition column, decreasing memory consumption, and reducing the query execution time. The third and final phase aims to translate natural language into SQL query language.
 
-
-\pagebreak
 \section{Task and Schedule}
     \subsection{Semester 1}
-        \begin{table}[!h]
-            \centering % Ensures the table is centered
-            \caption{Project schedule in the first semester}
-            \label{tbl:gantt1}
-            \resizebox{\textwidth}{!}{ % Resizes the Gantt chart to fit within the page width
-                \begin{ganttchart}[
-                    x unit = 0.5cm,
-                    y unit chart = 1.2cm,
-                    y unit title = 0.6cm,
-                    title height = 1,
-                    vgrid={*{3}{black, dotted}, *1{black, dashed}},
-                    hgrid={*1{black, dashed}},
-                    bar top shift = 0.1,
-                    bar height = 0.8,
-                    bar label font=\small, % Adjust font size for labels
-                    bar label node/.append style={
-                        align=right,
-                        text width=6cm % Set a fixed width for text wrapping
-                    }
-                ]{1}{20}
-                    \gantttitle{Aug}{4} \gantttitle{Sep}{4} \gantttitle{Oct}{4} \gantttitle{Nov}{4} \gantttitle{Dec}{4} \\
-                    \gantttitlelist{1,...,4}{1} \gantttitlelist{1,...,4}{1} \gantttitlelist{1,...,4}{1} \gantttitlelist{1,...,4}{1} \gantttitlelist{1,...,4}{1} \\
-                    \ganttbar{Project Discussion with company}{1}{1} \\
-                    \ganttbar{Project Idea}{2}{2} \\
-                    \ganttbar{Project Brainstorm}{2}{3} \\
-                    \ganttbar{Design architecture for project}{3}{4} \\
-                    \ganttbar{Set up project}{4}{4} \\
-                    \ganttbar{Design sequence diagram for create API to add and update Table details}{5}{6} \\
-                    \ganttbar{Implement query assist table details API}{4}{4} \\
-                    \ganttbar{Design sequence diagram for tools in Query Assist}{5}{6} \\
-                    \ganttbar{Implement tools for Query Assist}{7}{7} \\
-                    \ganttbar{Merge and Debug}{7}{8} \\
-                    \ganttbar{Prompt Tuning \& Monitor result}{8}{9} \\
-                    \ganttbar{CI/CD + Deploy}{9}{9} \\
-                    \ganttbar{Slack Integration}{10}{15} \\
-                    \ganttbar{Slack Tracking Performance + Enhance the MVP}{12}{13} \\
-                    \ganttbar{Merge PostgreSQL}{14}{15} \\
-                    \ganttbar{Merge Query Assist v1 with v2}{16}{17} \\
-                    \ganttbar{POC and Design the Optimization function}{15}{15} \\
-                    \ganttbar{Implement Optimization function}{18}{20}  % No extra \\
-                \end{ganttchart}
-            }
-        \end{table}
+    % \input{chapters/1/gantt_chart.tex}
+    \begin{table}[H]
+        \centering
+        \caption{Schedule of Semester 1}\label{tbl:schedule}
+        \includegraphics[width=15cm]{chapters/1/figures/plan.png}
+    \end{table}
+
+    % \begin{table}[H]
+    %     \centering
+    %     \caption{Gantt Chart for Query Assist Project}
+    %     \label{tbl:gantt-chart}
+    %     \begin{tabular}{|p{1cm}|p{5cm}|*{20}{c|}}
+    %         \hline
+    %         \textbf{Phase} & \textbf{Task} & \multicolumn{4}{c|}{\textbf{August}} & \multicolumn{4}{c|}{\textbf{September}} & \multicolumn{4}{c|}{\textbf{October}} & \multicolumn{4}{c|}{\textbf{November}} & \multicolumn{4}{c|}{\textbf{December}} \\
+    %         \hline
+    %         & & 1 & 2 & 3 & 4 & 1 & 2 & 3 & 4 & 1 & 2 & 3 & 4 & 1 & 2 & 3 & 4 & 1 & 2 & 3 & 4 \\
+    %         \hline
+    %         1 & Project Discussion with company & \cellcolor{orange} & \cellcolor{orange} & \cellcolor{orange} & \cellcolor{orange} & & & & & & & & & & & & & & & & \\
+    %         \hline
+    %         1 & Project Idea & \cellcolor{orange} & \cellcolor{orange} & \cellcolor{orange} & \cellcolor{orange} & & & & & & & & & & & & & & & & \\
+    %         \hline
+    %         1 & Project Brainstorm & \cellcolor{orange} & \cellcolor{orange} & \cellcolor{orange} & \cellcolor{orange} & & & & & & & & & & & & & & & & \\
+    %         \hline
+    %         1 & Design architecture design for project & \cellcolor{orange} & \cellcolor{orange} & \cellcolor{orange} & \cellcolor{orange} & & & & & & & & & & & & & & & & \\
+    %         \hline
+    %         1 & Set up project & & & & & \cellcolor{blue} & \cellcolor{blue} & \cellcolor{blue} & \cellcolor{blue} & & & & & & & & & & & & \\
+    %         \hline
+    %         1 & Design sequence diagram for create API to add and update Table details & & & & & \cellcolor{blue} & \cellcolor{blue} & \cellcolor{blue} & \cellcolor{blue} & & & & & & & & & & & & \\
+    %         \hline
+    %         1 & Implement query assist table details API & & & & & \cellcolor{blue} & \cellcolor{blue} & \cellcolor{blue} & \cellcolor{blue} & & & & & & & & & & & & \\
+    %         \hline
+    %         1 & Design sequence diagram for tools in Query Assist & & & & & & & & & \cellcolor{green} & \cellcolor{green} & \cellcolor{green} & \cellcolor{green} & & & & & & & & \\
+    %         \hline
+    %         1 & Implement tools for Query Assist & & & & & & & & & \cellcolor{green} & \cellcolor{green} & \cellcolor{green} & \cellcolor{green} & & & & & & & & \\
+    %         \hline
+    %         1 & Merge and Debug & & & & & & & & & & & & & \cellcolor{blue} & \cellcolor{blue} & \cellcolor{blue} & \cellcolor{blue} & & & & \\
+    %         \hline
+    %         1 & Prompt Tuning \& Monitor result & & & & & & & & & & & & & \cellcolor{blue} & \cellcolor{blue} & \cellcolor{blue} & \cellcolor{blue} & & & & \\
+    %         1 & CI/CD + Deploy & & & & & & & & & & & & & \cellcolor{green} & \cellcolor{green} & \cellcolor{green} & \cellcolor{green} & & & & \\
+    %         \hline
+    %         1 & Slack Integration & & & & & & & & & & & & & & & & & \cellcolor{green} & \cellcolor{green} & \cellcolor{green} & \cellcolor{green} \\
+    %         \hline
+    %         1 & Slack Tracking Performance + Enhance the MVP (Minimum viable product) & & & & & & & & & & & & & & & & & \cellcolor{blue} & \cellcolor{blue} & \cellcolor{blue} & \cellcolor{blue} \\
+    %         \hline
+    %         2.5 & Merge PostgreSQL of V1 and V2 & & & & & & & & & & & & & & & & & & & \cellcolor{green} & \cellcolor{green} \\
+    %         \hline
+    %         2.5 & Merge code of V1 and V2 & & & & & & & & & & & & & & & & & & & \cellcolor{green} & \cellcolor{green} \\
+    %         \hline
+    %         2 & POC and Design the Phase 2 function & & & & & & & & & & & & & & & & & \cellcolor{orange} & \cellcolor{orange} & & \\
+    %         \hline
+    %         2 & Implement Optimization function & & & & & & & & & & & & & & & & & & \cellcolor{blue} & \cellcolor{blue} & \\
+    %         \hline
+    %     \end{tabular}
+    % \end{table}
+
     \textbf{Task breakdown}
+    \begin{table}[H]
+        \centering
+        \caption{Task Breakdown for Query Assist Project Semester 1}
+        \label{tbl:task-breakdown}
+        \begin{tabular}{|p{4cm}|p{10cm}|}
+            \hline
+            \textbf{Task} & \textbf{Description} \\
+            \hline
+            Project Discussion with company & Discuss the problem and scope of the project with the team in the company. \\
+            \hline
+            Project Idea & Research about the solution of the problem and study about LLMs. \\
+            \hline
+            Project Brainstorm & Gather ideas and brainstorming for one final solution. \\
+            \hline
+            Design architecture design for project & Drawing architecture diagram, sequence diagram, and use-case diagram of the Query Assist. \\
+            \hline
+            Set up project & Initiate the base structure code of the Query Assist project. \\
+            \hline
+            Design sequence diagram for create API to add and update Table details & Draw the sequence diagram for an API route to update information of tables and columns for Query Assist. \\
+            \hline
+            Implement query assist table details API & Implement the API route to update the tables and columns data following the metadata in OpenMetadata. \\
+            \hline
+            Design sequence diagram for tools in Query Assist & Draw sequence diagrams for tools that agents use. \\
+            \hline
+            Implement tools for Query Assist & Code custom functions for agents to use as tools to handle query problems. \\
+            \hline
+            Merge and Debug & Merge the Query Assist and API update functionalities. Debug the merged code. \\
+            \hline
+            Prompt Tuning \& Monitor result & Perform prompt tuning and monitoring to find practical prompts that solve query-related problems effectively. \\
+            \hline
+            CI/CD + Deploy & Implement CI/CD for the project using GitLab CI and deploy the Minimum Viable Product (MVP) for team testing. \\
+            \hline
+            Slack Integration & Integrate Query Assist with Slack to optimize ticket handling and reduce time usage. \\
+            \hline
+            Slack Tracking Performance + Enhance the MVP (Minimum Viable Product) & Implement performance tracking for Query Assist via Slack bot. Monitor and enhance error handling over time. \\
+            \hline
+            Merge PostgreSQL of V1 and V2 & Merge the new Query Assist database with the old version and test its usability. \\
+            \hline
+            POC and Design the Phase 2 function & Research and design the approach for optimization handling in Query Assist's second phase. \\
+            \hline
+            Implement Optimization function & Implement the optimization feature into Query Assist. \\
+            \hline
+        \end{tabular}
+    \end{table}
 \pagebreak
     \subsection{Semester 2}
-        \begin{table}[!h]
-            \centering
-            \caption{Project schedule in the second semester}
-            \label{tbl:gantt2}
-            \begin{ganttchart}[
-                x unit = 0.5cm,
-                y unit chart = 1.2cm,
-                y unit title = 0.6cm,
-                title height = 1,
-                vgrid={*{3}{black, dotted}, *1{black, dashed}},
-                hgrid={*1{black, dashed}},
-                bar top shift = 0.1,
-                %bar height = 0.8,
-                bar label node/.append style={
-                    align=right,
-                    % text width=width("Present findings to advisors")
-                }
-            ]{1}{20}
-                \gantttitle{Jan}{4} \gantttitle{Feb}{4} \gantttitle{Mar}{4} \gantttitle{Apr}{4} \gantttitle{May}{4} \\
-                \gantttitlelist{1,...,4}{1} \gantttitlelist{1,...,4}{1} \gantttitlelist{1,...,4}{1} \gantttitlelist{1,...,4}{1} \gantttitlelist{1,...,4}{1} \\
-                \ganttbar{Implement Optimization function}{1}{2} \\
-                \ganttbar{Prompt Tuning \& Monitor result}{3}{5} \\
-                \ganttbar{Superset Integration}{4}{5} \\
-                \ganttbar{Get feedback + Enhance the functions}{5}{5} \\
-                \ganttbar{POC and Design the Phase 3 functions}{6}{7} \\
-                \ganttbar{Implement Phase 3 functions}{8}{14} \\
-                \ganttbar{Prompt Tuning \& Monitor result}{14}{15} \\
-                \ganttbar{Get feedback + Enhance the functions}{15}{17} \\
-                \ganttbar{Implement Multi Agent}{16}{18} \\
-                \ganttbar{Debug}{18}{19} \\
-                \ganttbar{Improve and Finalize}{19}{20}  % No extra \\
-            \end{ganttchart}
-        \end{table}
+    \begin{table}[H]
+        \centering
+        \caption{Schedule of Semester 1}\label{tbl:schedule2}
+        \includegraphics[width=15cm]{chapters/1/figures/plan2.png}
+    \end{table}
     \textbf{Task breakdown}
+    \begin{table}[!h]
+        \centering
+        \caption{Task Breakdown for Query Assist Project Semester 2}
+        \label{tbl:task-breakdown2}
+        \begin{tabular}{|p{4cm}|p{10cm}|}
+            \hline
+            \textbf{Task} & \textbf{Description} \\
+            \hline
+            POC for generating feature & Research and design the approach for constructing queries from the natural language feature of Query Assist. \\
+            \hline
+            Evaluation each POC model and merge the model into one & Evaluate the effectiveness of each solution and integrate them into a single comprehensive model. \\
+            \hline
+            Improve the first phase & Improve the first phase that has been launched based on feedback and its performance. \\
+            \hline
+            Superset Integration + Deploy MVC & Integrate Query Assist into Superset and deploy this version. \\
+            \hline
+            Get feedback + Enhance the functions & Get feedback from users and enhance project quality. \\
+            \hline
+            POC and Design the optimization feature & Implement optimization features into Query Assist. \\
+            \hline
+            Implement optimization feature & Tune prompts and monitor results for optimization features. \\
+            \hline
+            Prompt Tuning \& Monitor result & Tune prompts and monitor results for optimization features. \\
+            \hline
+            Get feedback + Enhance the functions & Get feedback from users and enhance project quality. \\
+            \hline
+            Finalizing and completing the project & Finalize the project and wrap up. \\
+            \hline
+        \end{tabular}
+    \end{table}
 \pagebreak
 
 \section{Expected Outcomes}
@@ -153,7 +209,7 @@ The end goal of the project is to develop a comprehensive Query Assist tool that
     \item  Integrate into Slack
     \item Deploy MVC (Minimum viable product)
 \end{itemize}
-
+\pagebreak
 \textbf{Semester 2}
 \begin{itemize}
     \item  Performance Metrics
