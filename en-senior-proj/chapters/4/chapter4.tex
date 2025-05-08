@@ -34,3 +34,52 @@ This chapter provides a comprehensive overview of the results derived from all t
         \item Accuracy is assessed by analyzing the similarity and correctness of the SQL query results. This involves comparing the output against expected results to ensure they are aligned and capable of resolving the identified issue. A high level of accuracy is essential for maintaining the reliability and effectiveness of the system, as it ensures that the generated solutions are both relevant and actionable. This metric serves as a key indicator of the system's ability to address complex problems and deliver meaningful outcomes.
     \end{itemize}
 \pagebreak
+
+\section{Phase 2}
+    \subsection{Model Evaluation}
+    During the development of the Phase 2 query generation model, a series of evaluations was conducted to assess the performance of various models. The evaluation process involved testing multiple models with different tools. The primary objective was to identify the most effective model for generating SQL queries from natural language input. Models were evaluated both with and without Prefilter (a Workspace model), and cost was also considered as a decision factor.
+    
+    All tests were conducted using MLflow to record the testing procedures, results, and evaluations performed with OpenAI through MLflow. Since custom evaluation metrics could be defined, the following metrics were used to assess model performance:
+
+    \begin{itemize}
+        \item Table correction is defined as the degree to which the table name included in the output matches the ground truth table. This metric is essential for assessing the accuracy and relevance of the generated responses, as it ensures that the correct data source is referenced. A higher table correction score indicates that the output consistently includes the appropriate table, which is crucial for reliable query generation and data retrieval.
+        \item Column correction is defined as the extent to which the column names present in the output align with those in the ground truth. This metric is crucial for evaluating the precision and reliability of generated responses, as it ensures that the correct columns are referenced in the answer. A higher column correction score reflects a more accurate and faithful representation of the intended data, which is essential for effective query generation
+        \item Workspace correction is defined as the degree to which the workspace mentioned in the output matches the workspace specified in the ground truth. This metric is important for assessing the accuracy and relevance of the generated response, as it ensures that the correct workspace context is referenced. A higher workspace correction score indicates that the output consistently includes the appropriate workspace, which is essential for precise data categorization and retrieval.
+        \item Description correction is defined as the extent to which the output description or the ground truth description better addresses the input question. This metric is essential for evaluating the relevance and quality of the provided descriptions, ensuring that the most appropriate and informative response is selected. A higher description correction score indicates that the output description is as suitable as, or more suitable than, the ground truth in answering the user's question, thereby enhancing the overall effectiveness and clarity of the response.
+        \item Table usage metric is defined as the assessment of how well the table in the output, compared to the ground truth, is suited to address the input question based solely on its intended use. This metric focuses exclusively on the relevance and appropriateness of the table’s usage, disregarding other factors such as table name or description. A higher table usage score indicates that the selected table is more effective or equally effective in meeting the informational needs of the question, thereby supporting more accurate and contextually appropriate query generation.
+    \end{itemize}
+    
+    The same prompt was used throughout the evaluation to ensure consistency and reliability in the process. All models had access to the basic tools: 'Retrieve table info' and 'Column validation'. For models utilizing Prefilter, the 'Retrieve table in workspace' tool was also included. For models without Prefilter, all available tables from our testing database were provided instead.
+    \begin{itemize}
+        \item Prefilter
+        \begin{itemize}
+            \item Model with Chart Summary tool 
+            \item Model with Pick table tool
+            \item Model with Pick table and Chart Summary tool
+        \end{itemize}
+        \item Without Prefilter
+        \begin{itemize}
+            \item Model with Chart Summary tool 
+            \item Model with Pick table tool
+            \item Model with Pick table and Chart Summary tool
+        \end{itemize}
+    \end{itemize}
+    \begin{table}[H]
+        \centering
+        \caption[Result of Model Evaluation]{Result of Model Evaluation}
+        \label{fig:generate_result}
+        \includegraphics[width=17cm]{chapters/4/figures/generate_result.png}
+    \end{table}
+    According to the results chart, the highest accuracy achieved was 64.5\% with the Usage + Chart Summary + Pick Table model. However, when we compare the cost of this model to our latest model, Usage + Prefilter + Pick Table, we find that the cost nearly doubles for only a 1.5\% increase in accuracy. Therefore, we believe it is more practical to deploy the Usage + Prefilter + Pick Table model to production.
+    \vspace{0.5cm}
+
+    
+    \textbf{Metrics for Evaluating}
+
+
+    Although there are plenty of metrics to evaluate the model, we only focus on the following metrics in making the decision:
+    \begin{itemize}
+        \item Table correction is defined as the degree to which the table name included in the output matches the ground truth table. This metric is essential for assessing the accuracy and relevance of the generated responses, as it ensures that the correct data source is referenced. A higher table correction score indicates that the output consistently includes the appropriate table, which is crucial for reliable query generation and data retrieval.
+        \item Column correction is defined as the extent to which the column names present in the output align with those in the ground truth. This metric is crucial for evaluating the precision and reliability of generated responses, as it ensures that the correct columns are referenced in the answer. A higher column correction score reflects a more accurate and faithful representation of the intended data, which is essential for effective query generation and data analysis.
+        \item Cost is determined using the get\_openai\_callback function provided by the LangChain Community (langchain\_community.callbacks). This function calculates the token usage and associated cost based on the specific OpenAI model employed. By leveraging this tool, we can accurately monitor and manage the financial implications of utilizing different models, ensuring cost-effectiveness while maintaining the desired level of performance and accuracy.
+    \end{itemize}
