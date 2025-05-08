@@ -304,7 +304,7 @@ Here is the breakdown of the sequence:
     \subsection{Validate Query}
     \begin{figure}[H]
         \centering
-        \includegraphics[width=8cm]{chapters/3/figures/validate.png}
+        \includegraphics[width=6cm]{chapters/3/figures/validate.png}
         \caption[Validate Query’s flowchart]{Validate Query’s flowchart}
         \label{fig:validate}
     \end{figure}
@@ -317,6 +317,114 @@ Here is the breakdown of the sequence:
         \item  Return result of the query if query has no error
         \item  Return error of the query if query has error
     \end{itemize}
+
+    \subsection{Retrive Partition Column}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=5cm]{chapters/3/figures/partition_columns.jpg}
+        \caption[Retrieve Partition Columns’s flowchart]{Retrieve Partition Columns’s flowchart}
+        \label{fig:partition_column}
+    \end{figure}
+    Figure~\ref{fig:partition_column} illustrates the workflow of the Retrieve Partition Columns tool. Retrieve Partition Columns is the tool to retrieve the partition columns of the given schema and table name. The tool is used to the the basic optimization of the query so that it does not consume too much resources.
+    Here is the breakdown of the flow:
+    \begin{itemize}
+        \item  Construct a query to find partition columns.
+        \item  Execute the query
+        \item  Store information in data structure
+        \item  Render data in CSV using Jinja2 Template
+        \item  Return result in CSV formatted string
+    \end{itemize}
+
+    \subsection{Find Reserved Keyword}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=7cm]{chapters/3/figures/reserved_words.jpg}
+        \caption[Find Reserved Keyword’s flowchart]{Find Reserved Keyword’s flowchart}
+        \label{fig:reserved_words}
+    \end{figure}
+    Figure~\ref{fig:reserved_words} illustrates the workflow of the Find Reserved Keyword tool. Find Reserved Keyword is the tool to find the reserved words that is used as aliases or column names within the query. These reserved words can cause the error in the query and needed to be handle properly.
+    Here is the breakdown of the flow:
+    \begin{itemize}
+        \item  Retrieve the list of reserved words from the json file
+        \item  Store the list of reserved words in a data structure of the given database
+        \item  Compare the column names and aliases with the reserved words
+        \item  Enclose the column names and aliases in double quotes if you are using StarRocks or Impala, or in backticks if you are using Vertica, whenever they are reserved words.
+        \item  Return all the reserved words that are used in the query and the column names and aliases that are enclosed with double quotes or backticks
+    \end{itemize}
+
+    \subsection{Handle array, struct, and map column data types}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=7cm]{chapters/3/figures/array_struct.jpg}
+        \caption[Handle array, struct, and map column data types tool’s flowchart]{Handle array, struct, and map column data types tool’s flowchart}
+        \label{fig:array_struct}
+    \end{figure}
+    Figure~\ref{fig:array_struct} illustrates the workflow of the Handle array, struct, and map column data types tool. Handle array, struct, and map column data types is the tool to assists the agent in properly handling these complex data types, as they often require special attention and detailed steps to retrieve and process them correctly.
+    Here is the breakdown of the flow:
+    \begin{itemize}
+        \item  The tool extracts the column name and its alias from the input and stores them in a list for further processing.
+        \item  The tool checks which database is being used. The options are: StarRocks, Vertica, and Impala
+        \item  Regardless of which database is selected, the process continues to checks the data type of the column. The options are: MAP, STRUCT, and ARRAY
+        \item  Depending on the data type, the tool takes a different action:
+        \begin{itemize}
+            \item MAP: The tool returns instructions on how to handle the MAP data type.
+            \item STRUCT: The tool returns instructions on how to handle the STRUCT data type, including an example of how to use it in a full query.
+            \item ARRAY:The tool returns instructions on how to handle the ARRAY data type.
+        \end{itemize}
+    \end{itemize}
+
+    \subsection{Retrieve table in workspace}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=5cm]{chapters/3/figures/table_in_workspace.jpg}
+        \caption[Retrieve table in workspace tool’s flowchart]{Retrieve table in workspace tool’s flowchart}
+        \label{fig:table_in_workspace}
+    \end{figure}
+    Figure~\ref{fig:table_in_workspace} This tool is used to retrieve tables that belong to a specific workspace. A workspace serves as a pre-filtering category, allowing you to narrow down the list of tables before searching for more detailed information about them. The tool returns a list of tables within the selected workspace, along with their descriptions, ordered by usage.
+
+    Here is the breakdown of the flow:
+    \begin{itemize}
+        \item  SQL query is constructed to retrieve the list of tables that belong to the specified workspace and category. This step ensures that only relevant tables are selected based on the user's input or selection.
+        \item  The constructed SQL query is executed 
+        \item  The results returned from the SQL query are stored in variables for further processing.
+        \item  The stored results are formatted into a CSV (Comma-Separated Values) string using the Jinja2 templating engine.
+        \item  The final CSV-formatted string, which contains the list of tables and their details, is returned as the output of the tool.
+    \end{itemize}
+
+    \subsection{Retrieve business context}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=5cm]{chapters/3/figures/chart_summary.jpg}
+        \caption[Retrieve business context tool’s flowchart]{Retrieve business context tool’s flowchart}
+        \label{fig:chart_summary}
+    \end{figure}
+    Figure~\ref{fig:chart_summary} This tool is used to retrieve additional business context based on the chart name provided by the user in Superset. It returns the business context, primary usage, and the related workspace and category.
+
+    Here is the breakdown of the flow:
+    \begin{itemize}
+        \item  Import chart summary data from a CSV file.
+        \item  Save the imported data into program variables for further use.
+        \item  Select only those chart names that reference three or fewer tables.
+        \item  Format the filtered data as a CSV string using the Jinja2 template engine..
+        \item  Output the resulting CSV string.
+    \end{itemize}
+
+    \subsection{Pick Table}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=5cm]{chapters/3/figures/pick_table.jpg}
+        \caption[Pick Table tool’s flowchart]{Pick Table’s flowchart}
+        \label{fig:pick_table}
+    \end{figure}
+    Figure~\ref{fig:pick_table} This tool is designed specifically to select tables by utilizing a separate LLM model, which can be more effective in choosing the appropriate table. This dedicated LLM focuses solely on table selection to answer the question, thereby reducing the workload of the main LLM agent.
+
+    Here is the breakdown of the flow:
+    \begin{itemize}
+        \item  Prepare a prompt that will guide the table selection.
+        \item  Invoke the LLM model with the prepared prompt.
+        \item  Output the selected table as the result.
+    \end{itemize}
+
 \section{Phase 1}
     \subsection{Main Focus}
     In this phase, we focus on establishing the baseline for Query Assist, ensuring the system can detect and fix SQL errors while also handling syntax conversion between different query dialects. This involves implementing error-handling mechanisms, parsing query structures, and integrating rule-based or AI-driven approaches for syntax correction.
