@@ -25,7 +25,6 @@
 \usepackage{color}
 \usepackage{pgfgantt}                   % Gantt chart
 \usepackage{xcolor}
-\usepackage[table]{xcolor}
 \usepackage{polyglossia}                % Thai language script and format
 \usepackage{caption}                    % Figures and tables captions
 
@@ -44,6 +43,8 @@
 \usepackage{packages/listings-go}       % Listings support for Golang
 \usepackage{packages/listings-js}       % Listings support for JavaScript and ES6
 \usepackage{packages/listings-yaml}     % Listing support for YAML
+
+\usepackage{multirow}
 
 %: # Biblatex
 %: Bib manager; instead of using \bibliography{}
@@ -109,7 +110,7 @@
 %: # Tikz Settings
 %: Tikz is used for drawing simple edge and node graph
 %: Import shapes for usage
-\usetikzlibrary{er, positioning, shapes.geometric, arrows}
+\usetikzlibrary{er, positioning, shapes.geometric, arrows, matrix}
 
 %: Define checkmark symbol
 \def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
@@ -122,6 +123,9 @@
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{mauve}{rgb}{0.58,0,0.82}
+\definecolor{AllColor}{HTML}{F4A300}
+\definecolor{ShayathipColor}{HTML}{5B9BD5}
+\definecolor{RaminColor}{HTML}{70AD47}
 
 %: Go code snippets setting
 \lstset{
@@ -308,20 +312,20 @@ We would also like to extend my heartfelt thanks to Agoda for providing me with 
 \newcommand{\tableraglf}[1]{\RaggedRight{#1}}
 \listoftables
 \listoffigures
-\listofprograms % consists of 'lst' from package listings
+% \listofprograms % consists of 'lst' from package listings
 
 %: # List of symbols (manually added)
-\listofsymbols
-\justifying{
-  \centering{\bf{\textit{(Example list of symbols...)}}} \\
-  %: You can adjust width to suit your word length
-  \begin{tabular}{@{}p{0.07\textwidth}p{0.7\textwidth}p{0.1\textwidth}}
-    \textbf{SYMBOLS} &                                     & \textbf{UNIT} \\[0.2cm]
-    $\alpha$         & \tableraglf{Test variable}\hfill    & m$^2$         \\
-    $\lambda$        & \tableraglf{Interarival rate}\hfill & jobs/second   \\
-    $\mu$            & \tableraglf{Service rate}\hfill     & jobs/second   \\
-  \end{tabular}
-}
+% \listofsymbols
+% \justifying{
+%   \centering{\bf{\textit{(Example list of symbols...)}}} \\
+%   %: You can adjust width to suit your word length
+%   \begin{tabular}{@{}p{0.07\textwidth}p{0.7\textwidth}p{0.1\textwidth}}
+%     \textbf{SYMBOLS} &                                     & \textbf{UNIT} \\[0.2cm]
+%     $\alpha$         & \tableraglf{Test variable}\hfill    & m$^2$         \\
+%     $\lambda$        & \tableraglf{Interarival rate}\hfill & jobs/second   \\
+%     $\mu$            & \tableraglf{Service rate}\hfill     & jobs/second   \\
+%   \end{tabular}
+% }
 
 %: # List of vocab and technical terms (manually added)
 \listofvocab
@@ -329,9 +333,28 @@ We would also like to extend my heartfelt thanks to Agoda for providing me with 
   \centering{\bf{\textit{(Example list of vocabs...)}}} \\
   %: You can adjust width to suit your word length
   \begin{tabular}{@{}p{1.2in}@{\hspace{0.08in}=\extracolsep{0.2in}}p{4in}}
-    ABC   & Adaptive Bandwidth Control                                                                                                                                                                                                         \\
-    MANET & Mobile Ad Hoc Network                                                                                                                                                                                                              \\
-    Test  & Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non condimentum purus. Pellentesque sed augue sapien. In volutpat quis diam laoreet suscipit. Curabitur fringilla sem nisi, at condimentum lectus consequat vitae. \\
+    LLM   & Large Language Model \\
+    SQL & Structured Query Language \\
+    API  & Application programming interface \\
+    REST & Representational State Transfer \\
+    MVC & Model-View-Controller \\
+    MAS & Multi-Agent System \\
+    RAG & Retrieval-Augmented Generation \\
+    AI & Artificial Intelligence \\
+    ORM & Object-Relational Mapping \\
+    CaaS & Container as a Service \\
+    CI & Continuous Integration \\
+    ML & Machine Learning \\
+    UI & User Interface \\
+    ORDBMS & Object-Relational Database Management System \\
+    HDFS & Hadoop Distributed File System \\
+    MPP & Massively Parallel Processing \\
+    CBO & Cost-Based Optimizer \\
+    OLAP & Online Analytical Processing \\
+    CPU & Central Processing Unit \\
+    RDD & Resilient Distributed Dataset \\
+    UML & Unified Modeling Language \\
+    CSV & Comma Separated Values \\
   \end{tabular}
 \end{flushleft}
 

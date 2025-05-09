@@ -404,7 +404,7 @@ Here is the breakdown of the sequence:
     Here is the breakdown of the flow:
     \begin{itemize}
         \item  SQL query is constructed to retrieve the list of tables that belong to the specified workspace and category. This step ensures that only relevant tables are selected based on the user's input or selection.
-        \item  The constructed SQL query is executed 
+        \item  The constructed SQL query is executed
         \item  The results returned from the SQL query are stored in variables for further processing.
         \item  The stored results are formatted into a CSV (Comma-Separated Values) string using the Jinja2 templating engine.
         \item  The final CSV-formatted string, which contains the list of tables and their details, is returned as the output of the tool.
@@ -446,6 +446,41 @@ Here is the breakdown of the sequence:
         \item  Output the selected table as the result.
     \end{itemize}
 
+    \subsection{Get Column List}
+    \label{sec:get_column_list}
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=5cm]{chapters/3/figures/get_column_list.png}
+      \caption[Get Column List tool’s flowchart]{Get Column List tool’s flowchart}
+        \label{fig:get_column_list}
+    \end{figure}
+    Figure~\ref{fig:get_column_list} This tool retrieves a table’s columns and their descriptions to help answer general questions and clarify the table’s purpose, especially when the table description lacks detail.
+
+    Here is the breakdown of the flow:
+    \begin{itemize}
+      \item Construct query to get columns's details including name and description.
+      \item Execute the query to get the result.
+      \item Render result using Jinja2 template to get the result in CSV string format.
+      \item Return the formatted result.
+    \end{itemize}
+\pagebreak
+    \subsection{Query Execution}
+    \label{sec:query_execution}
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=5cm]{chapters/3/figures/query_execution.png}
+      \caption{Query Execution tool's flowchart}{Query Execution tool's flowchart}
+        \label{fig:query_execution}
+    \end{figure}
+    Figure~\ref{fig:query_execution} This tool executes the exact query to determine if it has performance issues, as using EXPLAIN does not provide sufficient production-level details.
+
+    Here is the breakdown of the flow:
+    \begin{itemize}
+      \item Get the query statement from LLM.
+      \item Execute the query.
+      \item Return the result of the query.
+    \end{itemize}
+\pagebreak
 \section{Phase 1}
     \subsection{Main Focus}
     In this phase, we focus on establishing the baseline for Query Assist, ensuring the system can detect and fix SQL errors while also handling syntax conversion between different query dialects. This involves implementing error-handling mechanisms, parsing query structures, and integrating rule-based or AI-driven approaches for syntax correction.
@@ -474,7 +509,7 @@ Here is the breakdown of the sequence:
     In addition to managing the communication flow, the Slack bot is responsible for storing all relevant information in the messaging table. This includes user inputs, Query Assist responses, and any associated metadata, ensuring that all interactions are logged for future reference, analysis, and improvement of the system. By serving as a bridge between Slack and Query Assist, the bot ensures a streamlined and efficient user experience while maintaining a robust record of all query-related activities.
     \begin{figure}[H]
         \centering
-        \includegraphics[width=10cm]{chapters/3/figures/Slack-Logo.png}
+        \includegraphics[width=10cm]{chapters/3/figures/SLA-Slack-from-Salesforce-logo.png}
         \caption[Slack]{Slack}
         \label{fig:slack-logo}
     \end{figure}
@@ -489,14 +524,15 @@ Here is the breakdown of the sequence:
     By the end of this phase, Query Assist is expected to effectively parse user intents, select relevant tables and columns, and generate precise SQL queries aligned with the provided data context.
     \subsection{Tools used}
     The number of tools used in this phase has increased, as additional tools are required to assist with table selection and related tasks. Some tools from Phase 1 are also shared in this phase. These tools were developed for testing purposes to determine the most effective approach for table selection.
-    The following tools are utilized: 
+    The following tools are utilized:
 
     \begin{itemize}
-        \item Pick Table tools in \ref{sec:pick_table}
-        \item Retrieve Table in Workspace tools in \ref{sec:table_in_workspace}
-        \item Retrieve Chart Summary tools in \ref{sec:chart_summary}
-        \item Column Validation tools in \ref{sec:column_validation}
-        \item Retrieve Table Information tools in \ref{sec:retrieve_table_info}
+        \item Pick Table tool in \ref{sec:pick_table}
+        \item Retrieve Table in Workspace tool in \ref{sec:table_in_workspace}
+        \item Retrieve Chart Summary tool in \ref{sec:chart_summary}
+        \item Column Validation tool in \ref{sec:column_validation}
+        \item Retrieve Table Information tool in \ref{sec:retrieve_table_info}
+        \item Query Execution tool in \ref{sec:query_execution}
     \end{itemize}
     \subsection{Test Case Generation}
         \subsubsection{Table-Informed}
@@ -560,6 +596,29 @@ Here is the breakdown of the sequence:
     This approach builds upon the model's ability to learn from structured schema metadata, enabling it to provide more precise and contextually appropriate table selections. The introduction of fine-tuning lays the foundation for improved query generation, offering greater accuracy compared to relying solely on pre-existing search methods.
 
     By integrating the fine-tuning framework, the project ensures that Query Assist is capable of addressing specific user needs in table selection, thereby enhancing the reliability and effectiveness of SQL query construction.
+
+\section{Phase 3}
+    \subsection{Main Focus}
+    In this phase, we are primarily focused on enhancing the results from the previous phase and developing an agent capable of answering general questions.
+
+    General questions may include data-related queries, such as:
+    \begin{itemize}
+      \item Explaining the purpose and description of specific tables (e.g., what data the table contains and its intended use)
+      \item Identifying the appropriate table to use for specific information.
+      \item Comparing differences between tables or columns.
+    \end{itemize}
+
+    \subsection{Tools used}
+    In this phase, the tools used to solve data questions may include those from the previous phase. The additional tool introduced in this phase is:
+
+    \begin{itemize}
+      \item Get Column List tool in \ref{sec:get_column_list}
+    \end{itemize}
+
+    \subsection{Agoda GPT Platform integration}
+    The final focus of the project is to integrate Query Assist into the Agoda GPT Tool, allowing users to access the tool through a central platform.
+
+    The Agoda GPT Platform enables employees to create chatbots using LLMs (Large Language Models). The platform provides specific tools for users to choose from, allowing them to handle their specific tasks efficiently.
 
 % THIS IS AN EXAMPLE. ALL SECTIONS BELOW ARE OPTIONAL. PLEASE CONSULT YOU ADVISOR AND DESIGN YOUR OWN SECTION
 

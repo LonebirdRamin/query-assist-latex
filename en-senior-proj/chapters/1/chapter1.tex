@@ -36,143 +36,201 @@ Initially, the tool will be developed as an API platform, allowing integration w
 \section{Phases}
 This project will be divided into three phases. The first phase focuses on error handling to ensure that we ultimately provide the correct query for the user. This includes correcting all syntax errors, accommodating syntax differences across databases, and fixing column names, table names, and typos in the query. The second phase focuses on optimizing the query such as using the partition column, decreasing memory consumption, and reducing the query execution time. The third and final phase aims to translate natural language into SQL query language.
 
+\pagebreak
+
 \section{Task and Schedule}
     \subsection{Semester 1}
     % \input{chapters/1/gantt_chart.tex}
-    \begin{table}[H]
-        \centering
-        \caption{Schedule of Semester 1}\label{tbl:schedule}
-        \includegraphics[width=15cm]{chapters/1/figures/plan.png}
-    \end{table}
-
     % \begin{table}[H]
     %     \centering
-    %     \caption{Gantt Chart for Query Assist Project}
-    %     \label{tbl:gantt-chart}
-    %     \begin{tabular}{|p{1cm}|p{5cm}|*{20}{c|}}
-    %         \hline
-    %         \textbf{Phase} & \textbf{Task} & \multicolumn{4}{c|}{\textbf{August}} & \multicolumn{4}{c|}{\textbf{September}} & \multicolumn{4}{c|}{\textbf{October}} & \multicolumn{4}{c|}{\textbf{November}} & \multicolumn{4}{c|}{\textbf{December}} \\
-    %         \hline
-    %         & & 1 & 2 & 3 & 4 & 1 & 2 & 3 & 4 & 1 & 2 & 3 & 4 & 1 & 2 & 3 & 4 & 1 & 2 & 3 & 4 \\
-    %         \hline
-    %         1 & Project Discussion with company & \cellcolor{orange} & \cellcolor{orange} & \cellcolor{orange} & \cellcolor{orange} & & & & & & & & & & & & & & & & \\
-    %         \hline
-    %         1 & Project Idea & \cellcolor{orange} & \cellcolor{orange} & \cellcolor{orange} & \cellcolor{orange} & & & & & & & & & & & & & & & & \\
-    %         \hline
-    %         1 & Project Brainstorm & \cellcolor{orange} & \cellcolor{orange} & \cellcolor{orange} & \cellcolor{orange} & & & & & & & & & & & & & & & & \\
-    %         \hline
-    %         1 & Design architecture design for project & \cellcolor{orange} & \cellcolor{orange} & \cellcolor{orange} & \cellcolor{orange} & & & & & & & & & & & & & & & & \\
-    %         \hline
-    %         1 & Set up project & & & & & \cellcolor{blue} & \cellcolor{blue} & \cellcolor{blue} & \cellcolor{blue} & & & & & & & & & & & & \\
-    %         \hline
-    %         1 & Design sequence diagram for create API to add and update Table details & & & & & \cellcolor{blue} & \cellcolor{blue} & \cellcolor{blue} & \cellcolor{blue} & & & & & & & & & & & & \\
-    %         \hline
-    %         1 & Implement query assist table details API & & & & & \cellcolor{blue} & \cellcolor{blue} & \cellcolor{blue} & \cellcolor{blue} & & & & & & & & & & & & \\
-    %         \hline
-    %         1 & Design sequence diagram for tools in Query Assist & & & & & & & & & \cellcolor{green} & \cellcolor{green} & \cellcolor{green} & \cellcolor{green} & & & & & & & & \\
-    %         \hline
-    %         1 & Implement tools for Query Assist & & & & & & & & & \cellcolor{green} & \cellcolor{green} & \cellcolor{green} & \cellcolor{green} & & & & & & & & \\
-    %         \hline
-    %         1 & Merge and Debug & & & & & & & & & & & & & \cellcolor{blue} & \cellcolor{blue} & \cellcolor{blue} & \cellcolor{blue} & & & & \\
-    %         \hline
-    %         1 & Prompt Tuning \& Monitor result & & & & & & & & & & & & & \cellcolor{blue} & \cellcolor{blue} & \cellcolor{blue} & \cellcolor{blue} & & & & \\
-    %         1 & CI/CD + Deploy & & & & & & & & & & & & & \cellcolor{green} & \cellcolor{green} & \cellcolor{green} & \cellcolor{green} & & & & \\
-    %         \hline
-    %         1 & Slack Integration & & & & & & & & & & & & & & & & & \cellcolor{green} & \cellcolor{green} & \cellcolor{green} & \cellcolor{green} \\
-    %         \hline
-    %         1 & Slack Tracking Performance + Enhance the MVP (Minimum viable product) & & & & & & & & & & & & & & & & & \cellcolor{blue} & \cellcolor{blue} & \cellcolor{blue} & \cellcolor{blue} \\
-    %         \hline
-    %         2.5 & Merge PostgreSQL of V1 and V2 & & & & & & & & & & & & & & & & & & & \cellcolor{green} & \cellcolor{green} \\
-    %         \hline
-    %         2.5 & Merge code of V1 and V2 & & & & & & & & & & & & & & & & & & & \cellcolor{green} & \cellcolor{green} \\
-    %         \hline
-    %         2 & POC and Design the Phase 2 function & & & & & & & & & & & & & & & & & \cellcolor{orange} & \cellcolor{orange} & & \\
-    %         \hline
-    %         2 & Implement Optimization function & & & & & & & & & & & & & & & & & & \cellcolor{blue} & \cellcolor{blue} & \\
-    %         \hline
-    %     \end{tabular}
+    %     \caption{Schedule of Semester 1}\label{tbl:schedule}
+    %     \includegraphics[width=15cm]{chapters/1/figures/plan.png}
     % \end{table}
+    \begin{figure}[ht]
+      \centering
+      \begin{tikzpicture}
+        \matrix [
+          matrix of nodes,
+          nodes in empty cells,
+          row sep=0.3em,
+          column sep=1.5em,
+          ampersand replacement=\&,
+          every node/.style={font=\small, anchor=west}
+        ] {
+          \node [fill=AllColor, minimum width=0.7cm, minimum height=0.3cm]{}; \& All tasks \&
+          \node[fill=ShayathipColor, minimum width=0.7cm, minimum height=0.3cm]{}; \& Shayathip's tasks \&
+          \node[fill=RaminColor, minimum width=0.7cm, minimum height=0.3cm]{}; \& Ramin's tasks \\
+        };
+      \end{tikzpicture}
 
+      \vspace{1em}
+      \begin{ganttchart}[
+        hgrid,
+        vgrid,
+        y unit chart=0.5cm,
+        bar height=0.4,
+        bar top shift=0.2,
+        group height=0.3,
+        group top shift=0.2,
+        title/.append style={draw=none, fill=none},
+        label node/.append style={align=left, text height=1.2ex, text depth=.25ex},
+        group label font=\bfseries,
+        title label font=\bfseries\footnotesize,
+        bar/.append style={draw=black},
+        milestone/.append style={fill=red}
+      ]{1}{20}
+        \gantttitlelist{1,...,20}{1} \\
+        \ganttgroup{Phase 1}{1}{14} \\
+        \ganttbar[bar/.append style={fill=AllColor}]{Project Discussion}{1}{1} \\
+        \ganttbar[bar/.append style={fill=AllColor}, inline=false]{Idea Generation}{2}{2} \\
+        \ganttbar[bar/.append style={fill=AllColor}, inline=false]{Brainstorming}{2}{3} \\
+        \ganttbar[bar/.append style={fill=AllColor}, inline=false]{System Design}{3}{3} \\
+        \ganttbar[bar/.append style={fill=ShayathipColor}, inline=false]{Project Setup}{4}{4} \\
+        \ganttbar[bar/.append style={fill=ShayathipColor}, inline=false]{Table API Sequence Diagram}{4}{4} \\
+        \ganttbar[bar/.append style={fill=ShayathipColor}, inline=false]{Build Table API}{5}{6} \\
+        \ganttbar[bar/.append style={fill=RaminColor}, inline=false]{Query Tool Diagram}{4}{4} \\
+        \ganttbar[bar/.append style={fill=RaminColor}, inline=false]{Build Query Tools}{5}{6} \\
+        \ganttbar[bar/.append style={fill=RaminColor}, inline=false]{Merge \& Debug}{7}{7} \\
+        \ganttbar[bar/.append style={fill=ShayathipColor}, inline=false]{Tune \& Monitor}{8}{9} \\
+        \ganttbar[bar/.append style={fill=RaminColor}, inline=false]{CI/CD \& Deploy}{9}{9} \\
+        \ganttbar[bar/.append style={fill=RaminColor}, inline=false]{Slack Integration}{10}{11} \\
+        \ganttbar[bar/.append style={fill=ShayathipColor}, inline=false]{Slack Tracking \& MVP}{12}{14} \\
+        \ganttgroup{Phase 1.5}{14}{15} \\
+        \ganttbar[bar/.append style={fill=RaminColor}, inline=false]{Merge Database V1/V2}{14}{15} \\
+        \ganttbar[bar/.append style={fill=RaminColor}, inline=false]{Merge Code V1/V2}{14}{15} \\
+        \ganttgroup{Phase 2}{16}{20} \\
+        \ganttbar[bar/.append style={fill=AllColor}, inline=false]{Phase 2 Design/POC}{16}{17} \\
+        \ganttbar[bar/.append style={fill=ShayathipColor}, inline=false]{Build Optimizer}{18}{20}
+      \end{ganttchart}
+    \end{figure}
+
+\clearpage
     \textbf{Task breakdown}
     \begin{table}[H]
         \centering
         \caption{Task Breakdown for Query Assist Project Semester 1}
-        \label{tbl:task-breakdown}
+        \label{tbl:task-breakdown-first-semester}
         \begin{tabular}{|p{4cm}|p{10cm}|}
             \hline
             \textbf{Task} & \textbf{Description} \\
             \hline
-            Project Discussion with company & Discuss the problem and scope of the project with the team in the company. \\
+            Project Discussion & Discuss the problem and scope of the project with the team in the company. \\
             \hline
-            Project Idea & Research about the solution of the problem and study about LLMs. \\
+            Idea Generation & Research about the solution of the problem and study about LLMs. \\
             \hline
-            Project Brainstorm & Gather ideas and brainstorming for one final solution. \\
+            Brainstorming & Gather ideas and brainstorming for one final solution. \\
             \hline
-            Design architecture design for project & Drawing architecture diagram, sequence diagram, and use-case diagram of the Query Assist. \\
+            System Design & Drawing architecture diagram, sequence diagram, and use-case diagram of the Query Assist. \\
             \hline
-            Set up project & Initiate the base structure code of the Query Assist project. \\
+            Project Setup & Initiate the base structure code of the Query Assist project. \\
             \hline
-            Design sequence diagram for create API to add and update Table details & Draw the sequence diagram for an API route to update information of tables and columns for Query Assist. \\
+            Table API Sequence Diagram & Draw the sequence diagram for an API route to update information of tables and columns for Query Assist. \\
             \hline
-            Implement query assist table details API & Implement the API route to update the tables and columns data following the metadata in OpenMetadata. \\
+            Build Table API & Implement the API route to update the tables and columns data following the metadata in OpenMetadata. \\
             \hline
-            Design sequence diagram for tools in Query Assist & Draw sequence diagrams for tools that agents use. \\
+            Query Tool Diagram & Draw sequence diagrams for tools that agents use. \\
             \hline
-            Implement tools for Query Assist & Code custom functions for agents to use as tools to handle query problems. \\
+            Build Query Tools & Code custom functions for agents to use as tools to handle query problems. \\
             \hline
-            Merge and Debug & Merge the Query Assist and API update functionalities. Debug the merged code. \\
+            Merge \& Debug & Merge the Query Assist and API update functionalities. Debug the merged code. \\
             \hline
-            Prompt Tuning \& Monitor result & Perform prompt tuning and monitoring to find practical prompts that solve query-related problems effectively. \\
+            Tune \& Monitor & Perform prompt tuning and monitoring to find practical prompts that solve query-related problems effectively. \\
             \hline
-            CI/CD + Deploy & Implement CI/CD for the project using GitLab CI and deploy the Minimum Viable Product (MVP) for team testing. \\
+            CI/CD \& Deploy & Implement CI/CD for the project using GitLab CI and deploy the Minimum Viable Product (MVP) for team testing. \\
             \hline
             Slack Integration & Integrate Query Assist with Slack to optimize ticket handling and reduce time usage. \\
             \hline
-            Slack Tracking Performance + Enhance the MVP (Minimum Viable Product) & Implement performance tracking for Query Assist via Slack bot. Monitor and enhance error handling over time. \\
+            Slack Tracking \& MVP & Implement performance tracking for Query Assist via Slack bot. Monitor and enhance error handling over time. \\
             \hline
-            Merge PostgreSQL of V1 and V2 & Merge the new Query Assist database with the old version and test its usability. \\
+            Merge Database V1/V2 & Merge the new Query Assist database with the old version and test its usability. \\
             \hline
-            POC and Design the Phase 2 function & Research and design the approach for optimization handling in Query Assist's second phase. \\
+            Merge Code V1/V2 & Merge the new Query Assist code with the old version and test its usability. \\
             \hline
-            Implement Optimization function & Implement the optimization feature into Query Assist. \\
+            Phase 2 Design/POC & Research and design the approach for optimization handling in Query Assist's second phase. \\
+            \hline
+            Build Optimizer & Implement the optimization feature into Query Assist. \\
             \hline
         \end{tabular}
     \end{table}
 \pagebreak
     \subsection{Semester 2}
-    \begin{table}[H]
-        \centering
-        \caption{Schedule of Semester 1}\label{tbl:schedule2}
-        \includegraphics[width=15cm]{chapters/1/figures/plan2.png}
-    \end{table}
+    \begin{figure}[ht]
+      \centering
+      \begin{tikzpicture}
+        \matrix [
+          matrix of nodes,
+          nodes in empty cells,
+          row sep=0.3em,
+          column sep=1.5em,
+          ampersand replacement=\&,
+          every node/.style={font=\small, anchor=west}
+        ] {
+          \node [fill=AllColor, minimum width=0.7cm, minimum height=0.3cm]{}; \& All tasks \&
+          \node[fill=ShayathipColor, minimum width=0.7cm, minimum height=0.3cm]{}; \& Shayathip's tasks \&
+          \node[fill=RaminColor, minimum width=0.7cm, minimum height=0.3cm]{}; \& Ramin's tasks \\
+        };
+      \end{tikzpicture}
+
+      \vspace{1em}
+      \begin{ganttchart}[
+        hgrid,
+        vgrid,
+        y unit chart=0.5cm,
+        bar height=0.4,
+        bar top shift=0.2,
+        group height=0.3,
+        group top shift=0.2,
+        title/.append style={draw=none, fill=none},
+        label node/.append style={align=left, text height=1.2ex, text depth=.25ex},
+        group label font=\bfseries,
+        title label font=\bfseries\footnotesize,
+        bar/.append style={draw=black},
+        milestone/.append style={fill=red}
+      ]{1}{20}
+        \gantttitlelist{1,...,20}{1} \\
+        \ganttgroup{Phase 2}{1}{8} \\
+        \ganttbar[bar/.append style={fill=AllColor}]{POC Generating Feature}{1}{3} \\
+        \ganttbar[bar/.append style={fill=AllColor}, inline=false]{Evaluate \& Merge Models}{4}{5} \\
+        \ganttbar[bar/.append style={fill=ShayathipColor}, inline=false]{Improve Phase 1}{4}{4} \\
+        \ganttbar[bar/.append style={fill=RaminColor}, inline=false]{Superset + Deploy MVC}{5}{6} \\
+        \ganttbar[bar/.append style={fill=ShayathipColor}, inline=false]{Feedback \& Enhance}{7}{8} \\
+        \ganttgroup{Phase 3}{9}{20} \\
+        \ganttbar[bar/.append style={fill=AllColor}, inline=false]{POC \& Design Optimization}{9}{10} \\
+        \ganttbar[bar/.append style={fill=ShayathipColor}, inline=false]{Implement Optimization}{10}{11} \\
+        \ganttbar[bar/.append style={fill=RaminColor}, inline=false]{Prompt Tuning \& Monitor}{12}{13} \\
+        \ganttbar[bar/.append style={fill=RaminColor}, inline=false]{Feedback \& Enhance}{14}{15}
+        \ganttbar[bar/.append style={fill=ShayathipColor}, inline=false]{}{16}{17} \\
+        \ganttbar[bar/.append style={fill=ShayathipColor}, inline=false]{Finalize Project}{18}{20}
+      \end{ganttchart}
+    \end{figure}
     \textbf{Task breakdown}
     \begin{table}[!h]
         \centering
         \caption{Task Breakdown for Query Assist Project Semester 2}
-        \label{tbl:task-breakdown2}
+        \label{tbl:task-breakdown-second-semester}
         \begin{tabular}{|p{4cm}|p{10cm}|}
             \hline
             \textbf{Task} & \textbf{Description} \\
             \hline
-            POC for generating feature & Research and design the approach for constructing queries from the natural language feature of Query Assist. \\
+            POC Generating Feature & Research and design the approach for constructing queries from the natural language feature of Query Assist. \\
             \hline
-            Evaluation each POC model and merge the model into one & Evaluate the effectiveness of each solution and integrate them into a single comprehensive model. \\
+            Evaluate \& Merge Models & Evaluate the effectiveness of each solution and integrate them into a single comprehensive model. \\
             \hline
-            Improve the first phase & Improve the first phase that has been launched based on feedback and its performance. \\
+            Improve Phase 1 & Improve the first phase that has been launched based on feedback and its performance. \\
             \hline
-            Superset Integration + Deploy MVC & Integrate Query Assist into Superset and deploy this version. \\
+            Superset + Deploy MVC & Integrate Query Assist into Superset and deploy this version. \\
             \hline
-            Get feedback + Enhance the functions & Get feedback from users and enhance project quality. \\
+            Feedback \& Enhance & Get feedback from users and enhance project quality. \\
             \hline
-            POC and Design the optimization feature & Implement optimization features into Query Assist. \\
+            POC \& Design Optimization feature & Implement optimization features into Query Assist. \\
             \hline
-            Implement optimization feature & Tune prompts and monitor results for optimization features. \\
+            Implement Optimization & Tune prompts and monitor results for optimization features. \\
             \hline
-            Prompt Tuning \& Monitor result & Tune prompts and monitor results for optimization features. \\
+            Prompt Tuning \& Monitor & Tune prompts and monitor results for optimization features. \\
             \hline
-            Get feedback + Enhance the functions & Get feedback from users and enhance project quality. \\
+            Feedback \& Enhance & Get feedback from users and enhance project quality. \\
             \hline
-            Finalizing and completing the project & Finalize the project and wrap up. \\
+            Finalize Project & Finalize the project and wrap up. \\
             \hline
         \end{tabular}
     \end{table}
