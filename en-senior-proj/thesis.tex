@@ -106,6 +106,10 @@
   \par\hspace{30pt}\justifying
   #1
 }
+\newcommand{\thaijustify}[1]{%
+  \par\hspace{30pt}\justifying
+  #1
+}
 
 %: # Tikz Settings
 %: Tikz is used for drawing simple edge and node graph
@@ -177,7 +181,7 @@
 
 %: # Credits
 %: Enter number based on your subject's credits
-\def\disscredit{3}
+\def\disscredit{18}
 
 %: # Fulfillment; 'Degree' or 'Subject'
 %: Set to 'Degree' for senior project or thesis
@@ -212,7 +216,7 @@
 \def\thaidissdiplomathree{}
 
 %: Advisors
-\def\dissadvisor{Assoc. Prof. Dr. Santitham Prom-on} % Advisor
+\def\dissadvisor{Asst.Prof. Santitham Prom-on, Ph.D.} % Advisor
 \def\thaidissadvisor{ผศ.ดร.สันติธรรม พรหมอ่อน}
 
 %: Leave empty if you have no co-advisor
@@ -231,10 +235,10 @@
 %: Example of appropriate advisor/committee name entries
 %: Example 1: Asst. Prof. Dr.Ing Priyakorn Pusawiro
 %: Example 2: Jaturon Harnsomburana, Ph.D.
-\def\disscommitteetwo{Asst.Prof. Phond Phunchongharn, Ph.D.} % Committee member
+\def\disscommitteetwo{Asst.Prof. Rajchawit Sarochawikasit, Ph.D} % Committee member
 \def\disscommitteethree{Unchalisa Taetragool, Ph.D.} % Committee member (optional)
 \def\disscommitteefour{Asst. Prof. Jumpol Polvichai, Ph.D.} % Committee member (optional)
-\def\thaidisscommitteetwo{ผศ.ดร.พร พันธุ์จงหาญ}
+\def\thaidisscommitteetwo{ผศ.ราชวิชช์ สโรชวิกสิต}
 \def\thaidisscommitteethree{ดร.อัญชลิสา แต้ตระกูล}
 \def\thaidisscommitteefour{ผศ.ดร. จุมพล พลวิชัย}
 
@@ -266,9 +270,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%% English abstract %%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \def\abstcontent{
-  In the fast-paced business world, data plays a critical role in driving decision-making, solving problems, and improving operations. However, relying on specialists to retrieve data can be both costly and time-consuming. To address this challenge, Query Assistance is proposed as a tool to simplify data access, enabling users to efficiently retrieve data from databases without requiring SQL expertise. Designed for fast-growing travel technology companies like Agoda, Query Assistance aims to save time, cost, and resources while improving data accessibility.
+  In the fast-paced business world, data plays a critical role in driving decision-making, solving problems, and improving operations. However, relying on specialists to retrieve data can be both costly and time-consuming. To address this challenge, Query Assistance is proposed as a tool to simplify data access, enabling users to efficiently retrieve data from databases without requiring SQL expertise. Designed for fast-growing travel technology companies like Agoda, Query Assistance aims to save time, cost, and resources while improving data accessibility for non-technical staff.
 
-  Query Assistance leverages Large Language Models (LLMs) and LangChain as its core technologies. LLMs are utilized to debug SQL queries, optimize query performance, and translate natural language inputs into SQL queries. LangChain provides a robust framework for building agents that understand user inputs, generate responses, and interact with data. By integrating metadata from OpenMetadata, the tool ensures accurate column and table selection, enabling informed decision-making. This innovative tool is designed to enhance SQL operations, streamline data retrieval, and empower users to access data quickly and effectively, driving efficiency and productivity in data-driven organizations.
+  Query Assistance leverages Large Language Models (LLMs) and LangChain as its core technologies. LLMs are utilized to debug SQL queries, optimize query performance, and translate natural language inputs into SQL queries. LangChain provides a robust framework for building agents that understand user inputs, generate responses, and interact with data. By integrating metadata includes table names, table descriptions, columns name, columns types, etc. from OpenMetadata, the tool ensures accurate column and table selection, enabling informed decision-making. This innovative tool is designed to enhance SQL operations, streamline data retrieval, and empower users to access data quickly and effectively, driving efficiency and productivity in data-driven organizations.
 
 }
 \def\abstkeyword{
@@ -279,12 +283,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%% Thai abstract %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \def\thabstcontent{
-In the fast-paced business world, data plays a critical role in driving decision-making, solving problems, and improving operations. However, relying on specialists to retrieve data can be both costly and time-consuming. To address this challenge, Query Assistance is proposed as a tool to simplify data access, enabling users to efficiently retrieve data from databases without requiring SQL expertise. Designed for fast-growing travel technology companies like Agoda, Query Assistance aims to save time, cost, and resources while improving data accessibility.
+  \justify{
+    ในโลกธุรกิจที่มีการเปลี่ยนแปลงอย่างรวดเร็ว ข้อมูลถือเป็นองค์ประกอบสำคัญที่ช่วยสนับสนุนการตัดสินใจ การแก้ปัญหา และการปรับปรุงประสิทธิภาพการดำเนินงาน อย่างไรก็ตาม การพึ่งพาผู้เชี่ยวชาญในการดึงข้อมูลจากฐานข้อมูลนั้นเป็นกระบวนการที่ใช้ทั้งเวลาและค่าใช้จ่ายสูง เพื่อแก้ไขปัญหาดังกล่าว โครงการนี้จึงได้พัฒนาเครื่องมือที่ชื่อว่า “Query Assistance” ซึ่งมีวัตถุประสงค์เพื่ออำนวยความสะดวกในการเข้าถึงข้อมูล ช่วยให้ผู้ใช้งานสามารถดึงข้อมูลจากฐานข้อมูลได้อย่างมีประสิทธิภาพ โดยไม่จำเป็นต้องมีความรู้ด้านภาษา SQL
 
-Query Assistance leverages Large Language Models (LLMs) and LangChain as its core technologies. LLMs are utilized to debug SQL queries, optimize query performance, and translate natural language inputs into SQL queries. LangChain provides a robust framework for building agents that understand user inputs, generate responses, and interact with data. By integrating metadata from OpenMetadata, the tool ensures accurate column and table selection, enabling informed decision-making. This innovative tool is designed to enhance SQL operations, streamline data retrieval, and empower users to access data quickly and effectively, driving efficiency and productivity in data-driven organizations.
+    Query Assistance อาศัยเทคโนโลยี Large Language Models (LLMs) และเฟรมเวิร์ก LangChain เป็นแกนหลัก โดย LLMs ถูกนำมาใช้ในการแก้ไขข้อผิดพลาดของคำสั่ง SQL ปรับปรุงประสิทธิภาพในการประมวลผล และแปลงข้อความภาษาธรรมชาติให้เป็นคำสั่ง SQL ในขณะที่ LangChain ช่วยในการจัดการตัว Agent ที่สามารถเข้าใจคำสั่งของผู้ใช้ สร้างคำตอบ และโต้ตอบกับข้อมูลได้อย่างมีประสิทธิภาพ นอกจากนี้ ระบบยังได้เชื่อมต่อกับ OpenMetadata เพื่อนำข้อมูลเมตาของตารางและคอลัมน์มาใช้ในการประมวลผล ซึ่งช่วยเพิ่มความแม่นยำในการเลือกข้อมูลและการตัดสินใจ เครื่องมือนี้ถูกออกแบบมาเพื่อช่วยให้องค์กรที่ขับเคลื่อนด้วยข้อมูล โดยเฉพาะบริษัทเทคโนโลยีด้านการท่องเที่ยวที่มีการเติบโตอย่างรวดเร็ว เช่น Agoda สามารถลดต้นทุน ประหยัดเวลา และเพิ่มประสิทธิภาพในการเข้าถึงข้อมูลให้แก่บุคลากรที่ไม่ได้มีพื้นฐานด้านเทคนิค
 
+  }
 }
-
 \def\thabstkeyword{
   SQL query language, Large Language Model (LLM), LangChain, GPT, Query optimization, Multi-agent
 }
@@ -294,9 +299,9 @@ Query Assistance leverages Large Language Models (LLMs) and LangChain as its cor
 %%%%%%%%%%%%%%%%%%%%%%%%% Acknowledgments %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \def\prefacecontent{
-  We would like to express my deepest gratitude to my professor, Assoc. Prof. Dr. Santitham Prom-on, and the committee for their invaluable guidance, support, and encouragement throughout this project. Their mentorship and constructive feedback have been instrumental in shaping the direction and success of my work. We are truly grateful for their time, effort, and dedication in helping me improve and refine this project.
+  We would like to express our deepest gratitude to our professor, Asst.Prof. Santitham Prom-on, Ph.D., and the committee for their invaluable guidance, support, and encouragement throughout this project. Their mentorship and constructive feedback have been instrumental in shaping the direction and success of our work. We are truly grateful for their time, effort, and dedication in helping us improve and refine this project.
 
-We would also like to extend my heartfelt thanks to Agoda for providing me with the incredible opportunity to work on this project. The resources, tools, and collaborative environment offered by Agoda have been essential in enabling me to learn, grow, and contribute meaningfully. Lastly, We are deeply appreciative of the advice and help we received from my mentors and colleagues. Their insights, encouragement, and expertise have been invaluable in overcoming challenges and enhancing the quality of this project. This experience has been both enriching and rewarding, and We are sincerely thankful to everyone who supported me along the way.
+  We would also like to extend my heartfelt thanks to Agoda for providing us with the incredible opportunity to work on this project. The resources, tools, and collaborative environment offered by Agoda have been essential in enabling us to learn, grow, and contribute meaningfully. Lastly, We are deeply appreciative of the advice and help we received from our mentors and colleagues. Their insights, encouragement, and expertise have been invaluable in overcoming challenges and enhancing the quality of this project. This experience has been both enriching and rewarding, and We are sincerely thankful to everyone who supported us along the way.
 
 }
 

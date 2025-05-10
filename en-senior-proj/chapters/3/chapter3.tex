@@ -10,7 +10,7 @@ This chapter outlines the design and methodologies undertaken for the project. T
             \item Users can input the query along with the error and the database they used.
             \item The system should be able to correct typos in column, table, and schema names.
             \item The system should be able to correct incomplete syntax, including issues like missing or extra commas, parentheses, forgotten keywords, misspelled keywords, incorrect order, and missing keywords.
-            \item The system should be able to correct incorrect alias formats and add aliases for improved readability.
+            \item The system should be able to correct incorrect alias formats and automatically generate aliases to improve readability.
             \item The system should be able to correct invalid date formats, mismatched data types, and ambiguous column names.
         \end{itemize}
 
@@ -65,8 +65,8 @@ This chapter outlines the design and methodologies undertaken for the project. T
         \hline
         \textbf{Main success scenario} &
         \begin{enumerate}
-            \item User selects fix query service
-            \item User selects query engine
+            \item User chooses the fix query service
+            \item User chooses query engine
             \item User inputs SQL query and error
             \item System validates the details
             \item System produces the corrected query
@@ -96,9 +96,9 @@ This chapter outlines the design and methodologies undertaken for the project. T
         \textbf{Preconditions} & User has access to the Agoda help platform. \\ \hline
         \textbf{Main success scenario} &
         \begin{enumerate}
-            \item User selects convert query service
-            \item User selects current query engine
-            \item User selects query engine to convert to
+            \item User chooses convert query service
+            \item User chooses current query engine
+            \item User chooses query engine to convert to
             \item System validates the details
             \item System produces the converted query
         \end{enumerate}
@@ -125,8 +125,8 @@ This chapter outlines the design and methodologies undertaken for the project. T
         \textbf{Preconditions} & User has access to the Agoda help platform. \\ \hline
         \textbf{Main success scenario} &
         \begin{enumerate}
-            \item User selects optimize query service
-            \item User selects query engine
+            \item User chooses optimize query service
+            \item User chooses query engine
             \item User inputs SQL query
             \item System validates the details
             \item System produces the optimized query
@@ -153,14 +153,14 @@ This chapter outlines the design and methodologies undertaken for the project. T
         \label{tbl:use-case-translate-sql}
         \begin{tabular}{|p{4cm}|p{10cm}|}
         \hline
-        \textbf{Use Case name} & Translate SQL query \\ \hline
+        \textbf{Use Case name} & Translate natural language to SQL \\ \hline
         \textbf{Actors} & User \\ \hline
-        \textbf{Goal} & Translate SQL query \\ \hline
+        \textbf{Goal} & Translate natural language to SQL \\ \hline
         \textbf{Preconditions} & User has access to the Agoda help platform. \\ \hline
         \textbf{Main success scenario} &
         \begin{enumerate}
-            \item User selects translate query service
-            \item User selects query engine
+            \item User chooses translate query service
+            \item User chooses query engine
             \item User inputs natural language to specify data to retrieve
             \item System validates the details
             \item System produces the SQL query
@@ -189,7 +189,7 @@ The Query Assist bot is a Slack bot designed to handle the Slack integration of 
 
     \subsection{System requirements}
     \begin{itemize}
-        \item  The system must make API call to Query Assist whenever it was triggered.
+        \item  The system must be able to make API calls to Query Assist whenever it was triggered.
         \item  The system must post the result and feedback form, or error message according to the Query Assist result.
         \item  The system must submit the query assist related data and user feedback to Messaging Table.
         \item  The system must monitor the Slack Channel in order to send feedback to messaging table whenever the submit button of the feedback form is clicked.
@@ -215,7 +215,7 @@ The Query Assist bot is a Slack bot designed to handle the Slack integration of 
 
     Here is the breakdown of the sequence:
     \begin{itemize}
-        \item  Step 1: The user initiates the retrieval process by call Opsbot.
+        \item  Step 1: The user initiates the retrieval process by invoke Opsbot.
         \item  Step 2: Opsbot return the Query Help form for user.
         \item  Step 3: User input all the required field in the form
         \item  Step 4: Opsbot then call Query Assist Bot and send along the required fields
@@ -254,8 +254,8 @@ Here is the breakdown of the sequence:
     \item  Step 3: OpenMetadata retrieves the data and send the table and column details to the Query Assist back to Query Assist
     \item  Step 4: The Query Assist sends a request to PostgreSQL requesting table and column details that it store
     \item  Step 5: PostgreSQL retrieves the data and send the table and column details to the Query Assist back to Query Assist
-    \item  Step 6: Query Assist then compare the differences between Openmeta and PostgreSQL to look for the data that is not yet available in PostgreSQL but available in the OpenMetada
-    \item  Step 7: Query Assist then sending the list of updated the table and column to OpenAI
+    \item  Step 6: Query Assist then compare the differences between Openmeta and PostgreSQL to look for the data that is not yet available in PostgreSQL but available in the OpenMetadata
+    \item  Step 7: Query Assist then sending the list of updated tables and columns to OpenAI
     \item  Step 8: OpenAI then embedded and send the vector of updated the table and column back to Query Assist
     \item  Step 9:  Query Assist update the table\_info in the PostgreSQL according to the updated list
     \item  Step 10: Query Assist update the column\_info in the PostgreSQL according to the updated list
@@ -332,11 +332,11 @@ Here is the breakdown of the sequence:
     \begin{itemize}
         \item  Construct a query to find all columns.
         \item  Execute the query
-        \item  Store existing column in variable
+        \item  Store the list of valid columns in memory
         \item  Return all the column name that exist
     \end{itemize}
 
-    \subsection{Retrive Partition Column}
+    \subsection{Retrieve Partition Column}
     \begin{figure}[H]
         \centering
         \includegraphics[width=5cm]{chapters/3/figures/partition_columns.jpg}
@@ -501,7 +501,7 @@ Here is the breakdown of the sequence:
         Similar to the previous tool, this function also utilizes RAG. The implementation begins with generating an SQL statement to fetch a list of tables. We then use cosine similarity to identify and rank tables that closely match the search term.
 
         \item \textbf{Validate Query} \\
-        This tool connects to the database and executes the query using the \texttt{EXPLAIN} keyword. By analyzing the query execution plan, it determines whether the query contains errors, allowing for early detection and correction.
+        This tool connects to the database and executes the query using the \texttt{EXPLAIN} keyword. By analyzing the query execution plan, it determines whether the query contains errors, allowing for early detection and correction of invalid queries.
     \end{enumerate}
     \subsection{Slack Integration}
     The integration with Slack is achieved by developing a custom Slack bot designed to act as an intermediary between Slack and Query Assist. This bot facilitates seamless communication by handling the entire interaction process. When a user submits a query through Slack, the bot captures the input and sends it to Query Assist via an API. Once Query Assist processes the input and returns a response, the bot formats the output in a structured and user-friendly manner before posting it back to the appropriate Slack channel.

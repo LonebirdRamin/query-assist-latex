@@ -14,10 +14,10 @@
 This chapter outlines the theory and related research to ensure that the development is feasible and that there are appropriate tools. Relevant knowledge will be researched and summarized, along with the technologies and programming languages to be used. Additionally, competing solutions developed by others will also be discussed in this chapter.
 
 \section{Background}
-The Business Intelligence Infrastructure team at Agoda is responsible for assisting customers in retrieving data using SQL statements. Currently, 27\% of the tickets in BI-Help are categorized as 'Query Help.' This is because customers often struggle with writing SQL statements correctly, and SQL error messages can be difficult to understand. Additionally, with multiple databases, error messages can vary, and many users deal with highly complex SQL statements. Furthermore, other teams with limited SQL knowledge also seek assistance from the BI team to retrieve data from the database. To address these challenges, the team aims to develop Query Assistance to provide effective solutions.
+The Business Intelligence Infrastructure team at Agoda is responsible for assisting customers in retrieving data using SQL statements. Currently, 27\% of the tickets in BI-Help are categorized as 'Query Help.' This is because customers often struggle with writing SQL statements correctly, and SQL error messages can be difficult to understand. Additionally, with multiple databases, error messages can vary, and many users deal with highly complex SQL statements. Furthermore, other teams with limited SQL knowledge also seek assistance from the BI team to retrieve data from the database. To address these challenges, the team aims to develop Query Assistance to provide an effective solution.
 \section{Theory and Core Concepts}
     \subsection{Large Language Models (LLMs)}
-    Large Language Models (LLMs) represent a significant advancement in artificial intelligence, engineered to comprehend and generate human-like text through comprehensive training on vast datasets. Employing sophisticated deep learning techniques, these models interpret words and sentences in context, enabling them to carry out tasks such as text generation, summarization, and sentiment analysis. Fine-tuning further refines their ability to respond accurately to specific applications, enhancing their adaptability and efficacy for targeted tasks. Additionally, with specialized training, LLMs can undertake language translation, broadening their applicability across multilingual environments. These capabilities make LLMs indispensable tools for modern AI solutions, addressing a wide range of language-based challenges with precision and scalability.
+    Large Language Models (LLMs) represent a significant advancement in artificial intelligence, engineered to comprehend and generate human-like text through comprehensive training on vast datasets. Employing sophisticated deep learning techniques, these models interpret words and sentences in context, enabling them to carry out tasks such as text generation, summarization, and sentiment analysis. Fine-tuning further refines their ability to respond accurately to specific applications, enhancing their adaptability and efficacy for targeted tasks. Additionally, with specialized training, LLMs can undertake language translation, broadening their applicability across multilingual environments. These capabilities make LLMs indispensable in modern AI solutions, addressing a wide range of language-based challenges with precision and scalability.
     \subsection{Representational state transfer application programming interface (REST API)}
     Application Programming Interface (API) is middleware that facilitates communication between two software components. Representational State Transfer (REST) is a software architectural style that defines a set of constraints and principles on how an API should behave.
     \pagebreak
@@ -28,7 +28,7 @@ The Business Intelligence Infrastructure team at Agoda is responsible for assist
     The following outlines the importance of architectural patterns. First, software architecture acts as a visual communication tool, allowing other developers, colleagues, or even stakeholders to understand the system you are building in a much simpler way. Second, software architecture models make it easy to reuse them in other projects since you now know the decisions you made and the various trade-offs. Third, complex systems with many components and interactions need a clear structure to ensure everything works together smoothly. Fourth, systems expected to grow over time or handle high loads require careful planning to avoid bottlenecks and ensure they can scale efficiently. Fifth, long-term projects that will be developed and maintained over several years need a solid architectural foundation to prevent technical debt and ensure maintainability.
     \cite{Abbas}
 
-    There are several architectural styles, each with unique benefits and uses. The microservices architecture is one example; it is a design methodology in which an application is constructed as a group of independent, autonomous services that communicate. Every service has a distinct purpose and functions autonomously, interacting with other services using simple protocols. The architecture of microservices has a number of important benefits. By enabling autonomous scalability of different services in response to particular demands, it guarantees effective resource allocation. Additionally, this method offers flexibility because services may be changed or removed without impacting the application as a whole. It also enhances flexibility by isolating issues within a single component, reducing the risk of systemic failures and ensuring that the failure of one service does not cause the entire system to crash. Identifying and resolving problems is often simpler in smaller, independent services. Another benefit is that teams can work on multiple services simultaneously, accelerating the development process. Incremental updates allow new service versions to be deployed gradually, minimizing downtime and ensuring smoother transitions.
+    There are several architectural styles, each with unique benefits and uses. The microservices architecture is one example; it is a design methodology in which an application is constructed as a group of independent, autonomous services that communicate. Every service has a distinct purpose and functions autonomously, interacting with other services using simple protocols. The architecture of microservices has a number of important benefits. By enabling autonomous scalability of different services in response to particular demands, it guarantees effective resource allocation. Additionally, this method offers flexibility because services may be changed or removed without impacting the application as a whole. It also improves fault isolation by isolating issues within a single component, reducing the risk of systemic failures and ensuring that the failure of one service does not cause the entire system to crash. Identifying and resolving problems is often simpler in smaller, independent services. Another benefit is that teams can work on multiple services simultaneously, accelerating the development process. Incremental updates allow new service versions to be deployed gradually, minimizing downtime and ensuring smoother transitions.
     \cite{Vicki}
     \begin{figure}[H]
         \centering
@@ -53,7 +53,7 @@ The Business Intelligence Infrastructure team at Agoda is responsible for assist
     \end{figure}
 
         \subsubsection{Multi Agent System}
-        A multiagent system (MAS) consists of multiple agents working collectively to perform tasks on behalf of a user or another system. Each agent takes a unique role that it specialises in, however, all agents behave collaboratively to lead to desired result. There is a distinction between single and multiagent systems. When calling another agent as a tool, that secondary agent is part of the original agent's environmental stimuli. That information is acquired and no further cooperation takes place. Whereas multiagent systems differ by involving all agents within the environment to model each other's goals, memory and plan of action. Multiagent systems can operate under many architectures. For example, network structure is a structure where each agent can communicate with every other agent and it can make its own decision which other agent to call next. Supervisor structure is different because every agent need to communicates with a single supervisor agent after it done. Supervisor agent makes decisions on which agent should be called next. Hierarchical is a generalization of the supervisor architecture and allows for more complex control flows. Lastly Custom multi-agent structure, each agent communicates with only a subset of agents. Parts of the flow are deterministic, and only some agents can decide which other agents to call next.
+        A multiagent system (MAS) is composed of agents that collaborate to perform tasks to perform tasks on behalf of a user or another system. Each agent takes a unique role that it specialises in, however, all agents behave collaboratively to lead to desired result. There is a distinction between single and multiagent systems. When calling another agent as a tool, that secondary agent is part of the original agent's environmental stimuli. That information is acquired and no further cooperation takes place. Whereas multiagent systems differ by involving all agents within the environment to model each other's goals, memory and plan of action. Multiagent systems can operate under many architectures. For example, network structure is a structure where each agent can communicate with every other agent and it can make its own decision which other agent to call next. Supervisor structure is different because every agent need to communicates with a single supervisor agent after it done. Supervisor agent makes decisions on which agent should be called next. Hierarchical is a generalization of the supervisor architecture and allows for more complex control flows. Lastly Custom multi-agent structure, each agent communicates with only a subset of agents. Parts of the flow are deterministic, and only some agents can decide which other agents to call next.
         \cite{Gutowska} \cite{LangGraph}
         \begin{figure}[H]
             \centering
@@ -75,7 +75,7 @@ The Business Intelligence Infrastructure team at Agoda is responsible for assist
         \end{itemize}
 
     \subsection{Fine-tuning}
-    Fine-tuning is the process of adapting a pretrained machine learning model to perform better on a specific task by continuing its training on a targeted dataset. Unlike training a model from scratch, fine-tuning leverages the existing knowledge of a large-scale model while refining it to improve performance in a specialized domain. This process is especially useful when the pretrained model is highly capable in general tasks but lacks precision in particular applications.
+    Fine-tuning is the process of adapting a pretrained machine learning model to perform better on a specific task by continuing its training on a targeted dataset. Rather than training from scratch, fine-tuning leverages a pretrained model’s existing knowledge while refining it to improve performance in a specialized domain. This process is especially useful when the pretrained model is highly capable in general tasks but lacks precision in particular applications.
 
     Fine-tuning involves adjusting the model's weights through additional training on domain-specific data, allowing it to retain general language understanding while enhancing its ability to generate accurate and relevant outputs for the desired task. Depending on the level of adaptation required, fine-tuning can be performed at different levels, such as full-model fine-tuning, where all parameters are updated, or more efficient approaches like Low-Rank Adaptation (LoRA) and adapter layers, which modify only a subset of the model while keeping most of it frozen.
 
@@ -98,7 +98,7 @@ The Business Intelligence Infrastructure team at Agoda is responsible for assist
     \subsection{SQLAlchemy}
     SQLAlchemy is an SQL toolkit and Object Relational Mapper (ORM) for Python that assists in creating and managing relational databases. It provides a concise and efficient way to access and manipulate database data.
     \subsection{Alembic}
-    Alembic is a lightweight database migration tool designed for use with SQLAlchemy. It helps ensure the consistency of the database schema by applying incremental changes in a controlled manner based on initial configuration settings.
+    Alembic is a lightweight database migration tool designed for use with SQLAlchemy. It helps ensure versioned consistency of the database schema by applying incremental changes in a controlled manner based on initial configuration settings.
     \subsection{Docker}
     Docker is a Container as a Service (CaaS) platform that is used to create isolated environments for running applications and storing data. It addresses hardware limitations and ensures consistent deployment across different environments.
     \subsection{GitLab CI}
@@ -118,6 +118,7 @@ The Business Intelligence Infrastructure team at Agoda is responsible for assist
         Model Registry helps with version control for ML models. It manages different model versions, tracks their status, and ensures smooth deployment. It provides a centralized platform with tools and an interface to manage an MLflow Model's lifecycle, including tracking its history, versions, aliases, tags, and annotations.
         \subsubsection{MLflow Deployments for LLMs}
         The MLflow AI Gateway facilitates the usage and management of large language models (LLMs), such as Anthropic and OpenAI.  In addition to securely storing API keys in one location, it offers a single access point for managing LLM requests, lowering the possibility of their exposure.  With only a change to the gateway's settings, you may add additional LLM providers or kinds without having to modify your apps.  Because of this, it's an excellent solution for businesses that frequently employ LLMs and want a safe and easy way to handle them.
+\pagebreak
         \subsubsection{Model Evaluation}
         The Model Evaluation is designed for detailed model analysis, enabling objective comparisons between traditional ML algorithms and advanced LLMs. It assesses model performance on chosen datasets, supports tasks like classification, regression, and LLM tasks (e.g., text summarization, classification, and generation), computes metrics, generates performance plots, provides model explanations, and logs results to MLflow Tracking. It also allows adding custom metrics and artifacts for deeper analysis, including creating custom metrics that can be evaluated using the Model URI of an OpenAI, Gateway, or Deployments judge model.
         \subsubsection{Prompt Engineering UI}
@@ -131,7 +132,7 @@ The Business Intelligence Infrastructure team at Agoda is responsible for assist
         \subsection{MLflow Projects}
         An MLflow Project provides a standardized format for packaging data science code to ensure reusability and reproducibility. It relies on conventions and includes an API and command-line tools, enabling projects to be executed and linked together into workflows.
 
-
+\pagebreak
 \section{Database}
     \subsection{PostgreSQL}
     PostgreSQL is an open-source object-relational database management system (ORDBMS) with a robust set of features that support development, including advanced security and custom data types. In this project, we focus on leveraging PostgreSQL's capabilities to create new data types for storing vector variables.
@@ -141,6 +142,7 @@ The Business Intelligence Infrastructure team at Agoda is responsible for assist
     \subsection{Vertica}
     Vertica is an MPP (massive parallel processing) data warehouse platform specifically designed to handle big data, making it a great choice for managing large datasets that traditional databases cannot efficiently process. Its seamless integration with Hadoop makes it highly suitable for advanced data analytics workflows. Vertica is also a cost-effective solution, offering flexibility and scalability as a self-managed database. It can be deployed on commodity hardware, allowing users to start with a smaller setup and expand their data warehouse as their needs grow. Furthermore, Vertica's columnar storage ensures exceptional performance, delivering high speed and efficiency. Unlike many other data storage platforms, it eliminates the need for indexes or materialized views, making it a faster and more efficient option
     \cite{Tobin}
+\pagebreak
     \subsection{StarRocks}
     StarRocks is a high-performance, next-generation analytical data warehouse made for multi-dimensional, real-time, and highly concurrent data analysis. A completely vectorized execution engine, a columnar storage engine with real-time updates, and sophisticated features like a cost-based optimizer (CBO) and intelligent materialized views are all part of its MPP (massively parallel processing) design. Real-time and batch data intake from several sources is supported by StarRocks, which also makes it possible to analyze data directly in data lakes without the need for migration.  It is highly scalable, reliable, and easy to maintain, making it ideal for OLAP scenarios like real-time analytics, ad-hoc queries, and data lake analytics. By leveraging the MPP framework, StarRocks splits query requests into parallel tasks across multiple machines, fully utilizing CPU and memory resources to deliver exceptional performance that scales with the cluster size.
     \cite{StarRocks}
@@ -187,6 +189,7 @@ The Business Intelligence Infrastructure team at Agoda is responsible for assist
             \label{fig:query-gpt-architecture}
         \end{figure}
         QueryGPT's architecture, as shown in Figure~\ref{fig:query-gpt-architecture}, is made up of several parts, but the four main ones are as follows:
+\pagebreak
         \begin{itemize}
             \item  Workspaces
 
@@ -203,7 +206,7 @@ The Business Intelligence Infrastructure team at Agoda is responsible for assist
         \end{itemize}
         \begin{figure}[H]
             \centering
-            \includegraphics[width=10cm]{chapters/2/figures/query-gpt-ui.png}
+            \includegraphics[width=8cm]{chapters/2/figures/query-gpt-ui.png}
             \caption[QueryGPT Interface]{QueryGPT Interface  from~\cite{QueryGPT}}
             \label{fig:query-gpt-interface}
         \end{figure}
@@ -233,6 +236,7 @@ The Business Intelligence Infrastructure team at Agoda is responsible for assist
     \cite{Vanna}
 
     Here are the highlighted advantages:
+\pagebreak
     \begin{itemize}
         \item  Open-Source: The Vanna Python package and frontend integrations are open-source and can run on your infrastructure.
         \item  Security: Database contents are never sent to the LLM unless explicitly enabled; only schemas, documentation, and queries are stored.

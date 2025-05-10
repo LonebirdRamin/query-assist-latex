@@ -14,25 +14,23 @@ This project aims to simplify data access and enhance productivity by enabling e
 Initially, the tool will be developed as an API platform, allowing integration with various systems. In its later phase, it will be embedded into Superset to assist users directly within SQL Lab, streamlining workflows and reducing dependence on support teams. The integration with OpenMetadata enhances its capabilities, enabling the tool to analyze metadata and intelligently select the appropriate tables and columns for query construction. By combining these features, the Query Assistance tool addresses inefficiencies in query handling, helping organizations like Agoda save time, reduce costs, and improve decision-making processes.
 
 \section{Objectives}
-1.2.1 	To enhance correctness and increase efficiency in construction of queries.
+\begin{itemize}
+  \item To enhance correctness and increase efficiency in construction of queries.
+  \item To develop API endpoints leveraging LLM services capable of fixing, converting, optimizing, and constructing queries.
+  \item To integrate Query Assistance with Agoda's existing services and tools, such as Superset and Slack.
+\end{itemize}
 
-1.2.2 	To develop API endpoints leveraging LLM services capable of fixing, converting, optimizing, and constructing queries.
-
-1.2.3	To integrate Query Assistance with Agoda's existing services and tools, such as Superset and Slack,
 
 \pagebreak
 \section{Scope of Work}
-1.3.1	The API service to help solving SQL queries statement problems.
-
-1.3.2	Develop capabilities for error handling in queries, ensuring syntax accuracy across multiple databases and correcting column and table names.
-
-1.3.3	Implement query optimization techniques, utilizing partition columns to enhance performance and reduce both memory consumption and query execution time.
-
-1.3.4	Build a module for translating natural language inputs into SQL query language.
-
-1.3.5	Query Assist will only utilize data from Agoda Services to answer queries.
-
-1.3.6	Query Assist will be integrated with Superset, Slack, and web-based platforms.
+\begin{itemize}
+  \item An API service designed to solve SQL query-related issues.
+  \item Develop capabilities for error handling in queries, ensuring syntax accuracy across multiple databases and correcting column and table names.
+  \item Implement query optimization techniques, utilizing partition columns to enhance performance and reduce both memory consumption and query execution time.
+  \item Build a module for translating natural language inputs into SQL query language.
+  \item Query Assist will only utilize data from Agoda Services to answer queries.
+  \item Query Assist will be integrated with Superset, Slack, and web-based platforms.
+\end{itemize}
 
 \section{Phases}
 This project will be divided into three phases. The first phase focuses on error handling to ensure that we ultimately provide the correct query for the user. This includes correcting all syntax errors, accommodating syntax differences across databases, and fixing column names, table names, and typos in the query. The second phase focuses on optimizing the query such as using the partition column, decreasing memory consumption, and reducing the query execution time. The third and final phase aims to translate natural language into SQL query language.
@@ -247,7 +245,7 @@ The end goal of the project is to develop a comprehensive Query Assist tool that
         \item Architecture Design
         \item Use Case Diagram
         \item Sequence Diagram
-        \item Flow Chart
+        \item Flowchart
     \end{itemize}
 
     \item  Query Assist Phase 1
