@@ -67,10 +67,33 @@ This chapter provides a comprehensive overview of the results derived from all t
     \begin{table}[H]
         \centering
         \caption[Result of Model Evaluation]{Result of Model Evaluation}
-        \label{fig:generate_result}
-        \includegraphics[width=17cm]{chapters/4/figures/generate_result.png}
+        % \label{fig:generate_result}
+        % \includegraphics[width=17cm]{chapters/4/figures/generate_result.png}
+        \begin{tabular}{|p{4cm}|p{2cm}|p{1cm}|p{1cm}|p{2cm}|p{1cm}|p{1cm}|}
+            \hline
+            \textbf{Model} & \textbf{Prefilter} & \textbf{Chart summary} & \textbf{Pick Table tool} & \textbf{Accuracy} & \textbf{Cost} & \textbf{Cost per Question} \\
+            \hline
+            Usage & - & - & - &49\% & 11.74 & 0.11 \\
+            \hline
+            Usage + Chart summary & - & Yes & - & 61\% & 48.07 & 0.44 \\
+            \hline
+            Usage + Pick table & - & - & Yes & 62.70\% & 60.42 & 0.55 \\
+            \hline
+            Usage + Chart summary + Pick table & - & Yes & Yes & 64.50\% & 59.78 & 0.54 \\
+            \hline
+            Usage + Prefilter & Yes & - & - & 57\% & 18.81 & 0.17 \\
+            \hline
+            Usage + Prefilter + Chart summary & Yes & Yes & - & 57\% & 16.67 & 0.15 \\
+            \hline
+            Usage + Prefilter + Pick table & Yes & - & Yes & 63\% & 33.00 & 0.30 \\
+            \hline
+            Usage + Prefilter + Chart summary + Pick table & Yes & Yes & Yes & 61\% & 26.64 & 0.24 \\ 
+            \hline 
+        \end{tabular}
     \end{table}
     According to the results chart, the highest accuracy achieved was 64.5\% with the Usage + Chart Summary + Pick Table model. However, when we compare the cost of this model to our latest model, Usage + Prefilter + Pick Table, we find that the cost nearly doubles for only a 1.5\% increase in accuracy. Therefore, we believe it is more practical to deploy the Usage + Prefilter + Pick Table model to production.
+
+    Furthermore, this latest model represents an improvement over the first model, Usage model, increasing accuracy from 49\% to 63\% while maintaining a reasonable cost per question (from 0.11 to 0.30). This demonstrates substantial progress in both performance and efficiency.
     \vspace{0.5cm}
 
 
